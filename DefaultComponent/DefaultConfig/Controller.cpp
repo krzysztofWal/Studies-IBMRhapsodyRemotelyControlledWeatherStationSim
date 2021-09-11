@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Controller
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Sun, 12, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\Controller.cpp
 *********************************************************************/
 
@@ -780,7 +780,7 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
-                    NOTIFY_TRANSITION_STARTED("28");
+                    NOTIFY_TRANSITION_STARTED("26");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST");
                     NOTIFY_STATE_ENTERED("ROOT.PACKAGE_READY");
@@ -791,7 +791,7 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                     
                     //#]
                     rootState_timeout = scheduleTimeout(150, "ROOT.PACKAGE_READY");
-                    NOTIFY_TRANSITION_TERMINATED("28");
+                    NOTIFY_TRANSITION_TERMINATED("26");
                     res = eventConsumed;
                 }
             
@@ -1109,11 +1109,32 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
         // State INTO_NON_ACTIVE
         case INTO_NON_ACTIVE:
         {
+            if(IS_EVENT_TYPE_OF(evActivate_MainPackage_id))
+                {
+                    NOTIFY_TRANSITION_STARTED("27");
+                    NOTIFY_STATE_EXITED("ROOT.INTO_NON_ACTIVE");
+                    NOTIFY_STATE_ENTERED("ROOT.ACTIVATE");
+                    pushNullTransition();
+                    rootState_subState = ACTIVATE;
+                    rootState_active = ACTIVATE;
+                    //#[ state ACTIVATE.(Entry) 
+                    activate();
+                    
+                    //#]
+                    NOTIFY_TRANSITION_TERMINATED("27");
+                    res = eventConsumed;
+                }
+            
+        }
+        break;
+        // State ACTIVATE
+        case ACTIVATE:
+        {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
                     NOTIFY_TRANSITION_STARTED("23");
                     popNullTransition();
-                    NOTIFY_STATE_EXITED("ROOT.INTO_NON_ACTIVE");
+                    NOTIFY_STATE_EXITED("ROOT.ACTIVATE");
                     NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
                     rootState_subState = STAND_BY_CONTROLLER;
                     rootState_active = STAND_BY_CONTROLLER;
@@ -1126,32 +1147,12 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
             
         }
         break;
-        // State ACTIVATE
-        case ACTIVATE:
-        {
-            if(IS_EVENT_TYPE_OF(OMNullEventId))
-                {
-                    NOTIFY_TRANSITION_STARTED("25");
-                    popNullTransition();
-                    NOTIFY_STATE_EXITED("ROOT.ACTIVATE");
-                    NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
-                    rootState_subState = STAND_BY_CONTROLLER;
-                    rootState_active = STAND_BY_CONTROLLER;
-                    //#[ state STAND_BY_CONTROLLER.(Entry) 
-                    handleEnergySavingSystem();
-                    //#]
-                    NOTIFY_TRANSITION_TERMINATED("25");
-                    res = eventConsumed;
-                }
-            
-        }
-        break;
         // State READ_INFO
         case READ_INFO:
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
-                    NOTIFY_TRANSITION_STARTED("26");
+                    NOTIFY_TRANSITION_STARTED("24");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.READ_INFO");
                     NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
@@ -1160,7 +1161,7 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                     //#[ state STAND_BY_CONTROLLER.(Entry) 
                     handleEnergySavingSystem();
                     //#]
-                    NOTIFY_TRANSITION_TERMINATED("26");
+                    NOTIFY_TRANSITION_TERMINATED("24");
                     res = eventConsumed;
                 }
             
@@ -1198,7 +1199,7 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
         }
     else if(IS_EVENT_TYPE_OF(evGetInfo_MainPackage_id))
         {
-            NOTIFY_TRANSITION_STARTED("27");
+            NOTIFY_TRANSITION_STARTED("25");
             NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
             NOTIFY_STATE_ENTERED("ROOT.READ_INFO");
             pushNullTransition();
@@ -1207,22 +1208,7 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
             //#[ state READ_INFO.(Entry) 
             readInfo();
             //#]
-            NOTIFY_TRANSITION_TERMINATED("27");
-            res = eventConsumed;
-        }
-    else if(IS_EVENT_TYPE_OF(evActivate_MainPackage_id))
-        {
-            NOTIFY_TRANSITION_STARTED("24");
-            NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
-            NOTIFY_STATE_ENTERED("ROOT.ACTIVATE");
-            pushNullTransition();
-            rootState_subState = ACTIVATE;
-            rootState_active = ACTIVATE;
-            //#[ state ACTIVATE.(Entry) 
-            activate();
-            
-            //#]
-            NOTIFY_TRANSITION_TERMINATED("24");
+            NOTIFY_TRANSITION_TERMINATED("25");
             res = eventConsumed;
         }
     else if(IS_EVENT_TYPE_OF(evToNonactive_MainPackage_id))
@@ -1230,7 +1216,6 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
             NOTIFY_TRANSITION_STARTED("22");
             NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
             NOTIFY_STATE_ENTERED("ROOT.INTO_NON_ACTIVE");
-            pushNullTransition();
             rootState_subState = INTO_NON_ACTIVE;
             rootState_active = INTO_NON_ACTIVE;
             //#[ state INTO_NON_ACTIVE.(Entry) 

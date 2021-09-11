@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Controller
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Sun, 12, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\Controller.h
 *********************************************************************/
 
@@ -601,7 +601,7 @@ protected :
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
-class OMAnimatedController : public OMAnimatediAktywujStacje, public OMAnimatediPrint, public OMAnimatediInitialize, public OMAnimatediConfirmDataReceival, public OMAnimatediCalibrateRequest, public OMAnimatediUspijStacje {
+class OMAnimatedController : public OMAnimatediPrint, public OMAnimatediInitialize, public OMAnimatediConfirmDataReceival, public OMAnimatediCalibrateRequest, public OMAnimatediAktywujStacje, public OMAnimatediUspijStacje {
     DECLARE_REACTIVE_META(Controller, OMAnimatedController)
     
     ////    Framework operations    ////

@@ -57,10 +57,10 @@
 								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
 								<m_ptMaxPositionX type="a">-8</m_ptMaxPositionX>
 								<m_ptMaxPositionY type="a">-30</m_ptMaxPositionY>
-								<m_nLeft type="a">-6</m_nLeft>
-								<m_nTop type="a">-8</m_nTop>
-								<m_nRight type="a">920</m_nRight>
-								<m_nBottom type="a">672</m_nBottom>
+								<m_nLeft type="a">1</m_nLeft>
+								<m_nTop type="a">6</m_nTop>
+								<m_nRight type="a">927</m_nRight>
+								<m_nBottom type="a">692</m_nBottom>
 							</CCommon_WINDOWPLACEMENT>
 						</_placement>
 						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
@@ -74,8 +74,8 @@
 								<_hid type="a">GUID af63f7bb-a1ad-4d24-b05c-ce3e5f00d823</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">139 14 </_UpLeft>
-						<_DownRight type="a">1184 744 </_DownRight>
+						<_UpLeft type="a">-158 0 </_UpLeft>
+						<_DownRight type="a">887 737 </_DownRight>
 						<_instanceName type="a">itsController</_instanceName>
 						<m_nDiagramIndex type="a">4</m_nDiagramIndex>
 						<m_bIsActiveView type="a">1</m_bIsActiveView>
@@ -94,7 +94,7 @@
 								<m_nLeft type="a">920</m_nLeft>
 								<m_nTop type="a">-14</m_nTop>
 								<m_nRight type="a">1269</m_nRight>
-								<m_nBottom type="a">676</m_nBottom>
+								<m_nBottom type="a">690</m_nBottom>
 							</CCommon_WINDOWPLACEMENT>
 						</_placement>
 						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
@@ -107,8 +107,8 @@
 								<_hid type="a">GUID 23ecc7ee-b183-4611-ae44-34d66d202406</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">0 46 </_UpLeft>
-						<_DownRight type="a">367 788 </_DownRight>
+						<_UpLeft type="a">10 86 </_UpLeft>
+						<_DownRight type="a">377 845 </_DownRight>
 						<m_nDiagramIndex type="a">3</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
@@ -173,8 +173,8 @@
 								<_hid type="a">GUID dc8ea49f-f155-48dc-b819-8c7d9c60cf36</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">0 95 </_UpLeft>
-						<_DownRight type="a">1330 918 </_DownRight>
+						<_UpLeft type="a">0 0 </_UpLeft>
+						<_DownRight type="a">1330 823 </_DownRight>
 						<_instanceName type="a">itsReceiver</_instanceName>
 						<m_nDiagramIndex type="a">0</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
