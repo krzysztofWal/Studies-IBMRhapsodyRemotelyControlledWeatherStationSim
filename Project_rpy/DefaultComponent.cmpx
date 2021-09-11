@@ -11,8 +11,8 @@
 			<_id type="a">GUID 7bf625e0-3d46-47f8-9462-e94b23961623</_id>
 			<_myState type="a">139264</_myState>
 			<_name type="a">DefaultComponent</_name>
-			<_modifiedTimeWeak type="a">9.11.2021::11:14:31</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::19:27:14</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.11.2021::19:48:17</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.11.2021::20:56:44</_modifiedTime>
 			<_lastID type="a">2</_lastID>
 			<m_buildType type="a">Executable</m_buildType>
 			<m_configActive type="r">
@@ -52,8 +52,8 @@
 					<size type="a">0</size>
 				</IRPYRawContainer>
 			</SelectedVariants>
-			<weakCGTime type="a">9.11.2021::11:14:31</weakCGTime>
-			<strongCGTime type="a">7.13.2020::23:34:1</strongCGTime>
+			<weakCGTime type="a">9.11.2021::19:48:17</weakCGTime>
+			<strongCGTime type="a">9.11.2021::19:48:17</strongCGTime>
 			<AggregatesList type="e">
 				<value>GUID a0968cb9-081c-4fbe-910b-921f1f814ac0</value>
 				<value>GUID 51cdf099-ff64-4c06-ab3f-8b1dffb0d97b</value>

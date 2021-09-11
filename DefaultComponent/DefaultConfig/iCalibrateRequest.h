@@ -57,8 +57,8 @@ public :
     
     ////    Operations    ////
     
-    //## operation calibrateRequest()
-    virtual void calibrateRequest() = 0;
+    //## operation evCalibrateWrap()
+    virtual void evCalibrateWrap() = 0;
 };
 
 #ifdef _OMINSTRUMENT

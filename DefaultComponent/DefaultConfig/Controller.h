@@ -26,11 +26,7 @@
 //## class Controller
 #include "iCalibrateRequest.h"
 //## class Controller
-#include "iConfirmAlertReceival.h"
-//## class Controller
 #include "iConfirmDataReceival.h"
-//## class Controller
-#include "iGetAlertDetails.h"
 //## class Controller
 #include "iInitialize.h"
 //## class Controller
@@ -51,8 +47,6 @@
 #include <climits>
 //## class port_35_C
 #include "iInform.h"
-//## class port_35_C
-#include "iSendAlert.h"
 //## auto_generated
 #include "MainPackage.h"
 //## link itsAnnemometer
@@ -79,10 +73,12 @@
 #include <ctime>
 //## auto_generated
 #include <math.h>
+//## class port_33_C
+#include "iInformation.h"
 //## package MainPackage
 
 //## class Controller
-class Controller : public OMThread, public OMReactive, public iPrint, public iInitialize, public iConfirmDataReceival, public iGetAlertDetails, public iCalibrateRequest, public iConfirmAlertReceival, public iAktywujStacje, public iUspijStacje {
+class Controller : public OMThread, public OMReactive, public iPrint, public iInitialize, public iConfirmDataReceival, public iCalibrateRequest, public iAktywujStacje, public iUspijStacje {
     ////    Friends    ////
     
 public :
@@ -162,7 +158,7 @@ public :
     
 //#[ ignore
     //## package MainPackage
-    class port_33_C : public iPrint, public iInitialize, public iConfirmDataReceival, public iGetAlertDetails, public iCalibrateRequest, public iConfirmAlertReceival, public iAktywujStacje, public iUspijStacje {
+    class port_33_C : public iPrint, public iInitialize, public iConfirmDataReceival, public iCalibrateRequest, public iAktywujStacje, public iUspijStacje, public iInformation {
         ////    Constructors and destructors    ////
         
     public :
@@ -176,22 +172,25 @@ public :
         ////    Operations    ////
         
         //## auto_generated
-        virtual void aktywujStacje();
-        
-        //## auto_generated
-        virtual void calibrateRequest();
-        
-        //## auto_generated
-        virtual void confirmAlert();
-        
-        //## auto_generated
-        virtual void confirmReceival();
-        
-        //## auto_generated
         void connectController(Controller* part);
         
         //## auto_generated
-        virtual std::vector<std::pair<unsigned long long,std::pair<int,int>>> getAlertDetails();
+        virtual void evActivateWrap();
+        
+        //## auto_generated
+        virtual void evCalibrateWrap();
+        
+        //## auto_generated
+        virtual void evConfirmPackageReceivalWrap();
+        
+        //## auto_generated
+        virtual void evGetInfoWrap();
+        
+        //## auto_generated
+        virtual void evInitializeWrap();
+        
+        //## auto_generated
+        virtual void evToNonactiveWrap();
         
         //## auto_generated
         iAktywujStacje* getItsIAktywujStacje();
@@ -200,13 +199,10 @@ public :
         iCalibrateRequest* getItsICalibrateRequest();
         
         //## auto_generated
-        iConfirmAlertReceival* getItsIConfirmAlertReceival();
-        
-        //## auto_generated
         iConfirmDataReceival* getItsIConfirmDataReceival();
         
         //## auto_generated
-        iGetAlertDetails* getItsIGetAlertDetails();
+        iInformation* getItsIInformation();
         
         //## auto_generated
         iInitialize* getItsIInitialize();
@@ -218,13 +214,7 @@ public :
         iUspijStacje* getItsIUspijStacje();
         
         //## auto_generated
-        virtual void initialize();
-        
-        //## auto_generated
         virtual StationData print();
-        
-        //## auto_generated
-        virtual void uspijStacje();
         
         ////    Additional operations    ////
         
@@ -235,13 +225,10 @@ public :
         void setItsICalibrateRequest(iCalibrateRequest* p_iCalibrateRequest);
         
         //## auto_generated
-        void setItsIConfirmAlertReceival(iConfirmAlertReceival* p_iConfirmAlertReceival);
-        
-        //## auto_generated
         void setItsIConfirmDataReceival(iConfirmDataReceival* p_iConfirmDataReceival);
         
         //## auto_generated
-        void setItsIGetAlertDetails(iGetAlertDetails* p_iGetAlertDetails);
+        void setItsIInformation(iInformation* p_iInformation);
         
         //## auto_generated
         void setItsIInitialize(iInitialize* p_iInitialize);
@@ -267,11 +254,9 @@ public :
         
         iCalibrateRequest* itsICalibrateRequest;		//## link itsICalibrateRequest
         
-        iConfirmAlertReceival* itsIConfirmAlertReceival;		//## link itsIConfirmAlertReceival
-        
         iConfirmDataReceival* itsIConfirmDataReceival;		//## link itsIConfirmDataReceival
         
-        iGetAlertDetails* itsIGetAlertDetails;		//## link itsIGetAlertDetails
+        iInformation* itsIInformation;		//## link itsIInformation
         
         iInitialize* itsIInitialize;		//## link itsIInitialize
         
@@ -281,7 +266,7 @@ public :
     };
     
     //## package MainPackage
-    class port_35_C : public iInform, public iSendAlert {
+    class port_35_C : public iInform {
         ////    Constructors and destructors    ////
         
     public :
@@ -295,27 +280,18 @@ public :
         ////    Operations    ////
         
         //## auto_generated
+        virtual void evInformPackReadyWrap();
+        
+        //## auto_generated
         iInform* getItsIInform();
         
         //## auto_generated
-        iSendAlert* getItsISendAlert();
-        
-        //## auto_generated
-        Controller::port_35_C* getOutBound();
-        
-        //## auto_generated
-        virtual void inform();
-        
-        //## auto_generated
-        virtual void sendAlert();
+        iInform* getOutBound();
         
         ////    Additional operations    ////
         
         //## auto_generated
         void setItsIInform(iInform* p_iInform);
-        
-        //## auto_generated
-        void setItsISendAlert(iSendAlert* p_iSendAlert);
     
     protected :
     
@@ -329,8 +305,6 @@ public :
         ////    Relations and components    ////
         
         iInform* itsIInform;		//## link itsIInform
-        
-        iSendAlert* itsISendAlert;		//## link itsISendAlert
     };
 //#]
 
@@ -346,9 +320,6 @@ public :
     //## operation evCalibrateWrap()
     void evCalibrateWrap();
     
-    //## operation confirmAlert()
-    void confirmAlert();
-    
     //## operation evConfirmPackageReceivalWrap()
     void evConfirmPackageReceivalWrap();
     
@@ -358,17 +329,11 @@ public :
     //## operation deletePackage()
     void deletePackage();
     
-    //## operation getAlertDetails()
-    std::vector<std::pair<unsigned long long, std::pair<int,int>  >> getAlertDetails();
-    
     //## operation getDataPackage() const
     StationData* getDataPackage() const;
     
     //## operation evInitializeWrap()
     void evInitializeWrap();
-    
-    //## operation isAnyAlert()
-    bool isAnyAlert();
     
     //## operation handleEnergySavingSystem()
     void handleEnergySavingSystem();
@@ -381,12 +346,6 @@ public :
     
     //## operation readInfo()
     void readInfo();
-    
-    //## operation resetAlert()
-    void resetAlert();
-    
-    //## operation checkLevels()
-    void checkLevels();
     
     //## auto_generated
     port_33_C* getPort_33() const;
@@ -487,6 +446,9 @@ public :
     //## operation evActivateWrap()
     void evActivateWrap();
     
+    //## operation evGetInfoWrap()
+    void evGetInfoWrap();
+    
     //## operation evToNonactiveWrap()
     void evToNonactiveWrap();
     
@@ -544,10 +506,6 @@ public :
     //## statechart_method
     virtual IOxfReactive::TakeEventStatus rootState_processEvent();
     
-    // wysylanieAlertu:
-    //## statechart_method
-    inline bool wysylanieAlertu_IN() const;
-    
     // STAND_BY_CONTROLLER:
     //## statechart_method
     inline bool STAND_BY_CONTROLLER_IN() const;
@@ -603,10 +561,6 @@ public :
     //## statechart_method
     inline bool DELETE_PACKAGE_IN() const;
     
-    // checkLimits:
-    //## statechart_method
-    inline bool checkLimits_IN() const;
-    
     // CALIBRATE:
     //## statechart_method
     inline bool CALIBRATE_IN() const;
@@ -620,23 +574,21 @@ protected :
 //#[ ignore
     enum Controller_Enum {
         OMNonState = 0,
-        wysylanieAlertu = 1,
-        STAND_BY_CONTROLLER = 2,
-        SIGNAL_JOIN_TIMER_SERVER_REQUEST = 3,
-        sendaction_44 = 4,
-        sendaction_42 = 5,
-        sendaction_41 = 6,
-        sendaction_40 = 7,
-        sendaction_39 = 8,
-        sendaction_38 = 9,
-        sendaction_37 = 10,
-        READ_INFO = 11,
-        PACKAGE_READY = 12,
-        INTO_NON_ACTIVE = 13,
-        DELETE_PACKAGE = 14,
-        checkLimits = 15,
-        CALIBRATE = 16,
-        ACTIVATE = 17
+        STAND_BY_CONTROLLER = 1,
+        SIGNAL_JOIN_TIMER_SERVER_REQUEST = 2,
+        sendaction_44 = 3,
+        sendaction_42 = 4,
+        sendaction_41 = 5,
+        sendaction_40 = 6,
+        sendaction_39 = 7,
+        sendaction_38 = 8,
+        sendaction_37 = 9,
+        READ_INFO = 10,
+        PACKAGE_READY = 11,
+        INTO_NON_ACTIVE = 12,
+        DELETE_PACKAGE = 13,
+        CALIBRATE = 14,
+        ACTIVATE = 15
     };
     
     int rootState_subState;
@@ -649,7 +601,7 @@ protected :
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
-class OMAnimatedController : public OMAnimatediPrint, public OMAnimatediInitialize, public OMAnimatediConfirmDataReceival, public OMAnimatediGetAlertDetails, public OMAnimatediCalibrateRequest, public OMAnimatediConfirmAlertReceival, public OMAnimatediAktywujStacje, public OMAnimatediUspijStacje {
+class OMAnimatedController : public OMAnimatediAktywujStacje, public OMAnimatediPrint, public OMAnimatediInitialize, public OMAnimatediConfirmDataReceival, public OMAnimatediCalibrateRequest, public OMAnimatediUspijStacje {
     DECLARE_REACTIVE_META(Controller, OMAnimatedController)
     
     ////    Framework operations    ////
@@ -662,9 +614,6 @@ public :
     
     //## statechart_method
     void rootState_serializeStates(AOMSState* aomsState) const;
-    
-    //## statechart_method
-    void wysylanieAlertu_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
     void STAND_BY_CONTROLLER_serializeStates(AOMSState* aomsState) const;
@@ -706,9 +655,6 @@ public :
     void DELETE_PACKAGE_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
-    void checkLimits_serializeStates(AOMSState* aomsState) const;
-    
-    //## statechart_method
     void CALIBRATE_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
@@ -723,10 +669,6 @@ class OMAnimatedobject_0_C : virtual public AOMInstance {
 
 inline bool Controller::rootState_IN() const {
     return true;
-}
-
-inline bool Controller::wysylanieAlertu_IN() const {
-    return rootState_subState == wysylanieAlertu;
 }
 
 inline bool Controller::STAND_BY_CONTROLLER_IN() const {
@@ -779,10 +721,6 @@ inline bool Controller::INTO_NON_ACTIVE_IN() const {
 
 inline bool Controller::DELETE_PACKAGE_IN() const {
     return rootState_subState == DELETE_PACKAGE;
-}
-
-inline bool Controller::checkLimits_IN() const {
-    return rootState_subState == checkLimits;
 }
 
 inline bool Controller::CALIBRATE_IN() const {

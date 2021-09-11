@@ -1,28 +1,28 @@
 I-Logix-RPY-Archive version 8.15.0 * 9835550
 
 - m_fileModifyTime = { IRPYRawContainer 
-	- size = 100;
-	- value = "DefaultComponent\\DefaultConfig\\Annemometer.cpp" 9.11.2021::18:16:9
-	"DefaultComponent\\DefaultConfig\\Annemometer.h" 9.11.2021::14:42:43
+	- size = 102;
+	- value = "DefaultComponent\\DefaultConfig\\Annemometer.cpp" 9.11.2021::21:2:55
+	"DefaultComponent\\DefaultConfig\\Annemometer.h" 9.11.2021::21:2:55
 	"DefaultComponent\\DefaultConfig\\Barometer.cpp" 9.8.2021::16:41:31
 	"DefaultComponent\\DefaultConfig\\Barometer.h" 9.8.2021::16:41:32
 	"DefaultComponent\\DefaultConfig\\COSensor.cpp" 7.7.2020::18:28:58
 	"DefaultComponent\\DefaultConfig\\COSensor.h" 7.7.2020::18:28:58
 	"DefaultComponent\\DefaultConfig\\CO_Sensor.cpp" 9.8.2021::16:41:31
 	"DefaultComponent\\DefaultConfig\\CO_Sensor.h" 9.8.2021::16:41:32
-	"DefaultComponent\\DefaultConfig\\Controller.cpp" 9.11.2021::20:27:18
-	"DefaultComponent\\DefaultConfig\\Controller.h" 9.11.2021::20:27:17
+	"DefaultComponent\\DefaultConfig\\Controller.cpp" 9.11.2021::21:30:49
+	"DefaultComponent\\DefaultConfig\\Controller.h" 9.11.2021::21:30:49
 	"DefaultComponent\\DefaultConfig\\Default.cpp" 9.8.2021::16:41:32
 	"DefaultComponent\\DefaultConfig\\Default.h" 9.8.2021::16:41:32
 	"DefaultComponent\\DefaultConfig\\FlowPortInterfaces.cpp" 7.1.2020::20:41:52
 	"DefaultComponent\\DefaultConfig\\FlowPortInterfaces.h" 7.1.2020::20:41:52
-	"DefaultComponent\\DefaultConfig\\HumiditySensor.cpp" 9.11.2021::18:16:7
-	"DefaultComponent\\DefaultConfig\\HumiditySensor.h" 9.11.2021::14:42:42
+	"DefaultComponent\\DefaultConfig\\HumiditySensor.cpp" 9.11.2021::21:2:54
+	"DefaultComponent\\DefaultConfig\\HumiditySensor.h" 9.11.2021::21:2:54
 	"DefaultComponent\\DefaultConfig\\Hygrometer.cpp" 9.8.2021::16:41:31
 	"DefaultComponent\\DefaultConfig\\Hygrometer.h" 9.8.2021::16:41:32
 	"DefaultComponent\\DefaultConfig\\MainDefaultComponent.h" 7.7.2020::11:39:16
-	"DefaultComponent\\DefaultConfig\\MainPackage.cpp" 9.11.2021::20:27:18
-	"DefaultComponent\\DefaultConfig\\MainPackage.h" 9.11.2021::20:27:17
+	"DefaultComponent\\DefaultConfig\\MainPackage.cpp" 9.11.2021::21:30:49
+	"DefaultComponent\\DefaultConfig\\MainPackage.h" 9.11.2021::21:30:49
 	"DefaultComponent\\DefaultConfig\\NO2Sensor.cpp" 7.7.2020::18:28:58
 	"DefaultComponent\\DefaultConfig\\NO2Sensor.h" 7.7.2020::18:28:58
 	"DefaultComponent\\DefaultConfig\\NO2_Sensor.cpp" 9.8.2021::16:41:31
@@ -49,58 +49,60 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	"DefaultComponent\\DefaultConfig\\PMSensor.h" 7.8.2020::12:33:13
 	"DefaultComponent\\DefaultConfig\\PmSensor.cpp" 7.7.2020::10:46:7
 	"DefaultComponent\\DefaultConfig\\PmSensor.h" 7.7.2020::17:59:15
-	"DefaultComponent\\DefaultConfig\\PressureSensor.cpp" 9.11.2021::18:16:7
-	"DefaultComponent\\DefaultConfig\\PressureSensor.h" 9.11.2021::14:42:42
-	"DefaultComponent\\DefaultConfig\\RainAmountSensor.cpp" 9.11.2021::18:16:9
-	"DefaultComponent\\DefaultConfig\\RainAmountSensor.h" 9.11.2021::14:42:43
-	"DefaultComponent\\DefaultConfig\\Receiver.cpp" 9.11.2021::20:27:16
-	"DefaultComponent\\DefaultConfig\\Receiver.h" 9.11.2021::20:27:16
+	"DefaultComponent\\DefaultConfig\\PressureSensor.cpp" 9.11.2021::21:2:54
+	"DefaultComponent\\DefaultConfig\\PressureSensor.h" 9.11.2021::21:2:54
+	"DefaultComponent\\DefaultConfig\\RainAmountSensor.cpp" 9.11.2021::21:2:55
+	"DefaultComponent\\DefaultConfig\\RainAmountSensor.h" 9.11.2021::21:2:55
+	"DefaultComponent\\DefaultConfig\\Receiver.cpp" 9.11.2021::21:30:49
+	"DefaultComponent\\DefaultConfig\\Receiver.h" 9.11.2021::21:30:49
 	"DefaultComponent\\DefaultConfig\\SO2Sensor.cpp" 7.7.2020::18:28:58
 	"DefaultComponent\\DefaultConfig\\SO2Sensor.h" 7.7.2020::18:28:58
 	"DefaultComponent\\DefaultConfig\\SO2_Sensor.cpp" 9.8.2021::16:41:31
 	"DefaultComponent\\DefaultConfig\\SO2_Sensor.h" 9.8.2021::16:41:32
-	"DefaultComponent\\DefaultConfig\\Sensor.cpp" 9.11.2021::18:16:6
-	"DefaultComponent\\DefaultConfig\\Sensor.h" 9.11.2021::14:42:41
+	"DefaultComponent\\DefaultConfig\\Sensor.cpp" 9.11.2021::21:6:26
+	"DefaultComponent\\DefaultConfig\\Sensor.h" 9.11.2021::21:2:53
 	"DefaultComponent\\DefaultConfig\\Station.cpp" 7.8.2020::22:17:54
 	"DefaultComponent\\DefaultConfig\\Station.h" 7.8.2020::22:15:48
 	"DefaultComponent\\DefaultConfig\\StationData.cpp" 9.11.2021::18:16:8
 	"DefaultComponent\\DefaultConfig\\StationData.h" 9.11.2021::18:16:8
-	"DefaultComponent\\DefaultConfig\\TemperatureSensor.cpp" 9.11.2021::18:16:7
-	"DefaultComponent\\DefaultConfig\\TemperatureSensor.h" 9.11.2021::14:54:30
+	"DefaultComponent\\DefaultConfig\\TemperatureSensor.cpp" 9.11.2021::21:2:54
+	"DefaultComponent\\DefaultConfig\\TemperatureSensor.h" 9.11.2021::21:2:54
 	"DefaultComponent\\DefaultConfig\\TempertatureSensor.cpp" 9.11.2021::14:42:42
 	"DefaultComponent\\DefaultConfig\\TempertatureSensor.h" 9.11.2021::14:42:42
 	"DefaultComponent\\DefaultConfig\\Thermometer.cpp" 9.8.2021::16:41:31
 	"DefaultComponent\\DefaultConfig\\Thermometer.h" 9.8.2021::16:41:32
-	"DefaultComponent\\DefaultConfig\\Timer.cpp" 9.11.2021::20:27:17
+	"DefaultComponent\\DefaultConfig\\Timer.cpp" 9.11.2021::20:57:43
 	"DefaultComponent\\DefaultConfig\\Timer.h" 9.11.2021::10:54:26
 	"DefaultComponent\\DefaultConfig\\Transmitter.cpp" 7.10.2020::21:37:45
 	"DefaultComponent\\DefaultConfig\\Transmitter.h" 7.10.2020::21:37:45
-	"DefaultComponent\\DefaultConfig\\WindDirectionSensor.cpp" 9.11.2021::18:16:9
-	"DefaultComponent\\DefaultConfig\\WindDirectionSensor.h" 9.11.2021::14:42:44
+	"DefaultComponent\\DefaultConfig\\WindDirectionSensor.cpp" 9.11.2021::21:2:55
+	"DefaultComponent\\DefaultConfig\\WindDirectionSensor.h" 9.11.2021::21:2:55
 	"DefaultComponent\\DefaultConfig\\doubleFlowInterface.cpp" 7.1.2020::20:41:51
 	"DefaultComponent\\DefaultConfig\\doubleFlowInterface.h" 7.1.2020::20:41:51
-	"DefaultComponent\\DefaultConfig\\iAktywujStacje.cpp" 9.11.2021::10:54:24
-	"DefaultComponent\\DefaultConfig\\iAktywujStacje.h" 9.11.2021::10:54:24
-	"DefaultComponent\\DefaultConfig\\iCalibrateRequest.cpp" 9.11.2021::10:54:24
-	"DefaultComponent\\DefaultConfig\\iCalibrateRequest.h" 9.11.2021::10:54:24
+	"DefaultComponent\\DefaultConfig\\iAktywujStacje.cpp" 9.11.2021::20:53:9
+	"DefaultComponent\\DefaultConfig\\iAktywujStacje.h" 9.11.2021::20:53:9
+	"DefaultComponent\\DefaultConfig\\iCalibrateRequest.cpp" 9.11.2021::20:53:9
+	"DefaultComponent\\DefaultConfig\\iCalibrateRequest.h" 9.11.2021::20:53:9
 	"DefaultComponent\\DefaultConfig\\iConfirmAlertReceival.cpp" 9.11.2021::15:13:44
 	"DefaultComponent\\DefaultConfig\\iConfirmAlertReceival.h" 9.11.2021::15:13:44
-	"DefaultComponent\\DefaultConfig\\iConfirmDataReceival.cpp" 9.11.2021::10:54:24
-	"DefaultComponent\\DefaultConfig\\iConfirmDataReceival.h" 9.11.2021::10:54:24
+	"DefaultComponent\\DefaultConfig\\iConfirmDataReceival.cpp" 9.11.2021::20:53:9
+	"DefaultComponent\\DefaultConfig\\iConfirmDataReceival.h" 9.11.2021::20:53:9
 	"DefaultComponent\\DefaultConfig\\iConfirmPacketReceival.cpp" 9.11.2021::10:54:24
 	"DefaultComponent\\DefaultConfig\\iConfirmPacketReceival.h" 9.11.2021::10:54:24
 	"DefaultComponent\\DefaultConfig\\iGetAlertDetails.cpp" 9.11.2021::10:54:24
 	"DefaultComponent\\DefaultConfig\\iGetAlertDetails.h" 9.11.2021::10:54:24
-	"DefaultComponent\\DefaultConfig\\iInform.cpp" 9.11.2021::10:54:25
-	"DefaultComponent\\DefaultConfig\\iInform.h" 9.11.2021::10:54:25
-	"DefaultComponent\\DefaultConfig\\iInitialize.cpp" 9.11.2021::10:54:24
-	"DefaultComponent\\DefaultConfig\\iInitialize.h" 9.11.2021::10:54:24
+	"DefaultComponent\\DefaultConfig\\iInform.cpp" 9.11.2021::20:53:10
+	"DefaultComponent\\DefaultConfig\\iInform.h" 9.11.2021::20:53:10
+	"DefaultComponent\\DefaultConfig\\iInformation.cpp" 9.11.2021::21:30:48
+	"DefaultComponent\\DefaultConfig\\iInformation.h" 9.11.2021::21:30:48
+	"DefaultComponent\\DefaultConfig\\iInitialize.cpp" 9.11.2021::20:55:22
+	"DefaultComponent\\DefaultConfig\\iInitialize.h" 9.11.2021::20:55:22
 	"DefaultComponent\\DefaultConfig\\iPrint.cpp" 9.11.2021::10:54:24
 	"DefaultComponent\\DefaultConfig\\iPrint.h" 9.11.2021::10:54:24
 	"DefaultComponent\\DefaultConfig\\iSendAlert.cpp" 9.11.2021::10:54:25
 	"DefaultComponent\\DefaultConfig\\iSendAlert.h" 9.11.2021::10:54:25
-	"DefaultComponent\\DefaultConfig\\iUspijStacje.cpp" 9.11.2021::10:54:24
-	"DefaultComponent\\DefaultConfig\\iUspijStacje.h" 9.11.2021::10:54:24
+	"DefaultComponent\\DefaultConfig\\iUspijStacje.cpp" 9.11.2021::20:53:9
+	"DefaultComponent\\DefaultConfig\\iUspijStacje.h" 9.11.2021::20:53:9
 	"c:\\programdata\\ibm\\rational\\rhapsody\\8.3.1\\project\\defaultcomponent\\defaultconfig\\Station.h" 7.7.2020::11:37:11
 	
 }
@@ -110,7 +112,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	"GUID e33a1f4f-d5ca-497a-8673-ece9fbd20dfa" "GUID 276dc1ec-c611-4917-836a-e9a49290292e"
 	
 }
-- size = 24;
+- size = 25;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -118,7 +120,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "iInform";
 	- _id = GUID 047a575f-2e0d-4aa5-96e5-b674b909d888;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::20:53:11;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -128,10 +130,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 }
 - genTime = 9.11.2021::20:27:18;
 - hElement = { IHandle 
-	- _m2Class = "IClass";
-	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
-	- _subsystem = "MainPackage";
-	- _name = "iConfirmAlertReceival";
+	- _m2Class = "*";
 	- _id = GUID 82636fc0-b776-452c-a27c-2831ffeec9be;
 }
 - genTime = 9.11.2021::20:27:18;
@@ -142,7 +141,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "Sensor";
 	- _id = GUID aa3a0c1c-e535-434d-b5cb-15d07c9d5a86;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:6:26;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -150,7 +149,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "Controller";
 	- _id = GUID 2285b758-7903-4149-99dc-294cd2e73e72;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:30:49;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -158,7 +157,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "PressureSensor";
 	- _id = GUID 4bf735c7-095c-4c33-9e83-da04dd02f212;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:2:56;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -166,7 +165,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "iUspijStacje";
 	- _id = GUID 1f8e5967-51f8-4976-8734-faced44983b8;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::20:53:11;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -174,7 +173,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "iInitialize";
 	- _id = GUID bcd83194-260b-43b5-90ed-7ed4e3b589a1;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::20:55:22;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -190,7 +189,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "Annemometer";
 	- _id = GUID 6202943c-17d6-40d2-9bed-da592ddaaf5e;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:2:56;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -198,21 +197,21 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "TemperatureSensor";
 	- _id = GUID 83c4f9e9-f038-4ed7-80c2-6049615ab7f0;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:2:56;
 - hElement = { IHandle 
 	- _m2Class = "ICodeGenConfigInfo";
 	- _filename = ".\\..\\..\\Project_rpy\\DefaultComponent.cmpx";
 	- _name = "DefaultComponent\\DefaultConfig";
 	- _id = GUID 51cdf099-ff64-4c06-ab3f-8b1dffb0d97b;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:55:24;
 - hElement = { IHandle 
 	- _m2Class = "ISubsystem";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
 	- _name = "MainPackage";
 	- _id = GUID e33a1f4f-d5ca-497a-8673-ece9fbd20dfa;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:55:24;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -220,7 +219,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "RainAmountSensor";
 	- _id = GUID ff3e689f-601f-49da-ae72-6ec44043a6fc;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:2:56;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -229,7 +228,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "object_0";
 	- _id = GUID 5ea441be-3cac-4f7b-acd8-149672c3c9fe;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:30:49;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -237,7 +236,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "Timer";
 	- _id = GUID 9f24bdfb-935b-4a4c-b19c-d97a83b8a1fa;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::20:57:43;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -245,12 +244,9 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "iAktywujStacje";
 	- _id = GUID 9bef7d00-520c-4da1-997f-46bd80062221;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:30:49;
 - hElement = { IHandle 
-	- _m2Class = "IClass";
-	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
-	- _subsystem = "MainPackage";
-	- _name = "iGetAlertDetails";
+	- _m2Class = "*";
 	- _id = GUID 55363a6a-8641-4da8-acf3-ae21aada8b6a;
 }
 - genTime = 9.11.2021::20:27:18;
@@ -261,7 +257,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "Receiver";
 	- _id = GUID 5ea37988-2ae9-4245-a511-158b332cbda1;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:39:6;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -269,7 +265,15 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "HumiditySensor";
 	- _id = GUID 6b59fd93-b087-45e5-8a86-b4e1a4e33845;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:2:56;
+- hElement = { IHandle 
+	- _m2Class = "IClass";
+	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
+	- _subsystem = "MainPackage";
+	- _name = "iInformation";
+	- _id = GUID dd0a550b-24f1-4950-9614-df51e4696125;
+}
+- genTime = 9.11.2021::21:30:49;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -277,7 +281,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "WindDirectionSensor";
 	- _id = GUID c7d35389-db9d-47e4-8a74-5326d3073d9b;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::21:2:56;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -285,7 +289,7 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "iConfirmDataReceival";
 	- _id = GUID 3e6d62e8-5019-4e5c-bbbb-674c63962eaf;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::20:53:11;
 - hElement = { IHandle 
 	- _m2Class = "IClass";
 	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
@@ -293,12 +297,9 @@ I-Logix-RPY-Archive version 8.15.0 * 9835550
 	- _name = "iCalibrateRequest";
 	- _id = GUID 2da4de77-4a4d-415c-9baa-6535574a3ee7;
 }
-- genTime = 9.11.2021::20:27:18;
+- genTime = 9.11.2021::20:53:11;
 - hElement = { IHandle 
-	- _m2Class = "IClass";
-	- _filename = ".\\..\\..\\Project_rpy\\MainPackage.sbsx";
-	- _subsystem = "MainPackage";
-	- _name = "iSendAlert";
+	- _m2Class = "*";
 	- _id = GUID 7df46a40-7491-4653-81c4-7c0ba54a8722;
 }
 - genTime = 9.11.2021::20:27:18;

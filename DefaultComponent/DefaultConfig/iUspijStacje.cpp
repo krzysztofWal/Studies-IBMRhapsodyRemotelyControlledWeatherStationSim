@@ -17,7 +17,7 @@
 //#[ ignore
 #define MainPackage_iUspijStacje_iUspijStacje_SERIALIZE OM_NO_OP
 
-#define MainPackage_iUspijStacje_uspijStacje_SERIALIZE OM_NO_OP
+#define MainPackage_iUspijStacje_evToNonactiveWrap_SERIALIZE OM_NO_OP
 //#]
 
 //## package MainPackage

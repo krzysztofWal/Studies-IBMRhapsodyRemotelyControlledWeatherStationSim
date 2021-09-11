@@ -57,8 +57,8 @@ public :
     
     ////    Operations    ////
     
-    //## operation aktywujStacje()
-    virtual void aktywujStacje() = 0;
+    //## operation evActivateWrap()
+    virtual void evActivateWrap() = 0;
 };
 
 #ifdef _OMINSTRUMENT

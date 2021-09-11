@@ -120,9 +120,9 @@ void PressureSensor::rootState_entDef() {
     {
         NOTIFY_STATE_ENTERED("ROOT");
         NOTIFY_TRANSITION_STARTED("0");
-        NOTIFY_STATE_ENTERED("ROOT.OczekiwanieSensor");
-        rootState_subState = OczekiwanieSensor;
-        rootState_active = OczekiwanieSensor;
+        NOTIFY_STATE_ENTERED("ROOT.SENSOR_STAND_BY");
+        rootState_subState = SENSOR_STAND_BY;
+        rootState_active = SENSOR_STAND_BY;
         NOTIFY_TRANSITION_TERMINATED("0");
     }
 }
@@ -130,13 +130,13 @@ void PressureSensor::rootState_entDef() {
 IOxfReactive::TakeEventStatus PressureSensor::rootState_processEvent() {
     IOxfReactive::TakeEventStatus res = eventNotConsumed;
     switch (rootState_active) {
-        // State OczekiwanieSensor
-        case OczekiwanieSensor:
+        // State SENSOR_STAND_BY
+        case SENSOR_STAND_BY:
         {
-            if(IS_EVENT_TYPE_OF(readSensorMess_MainPackage_id))
+            if(IS_EVENT_TYPE_OF(evReadSensor_MainPackage_id))
                 {
                     NOTIFY_TRANSITION_STARTED("1");
-                    NOTIFY_STATE_EXITED("ROOT.OczekiwanieSensor");
+                    NOTIFY_STATE_EXITED("ROOT.SENSOR_STAND_BY");
                     //#[ transition 1 
                     readSensorFunc();
                     //#]
@@ -161,9 +161,9 @@ IOxfReactive::TakeEventStatus PressureSensor::rootState_processEvent() {
                     NOTIFY_TRANSITION_STARTED("2");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.sendaction_7");
-                    NOTIFY_STATE_ENTERED("ROOT.OczekiwanieSensor");
-                    rootState_subState = OczekiwanieSensor;
-                    rootState_active = OczekiwanieSensor;
+                    NOTIFY_STATE_ENTERED("ROOT.SENSOR_STAND_BY");
+                    rootState_subState = SENSOR_STAND_BY;
+                    rootState_active = SENSOR_STAND_BY;
                     NOTIFY_TRANSITION_TERMINATED("2");
                     res = eventConsumed;
                 }
@@ -195,9 +195,9 @@ void OMAnimatedPressureSensor::serializeRelations(AOMSRelations* aomsRelations) 
 void OMAnimatedPressureSensor::rootState_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT");
     switch (myReal->rootState_subState) {
-        case PressureSensor::OczekiwanieSensor:
+        case PressureSensor::SENSOR_STAND_BY:
         {
-            OczekiwanieSensor_serializeStates(aomsState);
+            SENSOR_STAND_BY_serializeStates(aomsState);
         }
         break;
         case PressureSensor::sendaction_7:
@@ -210,12 +210,12 @@ void OMAnimatedPressureSensor::rootState_serializeStates(AOMSState* aomsState) c
     }
 }
 
-void OMAnimatedPressureSensor::sendaction_7_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.sendaction_7");
+void OMAnimatedPressureSensor::SENSOR_STAND_BY_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.SENSOR_STAND_BY");
 }
 
-void OMAnimatedPressureSensor::OczekiwanieSensor_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.OczekiwanieSensor");
+void OMAnimatedPressureSensor::sendaction_7_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.sendaction_7");
 }
 //#]
 

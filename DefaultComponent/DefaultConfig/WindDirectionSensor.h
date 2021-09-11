@@ -138,10 +138,10 @@ public :
     void rootState_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
-    void sendaction_7_serializeStates(AOMSState* aomsState) const;
+    void SENSOR_STAND_BY_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
-    void OczekiwanieSensor_serializeStates(AOMSState* aomsState) const;
+    void sendaction_7_serializeStates(AOMSState* aomsState) const;
 };
 //#]
 #endif // _OMINSTRUMENT

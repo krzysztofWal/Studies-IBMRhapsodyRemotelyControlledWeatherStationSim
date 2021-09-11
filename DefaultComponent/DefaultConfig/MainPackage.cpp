@@ -27,19 +27,15 @@
 //## auto_generated
 #include "iCalibrateRequest.h"
 //## auto_generated
-#include "iConfirmAlertReceival.h"
-//## auto_generated
 #include "iConfirmDataReceival.h"
 //## auto_generated
-#include "iGetAlertDetails.h"
-//## auto_generated
 #include "iInform.h"
+//## auto_generated
+#include "iInformation.h"
 //## auto_generated
 #include "iInitialize.h"
 //## auto_generated
 #include "iPrint.h"
-//## auto_generated
-#include "iSendAlert.h"
 //## auto_generated
 #include "iUspijStacje.h"
 //## auto_generated
@@ -69,18 +65,6 @@
 
 #define evSendReadFromSensor_CONSTRUCTOR evSendReadFromSensor(valueBeingSent)
 
-#define create_SERIALIZE OMADD_SER(time, x2String(myEvent->time))
-
-#define create_UNSERIALIZE OMADD_UNSER(long, time, OMDestructiveString2X)
-
-#define create_CONSTRUCTOR create(time)
-
-#define potwierdzOdbior_SERIALIZE OM_NO_OP
-
-#define potwierdzOdbior_UNSERIALIZE OM_NO_OP
-
-#define potwierdzOdbior_CONSTRUCTOR potwierdzOdbior()
-
 #define evConfirmPackageReceival_SERIALIZE OM_NO_OP
 
 #define evConfirmPackageReceival_UNSERIALIZE OM_NO_OP
@@ -93,35 +77,17 @@
 
 #define evInform_CONSTRUCTOR evInform()
 
-#define SendAlert_SERIALIZE OM_NO_OP
+#define evReadSensor_SERIALIZE OM_NO_OP
 
-#define SendAlert_UNSERIALIZE OM_NO_OP
+#define evReadSensor_UNSERIALIZE OM_NO_OP
 
-#define SendAlert_CONSTRUCTOR SendAlert()
-
-#define serwZadajPakietu_SERIALIZE OM_NO_OP
-
-#define serwZadajPakietu_UNSERIALIZE OM_NO_OP
-
-#define serwZadajPakietu_CONSTRUCTOR serwZadajPakietu()
-
-#define readSensorMess_SERIALIZE OM_NO_OP
-
-#define readSensorMess_UNSERIALIZE OM_NO_OP
-
-#define readSensorMess_CONSTRUCTOR readSensorMess()
+#define evReadSensor_CONSTRUCTOR evReadSensor()
 
 #define evTimerInitialize_SERIALIZE OMADD_SER(time, x2String(myEvent->time))
 
 #define evTimerInitialize_UNSERIALIZE OMADD_UNSER(unsigned long, time, OMDestructiveString2X)
 
 #define evTimerInitialize_CONSTRUCTOR evTimerInitialize(time)
-
-#define serwSkalibruj_SERIALIZE OM_NO_OP
-
-#define serwSkalibruj_UNSERIALIZE OM_NO_OP
-
-#define serwSkalibruj_CONSTRUCTOR serwSkalibruj()
 
 #define evCalibrate_SERIALIZE OM_NO_OP
 
@@ -141,11 +107,11 @@
 
 #define evProvideTime_CONSTRUCTOR evProvideTime(time)
 
-#define evInitilizeInTimer_SERIALIZE OM_NO_OP
+#define evInitializeInTimer_SERIALIZE OM_NO_OP
 
-#define evInitilizeInTimer_UNSERIALIZE OM_NO_OP
+#define evInitializeInTimer_UNSERIALIZE OM_NO_OP
 
-#define evInitilizeInTimer_CONSTRUCTOR evInitilizeInTimer()
+#define evInitializeInTimer_CONSTRUCTOR evInitializeInTimer()
 
 #define evExitCalibration_SERIALIZE OM_NO_OP
 
@@ -153,29 +119,11 @@
 
 #define evExitCalibration_CONSTRUCTOR evExitCalibration()
 
-#define potwierdzSygnalOdTimera_SERIALIZE OM_NO_OP
-
-#define potwierdzSygnalOdTimera_UNSERIALIZE OM_NO_OP
-
-#define potwierdzSygnalOdTimera_CONSTRUCTOR potwierdzSygnalOdTimera()
-
-#define confirmAlertReceival_SERIALIZE OM_NO_OP
-
-#define confirmAlertReceival_UNSERIALIZE OM_NO_OP
-
-#define confirmAlertReceival_CONSTRUCTOR confirmAlertReceival()
-
 #define evActivate_SERIALIZE OM_NO_OP
 
 #define evActivate_UNSERIALIZE OM_NO_OP
 
 #define evActivate_CONSTRUCTOR evActivate()
-
-#define e_SERIALIZE OM_NO_OP
-
-#define e_UNSERIALIZE OM_NO_OP
-
-#define e_CONSTRUCTOR e()
 
 #define evToNonactive_SERIALIZE OM_NO_OP
 
@@ -212,6 +160,18 @@
 #define evServCalibrate_UNSERIALIZE OM_NO_OP
 
 #define evServCalibrate_CONSTRUCTOR evServCalibrate()
+
+#define evServGetInfo_SERIALIZE OM_NO_OP
+
+#define evServGetInfo_UNSERIALIZE OM_NO_OP
+
+#define evServGetInfo_CONSTRUCTOR evServGetInfo()
+
+#define evGetInfo_SERIALIZE OM_NO_OP
+
+#define evGetInfo_UNSERIALIZE OM_NO_OP
+
+#define evGetInfo_CONSTRUCTOR evGetInfo()
 //#]
 
 //## package MainPackage
@@ -248,22 +208,18 @@ void MainPackage_initRelations() {
         
         itsReceiver.get_port_3()->setItsIConfirmDataReceival(itsController.get_port_33()->getItsIConfirmDataReceival());
         
-        itsReceiver.get_port_3()->setItsIGetAlertDetails(itsController.get_port_33()->getItsIGetAlertDetails());
-        
         itsReceiver.get_port_3()->setItsICalibrateRequest(itsController.get_port_33()->getItsICalibrateRequest());
-        
-        itsReceiver.get_port_3()->setItsIConfirmAlertReceival(itsController.get_port_33()->getItsIConfirmAlertReceival());
         
         itsReceiver.get_port_3()->setItsIUspijStacje(itsController.get_port_33()->getItsIUspijStacje());
         
         itsReceiver.get_port_3()->setItsIAktywujStacje(itsController.get_port_33()->getItsIAktywujStacje());
         
+        itsReceiver.get_port_3()->setItsIInformation(itsController.get_port_33()->getItsIInformation());
+        
     }
     {
         
         itsController.get_port_35()->setItsIInform(itsReceiver.get_port_5()->getItsIInform());
-        
-        itsController.get_port_35()->setItsISendAlert(itsReceiver.get_port_5()->getItsISendAlert());
         
     }
     
@@ -328,35 +284,6 @@ bool evSendReadFromSensor::isTypeOf(const short id) const {
 
 IMPLEMENT_META_EVENT_P(evSendReadFromSensor, MainPackage, MainPackage, evSendReadFromSensor(double))
 
-//## event create(long)
-create::create() {
-    NOTIFY_EVENT_CONSTRUCTOR(create)
-    setId(create_MainPackage_id);
-}
-
-create::create(long p_time) : time(p_time) {
-    NOTIFY_EVENT_CONSTRUCTOR(create)
-    setId(create_MainPackage_id);
-}
-
-bool create::isTypeOf(const short id) const {
-    return (create_MainPackage_id==id);
-}
-
-IMPLEMENT_META_EVENT_P(create, MainPackage, MainPackage, create(long))
-
-//## event potwierdzOdbior()
-potwierdzOdbior::potwierdzOdbior() {
-    NOTIFY_EVENT_CONSTRUCTOR(potwierdzOdbior)
-    setId(potwierdzOdbior_MainPackage_id);
-}
-
-bool potwierdzOdbior::isTypeOf(const short id) const {
-    return (potwierdzOdbior_MainPackage_id==id);
-}
-
-IMPLEMENT_META_EVENT_P(potwierdzOdbior, MainPackage, MainPackage, potwierdzOdbior())
-
 //## event evConfirmPackageReceival()
 evConfirmPackageReceival::evConfirmPackageReceival() {
     NOTIFY_EVENT_CONSTRUCTOR(evConfirmPackageReceival)
@@ -381,41 +308,17 @@ bool evInform::isTypeOf(const short id) const {
 
 IMPLEMENT_META_EVENT_P(evInform, MainPackage, MainPackage, evInform())
 
-//## event SendAlert()
-SendAlert::SendAlert() {
-    NOTIFY_EVENT_CONSTRUCTOR(SendAlert)
-    setId(SendAlert_MainPackage_id);
+//## event evReadSensor()
+evReadSensor::evReadSensor() {
+    NOTIFY_EVENT_CONSTRUCTOR(evReadSensor)
+    setId(evReadSensor_MainPackage_id);
 }
 
-bool SendAlert::isTypeOf(const short id) const {
-    return (SendAlert_MainPackage_id==id);
+bool evReadSensor::isTypeOf(const short id) const {
+    return (evReadSensor_MainPackage_id==id);
 }
 
-IMPLEMENT_META_EVENT_P(SendAlert, MainPackage, MainPackage, SendAlert())
-
-//## event serwZadajPakietu()
-serwZadajPakietu::serwZadajPakietu() {
-    NOTIFY_EVENT_CONSTRUCTOR(serwZadajPakietu)
-    setId(serwZadajPakietu_MainPackage_id);
-}
-
-bool serwZadajPakietu::isTypeOf(const short id) const {
-    return (serwZadajPakietu_MainPackage_id==id);
-}
-
-IMPLEMENT_META_EVENT_P(serwZadajPakietu, MainPackage, MainPackage, serwZadajPakietu())
-
-//## event readSensorMess()
-readSensorMess::readSensorMess() {
-    NOTIFY_EVENT_CONSTRUCTOR(readSensorMess)
-    setId(readSensorMess_MainPackage_id);
-}
-
-bool readSensorMess::isTypeOf(const short id) const {
-    return (readSensorMess_MainPackage_id==id);
-}
-
-IMPLEMENT_META_EVENT_P(readSensorMess, MainPackage, MainPackage, readSensorMess())
+IMPLEMENT_META_EVENT_P(evReadSensor, MainPackage, MainPackage, evReadSensor())
 
 //## event evTimerInitialize(unsigned long long)
 evTimerInitialize::evTimerInitialize() {
@@ -433,18 +336,6 @@ bool evTimerInitialize::isTypeOf(const short id) const {
 }
 
 IMPLEMENT_META_EVENT_P(evTimerInitialize, MainPackage, MainPackage, evTimerInitialize(unsigned long long))
-
-//## event serwSkalibruj()
-serwSkalibruj::serwSkalibruj() {
-    NOTIFY_EVENT_CONSTRUCTOR(serwSkalibruj)
-    setId(serwSkalibruj_MainPackage_id);
-}
-
-bool serwSkalibruj::isTypeOf(const short id) const {
-    return (serwSkalibruj_MainPackage_id==id);
-}
-
-IMPLEMENT_META_EVENT_P(serwSkalibruj, MainPackage, MainPackage, serwSkalibruj())
 
 //## event evCalibrate()
 evCalibrate::evCalibrate() {
@@ -487,17 +378,17 @@ bool evProvideTime::isTypeOf(const short id) const {
 
 IMPLEMENT_META_EVENT_P(evProvideTime, MainPackage, MainPackage, evProvideTime(unsigned long long))
 
-//## event evInitilizeInTimer()
-evInitilizeInTimer::evInitilizeInTimer() {
-    NOTIFY_EVENT_CONSTRUCTOR(evInitilizeInTimer)
-    setId(evInitilizeInTimer_MainPackage_id);
+//## event evInitializeInTimer()
+evInitializeInTimer::evInitializeInTimer() {
+    NOTIFY_EVENT_CONSTRUCTOR(evInitializeInTimer)
+    setId(evInitializeInTimer_MainPackage_id);
 }
 
-bool evInitilizeInTimer::isTypeOf(const short id) const {
-    return (evInitilizeInTimer_MainPackage_id==id);
+bool evInitializeInTimer::isTypeOf(const short id) const {
+    return (evInitializeInTimer_MainPackage_id==id);
 }
 
-IMPLEMENT_META_EVENT_P(evInitilizeInTimer, MainPackage, MainPackage, evInitilizeInTimer())
+IMPLEMENT_META_EVENT_P(evInitializeInTimer, MainPackage, MainPackage, evInitializeInTimer())
 
 //## event evExitCalibration()
 evExitCalibration::evExitCalibration() {
@@ -511,30 +402,6 @@ bool evExitCalibration::isTypeOf(const short id) const {
 
 IMPLEMENT_META_EVENT_P(evExitCalibration, MainPackage, MainPackage, evExitCalibration())
 
-//## event potwierdzSygnalOdTimera()
-potwierdzSygnalOdTimera::potwierdzSygnalOdTimera() {
-    NOTIFY_EVENT_CONSTRUCTOR(potwierdzSygnalOdTimera)
-    setId(potwierdzSygnalOdTimera_MainPackage_id);
-}
-
-bool potwierdzSygnalOdTimera::isTypeOf(const short id) const {
-    return (potwierdzSygnalOdTimera_MainPackage_id==id);
-}
-
-IMPLEMENT_META_EVENT_P(potwierdzSygnalOdTimera, MainPackage, MainPackage, potwierdzSygnalOdTimera())
-
-//## event confirmAlertReceival()
-confirmAlertReceival::confirmAlertReceival() {
-    NOTIFY_EVENT_CONSTRUCTOR(confirmAlertReceival)
-    setId(confirmAlertReceival_MainPackage_id);
-}
-
-bool confirmAlertReceival::isTypeOf(const short id) const {
-    return (confirmAlertReceival_MainPackage_id==id);
-}
-
-IMPLEMENT_META_EVENT_P(confirmAlertReceival, MainPackage, MainPackage, confirmAlertReceival())
-
 //## event evActivate()
 evActivate::evActivate() {
     NOTIFY_EVENT_CONSTRUCTOR(evActivate)
@@ -546,18 +413,6 @@ bool evActivate::isTypeOf(const short id) const {
 }
 
 IMPLEMENT_META_EVENT_P(evActivate, MainPackage, MainPackage, evActivate())
-
-//## event e()
-e::e() {
-    NOTIFY_EVENT_CONSTRUCTOR(e)
-    setId(e_MainPackage_id);
-}
-
-bool e::isTypeOf(const short id) const {
-    return (e_MainPackage_id==id);
-}
-
-IMPLEMENT_META_EVENT_P(e, MainPackage, MainPackage, e())
 
 //## event evToNonactive()
 evToNonactive::evToNonactive() {
@@ -630,6 +485,30 @@ bool evServCalibrate::isTypeOf(const short id) const {
 }
 
 IMPLEMENT_META_EVENT_P(evServCalibrate, MainPackage, MainPackage, evServCalibrate())
+
+//## event evServGetInfo()
+evServGetInfo::evServGetInfo() {
+    NOTIFY_EVENT_CONSTRUCTOR(evServGetInfo)
+    setId(evServGetInfo_MainPackage_id);
+}
+
+bool evServGetInfo::isTypeOf(const short id) const {
+    return (evServGetInfo_MainPackage_id==id);
+}
+
+IMPLEMENT_META_EVENT_P(evServGetInfo, MainPackage, MainPackage, evServGetInfo())
+
+//## event evGetInfo()
+evGetInfo::evGetInfo() {
+    NOTIFY_EVENT_CONSTRUCTOR(evGetInfo)
+    setId(evGetInfo_MainPackage_id);
+}
+
+bool evGetInfo::isTypeOf(const short id) const {
+    return (evGetInfo_MainPackage_id==id);
+}
+
+IMPLEMENT_META_EVENT_P(evGetInfo, MainPackage, MainPackage, evGetInfo())
 
 /*********************************************************************
 	File Path	: DefaultComponent\DefaultConfig\MainPackage.cpp

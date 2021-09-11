@@ -17,7 +17,7 @@
 //#[ ignore
 #define MainPackage_iAktywujStacje_iAktywujStacje_SERIALIZE OM_NO_OP
 
-#define MainPackage_iAktywujStacje_aktywujStacje_SERIALIZE OM_NO_OP
+#define MainPackage_iAktywujStacje_evActivateWrap_SERIALIZE OM_NO_OP
 //#]
 
 //## package MainPackage

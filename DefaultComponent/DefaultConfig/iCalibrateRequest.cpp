@@ -17,7 +17,7 @@
 //#[ ignore
 #define MainPackage_iCalibrateRequest_iCalibrateRequest_SERIALIZE OM_NO_OP
 
-#define MainPackage_iCalibrateRequest_calibrateRequest_SERIALIZE OM_NO_OP
+#define MainPackage_iCalibrateRequest_evCalibrateWrap_SERIALIZE OM_NO_OP
 //#]
 
 //## package MainPackage

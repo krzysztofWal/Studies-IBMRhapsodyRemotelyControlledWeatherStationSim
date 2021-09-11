@@ -57,8 +57,8 @@ public :
     
     ////    Operations    ////
     
-    //## operation initialize()
-    virtual void initialize() = 0;
+    //## operation evInitializeWrap()
+    virtual void evInitializeWrap() = 0;
 };
 
 #ifdef _OMINSTRUMENT

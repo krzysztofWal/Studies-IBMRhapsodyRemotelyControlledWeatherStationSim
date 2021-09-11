@@ -56,7 +56,7 @@ Sensor::~Sensor() {
 double Sensor::gen(double val1, double val2, double val3, double val4, unsigned long long seed) {
     NOTIFY_OPERATION(gen, gen(double,double,double,double,unsigned long long), 5, MainPackage_Sensor_gen_SERIALIZE);
     //#[ operation gen(double,double,double,double,unsigned long long)
-    srand(seed);
+    srand((unsigned int)seed);
     num = rand() / (RAND_MAX + 1.0)*100.0;
     //std::cout << "rand: " << num <<std::endl;
     if (num < 25) {
@@ -74,10 +74,10 @@ double Sensor::gen(double val1, double val2, double val3, double val4, unsigned 
 double Sensor::gen(double a, double b, unsigned long long seed) {
     NOTIFY_OPERATION(gen, gen(double,double,unsigned long long), 3, OM_MainPackage_Sensor_gen_1_SERIALIZE);
     //#[ operation gen(double,double,unsigned long long)
-    srand(seed+recentValue*10);
+    srand((unsigned int)seed+(unsigned int)recentValue*10);
     num = rand() / (RAND_MAX + 1.0)*100.0; 
     //std::cout << "gen() num: " << num << "\n";
-    num = static_cast<double>(static_cast<int>(((num/100)*(b-a)+a)*10))/10;
+    num = static_cast<double>(static_cast<int>((((int)num/100)*(b-a)+a)*10)/10);
     return num;
     
     
@@ -161,9 +161,9 @@ void Sensor::rootState_entDef() {
     {
         NOTIFY_STATE_ENTERED("ROOT");
         NOTIFY_TRANSITION_STARTED("0");
-        NOTIFY_STATE_ENTERED("ROOT.OczekiwanieSensor");
-        rootState_subState = OczekiwanieSensor;
-        rootState_active = OczekiwanieSensor;
+        NOTIFY_STATE_ENTERED("ROOT.SENSOR_STAND_BY");
+        rootState_subState = SENSOR_STAND_BY;
+        rootState_active = SENSOR_STAND_BY;
         NOTIFY_TRANSITION_TERMINATED("0");
     }
 }
@@ -171,13 +171,13 @@ void Sensor::rootState_entDef() {
 IOxfReactive::TakeEventStatus Sensor::rootState_processEvent() {
     IOxfReactive::TakeEventStatus res = eventNotConsumed;
     switch (rootState_active) {
-        // State OczekiwanieSensor
-        case OczekiwanieSensor:
+        // State SENSOR_STAND_BY
+        case SENSOR_STAND_BY:
         {
-            if(IS_EVENT_TYPE_OF(readSensorMess_MainPackage_id))
+            if(IS_EVENT_TYPE_OF(evReadSensor_MainPackage_id))
                 {
                     NOTIFY_TRANSITION_STARTED("1");
-                    NOTIFY_STATE_EXITED("ROOT.OczekiwanieSensor");
+                    NOTIFY_STATE_EXITED("ROOT.SENSOR_STAND_BY");
                     //#[ transition 1 
                     readSensorFunc();
                     //#]
@@ -202,9 +202,9 @@ IOxfReactive::TakeEventStatus Sensor::rootState_processEvent() {
                     NOTIFY_TRANSITION_STARTED("2");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.sendaction_7");
-                    NOTIFY_STATE_ENTERED("ROOT.OczekiwanieSensor");
-                    rootState_subState = OczekiwanieSensor;
-                    rootState_active = OczekiwanieSensor;
+                    NOTIFY_STATE_ENTERED("ROOT.SENSOR_STAND_BY");
+                    rootState_subState = SENSOR_STAND_BY;
+                    rootState_active = SENSOR_STAND_BY;
                     NOTIFY_TRANSITION_TERMINATED("2");
                     res = eventConsumed;
                 }
@@ -236,9 +236,9 @@ void OMAnimatedSensor::serializeRelations(AOMSRelations* aomsRelations) const {
 void OMAnimatedSensor::rootState_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT");
     switch (myReal->rootState_subState) {
-        case Sensor::OczekiwanieSensor:
+        case Sensor::SENSOR_STAND_BY:
         {
-            OczekiwanieSensor_serializeStates(aomsState);
+            SENSOR_STAND_BY_serializeStates(aomsState);
         }
         break;
         case Sensor::sendaction_7:
@@ -251,12 +251,12 @@ void OMAnimatedSensor::rootState_serializeStates(AOMSState* aomsState) const {
     }
 }
 
-void OMAnimatedSensor::sendaction_7_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.sendaction_7");
+void OMAnimatedSensor::SENSOR_STAND_BY_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.SENSOR_STAND_BY");
 }
 
-void OMAnimatedSensor::OczekiwanieSensor_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.OczekiwanieSensor");
+void OMAnimatedSensor::sendaction_7_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.sendaction_7");
 }
 //#]
 

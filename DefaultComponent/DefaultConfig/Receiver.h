@@ -27,8 +27,6 @@
 #include <oxf\event.h>
 //## class Receiver
 #include "iInform.h"
-//## class Receiver
-#include "iSendAlert.h"
 //## dependency StationData
 #include "StationData.h"
 //## auto_generated
@@ -44,11 +42,9 @@
 //## class port_3_C
 #include "iCalibrateRequest.h"
 //## class port_3_C
-#include "iConfirmAlertReceival.h"
-//## class port_3_C
 #include "iConfirmDataReceival.h"
 //## class port_3_C
-#include "iGetAlertDetails.h"
+#include "iInformation.h"
 //## class port_3_C
 #include "iInitialize.h"
 //## class port_3_C
@@ -70,12 +66,12 @@
 //## package MainPackage
 
 //## class Receiver
-class Receiver : public OMThread, public OMReactive, public iInform, public iSendAlert {
+class Receiver : public OMThread, public OMReactive, public iInform {
 public :
 
 //#[ ignore
     //## package MainPackage
-    class port_3_C : public iPrint, public iInitialize, public iConfirmDataReceival, public iGetAlertDetails, public iCalibrateRequest, public iConfirmAlertReceival, public iUspijStacje, public iAktywujStacje {
+    class port_3_C : public iPrint, public iInitialize, public iConfirmDataReceival, public iCalibrateRequest, public iUspijStacje, public iAktywujStacje, public iInformation {
         ////    Constructors and destructors    ////
         
     public :
@@ -89,19 +85,22 @@ public :
         ////    Operations    ////
         
         //## auto_generated
-        virtual void aktywujStacje();
+        virtual void evActivateWrap();
         
         //## auto_generated
-        virtual void calibrateRequest();
+        virtual void evCalibrateWrap();
         
         //## auto_generated
-        virtual void confirmAlert();
+        virtual void evConfirmPackageReceivalWrap();
         
         //## auto_generated
-        virtual void confirmReceival();
+        virtual void evGetInfoWrap();
         
         //## auto_generated
-        virtual std::vector<std::pair<unsigned long long,std::pair<int,int>>> getAlertDetails();
+        virtual void evInitializeWrap();
+        
+        //## auto_generated
+        virtual void evToNonactiveWrap();
         
         //## auto_generated
         iAktywujStacje* getItsIAktywujStacje();
@@ -110,13 +109,10 @@ public :
         iCalibrateRequest* getItsICalibrateRequest();
         
         //## auto_generated
-        iConfirmAlertReceival* getItsIConfirmAlertReceival();
-        
-        //## auto_generated
         iConfirmDataReceival* getItsIConfirmDataReceival();
         
         //## auto_generated
-        iGetAlertDetails* getItsIGetAlertDetails();
+        iInformation* getItsIInformation();
         
         //## auto_generated
         iInitialize* getItsIInitialize();
@@ -131,13 +127,7 @@ public :
         Receiver::port_3_C* getOutBound();
         
         //## auto_generated
-        virtual void initialize();
-        
-        //## auto_generated
         virtual StationData print();
-        
-        //## auto_generated
-        virtual void uspijStacje();
         
         ////    Additional operations    ////
         
@@ -148,13 +138,10 @@ public :
         void setItsICalibrateRequest(iCalibrateRequest* p_iCalibrateRequest);
         
         //## auto_generated
-        void setItsIConfirmAlertReceival(iConfirmAlertReceival* p_iConfirmAlertReceival);
-        
-        //## auto_generated
         void setItsIConfirmDataReceival(iConfirmDataReceival* p_iConfirmDataReceival);
         
         //## auto_generated
-        void setItsIGetAlertDetails(iGetAlertDetails* p_iGetAlertDetails);
+        void setItsIInformation(iInformation* p_iInformation);
         
         //## auto_generated
         void setItsIInitialize(iInitialize* p_iInitialize);
@@ -180,11 +167,9 @@ public :
         
         iCalibrateRequest* itsICalibrateRequest;		//## link itsICalibrateRequest
         
-        iConfirmAlertReceival* itsIConfirmAlertReceival;		//## link itsIConfirmAlertReceival
-        
         iConfirmDataReceival* itsIConfirmDataReceival;		//## link itsIConfirmDataReceival
         
-        iGetAlertDetails* itsIGetAlertDetails;		//## link itsIGetAlertDetails
+        iInformation* itsIInformation;		//## link itsIInformation
         
         iInitialize* itsIInitialize;		//## link itsIInitialize
         
@@ -194,7 +179,7 @@ public :
     };
     
     //## package MainPackage
-    class port_5_C : public iInform, public iSendAlert {
+    class port_5_C : public iInform {
         ////    Constructors and destructors    ////
         
     public :
@@ -211,24 +196,15 @@ public :
         void connectReceiver(Receiver* part);
         
         //## auto_generated
+        virtual void evInformPackReadyWrap();
+        
+        //## auto_generated
         iInform* getItsIInform();
-        
-        //## auto_generated
-        iSendAlert* getItsISendAlert();
-        
-        //## auto_generated
-        virtual void inform();
-        
-        //## auto_generated
-        virtual void sendAlert();
         
         ////    Additional operations    ////
         
         //## auto_generated
         void setItsIInform(iInform* p_iInform);
-        
-        //## auto_generated
-        void setItsISendAlert(iSendAlert* p_iSendAlert);
     
     protected :
     
@@ -242,8 +218,6 @@ public :
         ////    Relations and components    ////
         
         iInform* itsIInform;		//## link itsIInform
-        
-        iSendAlert* itsISendAlert;		//## link itsISendAlert
     };
 //#]
 
@@ -263,11 +237,8 @@ public :
     
     ////    Operations    ////
     
-    //## operation evInformPackageReadyWrap()
-    virtual void evInformPackageReadyWrap();
-    
-    //## operation sendAlert()
-    virtual void sendAlert();
+    //## operation evInformPackReadyWrap()
+    virtual void evInformPackReadyWrap();
     
     ////    Additional operations    ////
     
@@ -355,21 +326,21 @@ public :
     //## statechart_method
     IOxfReactive::TakeEventStatus STANDBY_handleEvent();
     
+    // INFO_DEMAND_SEND:
+    //## statechart_method
+    inline bool INFO_DEMAND_SEND_IN() const;
+    
     // DESACTIVATE_SEND:
     //## statechart_method
     inline bool DESACTIVATE_SEND_IN() const;
     
+    // DEMAND_SEND:
+    //## statechart_method
+    inline bool DEMAND_SEND_IN() const;
+    
     // CALIBRATE_SEND:
     //## statechart_method
     inline bool CALIBRATE_SEND_IN() const;
-    
-    // begin:
-    //## statechart_method
-    inline bool begin_IN() const;
-    
-    // alertReceival:
-    //## statechart_method
-    inline bool alertReceival_IN() const;
     
     // ACTIVATE_SEND:
     //## statechart_method
@@ -383,10 +354,10 @@ protected :
     enum Receiver_Enum {
         OMNonState = 0,
         STANDBY = 1,
-        DESACTIVATE_SEND = 2,
-        CALIBRATE_SEND = 3,
-        begin = 4,
-        alertReceival = 5,
+        INFO_DEMAND_SEND = 2,
+        DESACTIVATE_SEND = 3,
+        DEMAND_SEND = 4,
+        CALIBRATE_SEND = 5,
         ACTIVATE_SEND = 6
     };
     
@@ -400,7 +371,7 @@ protected :
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
-class OMAnimatedReceiver : public OMAnimatediInform, public OMAnimatediSendAlert {
+class OMAnimatedReceiver : public OMAnimatediInform {
     DECLARE_REACTIVE_META(Receiver, OMAnimatedReceiver)
     
     ////    Framework operations    ////
@@ -418,16 +389,16 @@ public :
     void STANDBY_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
+    void INFO_DEMAND_SEND_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
     void DESACTIVATE_SEND_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
+    void DEMAND_SEND_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
     void CALIBRATE_SEND_serializeStates(AOMSState* aomsState) const;
-    
-    //## statechart_method
-    void begin_serializeStates(AOMSState* aomsState) const;
-    
-    //## statechart_method
-    void alertReceival_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
     void ACTIVATE_SEND_serializeStates(AOMSState* aomsState) const;
@@ -443,20 +414,20 @@ inline bool Receiver::STANDBY_IN() const {
     return rootState_subState == STANDBY;
 }
 
+inline bool Receiver::INFO_DEMAND_SEND_IN() const {
+    return rootState_subState == INFO_DEMAND_SEND;
+}
+
 inline bool Receiver::DESACTIVATE_SEND_IN() const {
     return rootState_subState == DESACTIVATE_SEND;
 }
 
+inline bool Receiver::DEMAND_SEND_IN() const {
+    return rootState_subState == DEMAND_SEND;
+}
+
 inline bool Receiver::CALIBRATE_SEND_IN() const {
     return rootState_subState == CALIBRATE_SEND;
-}
-
-inline bool Receiver::begin_IN() const {
-    return rootState_subState == begin;
-}
-
-inline bool Receiver::alertReceival_IN() const {
-    return rootState_subState == alertReceival;
 }
 
 inline bool Receiver::ACTIVATE_SEND_IN() const {

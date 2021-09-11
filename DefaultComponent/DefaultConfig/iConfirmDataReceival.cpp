@@ -17,7 +17,7 @@
 //#[ ignore
 #define MainPackage_iConfirmDataReceival_iConfirmDataReceival_SERIALIZE OM_NO_OP
 
-#define MainPackage_iConfirmDataReceival_confirmReceival_SERIALIZE OM_NO_OP
+#define MainPackage_iConfirmDataReceival_evConfirmPackageReceivalWrap_SERIALIZE OM_NO_OP
 //#]
 
 //## package MainPackage

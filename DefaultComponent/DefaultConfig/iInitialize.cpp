@@ -17,7 +17,7 @@
 //#[ ignore
 #define MainPackage_iInitialize_iInitialize_SERIALIZE OM_NO_OP
 
-#define MainPackage_iInitialize_initialize_SERIALIZE OM_NO_OP
+#define MainPackage_iInitialize_evInitializeWrap_SERIALIZE OM_NO_OP
 //#]
 
 //## package MainPackage

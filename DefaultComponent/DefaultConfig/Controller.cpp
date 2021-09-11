@@ -26,10 +26,6 @@
 
 #define MainPackage_Controller_calibrate_SERIALIZE OM_NO_OP
 
-#define MainPackage_Controller_checkLevels_SERIALIZE OM_NO_OP
-
-#define MainPackage_Controller_confirmAlert_SERIALIZE OM_NO_OP
-
 #define MainPackage_Controller_createPackage_SERIALIZE aomsmethod->addAttribute("time", x2String(time));
 
 #define MainPackage_Controller_deletePackage_SERIALIZE OM_NO_OP
@@ -40,11 +36,11 @@
 
 #define MainPackage_Controller_evConfirmPackageReceivalWrap_SERIALIZE OM_NO_OP
 
+#define MainPackage_Controller_evGetInfoWrap_SERIALIZE OM_NO_OP
+
 #define MainPackage_Controller_evInitializeWrap_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_evToNonactiveWrap_SERIALIZE OM_NO_OP
-
-#define MainPackage_Controller_getAlertDetails_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_getDataPackage_SERIALIZE OM_NO_OP
 
@@ -54,15 +50,11 @@
 
 #define MainPackage_Controller_handleEnergySavingSystem_SERIALIZE OM_NO_OP
 
-#define MainPackage_Controller_isAnyAlert_SERIALIZE OM_NO_OP
-
 #define MainPackage_Controller_print_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_printPackage_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_readInfo_SERIALIZE OM_NO_OP
-
-#define MainPackage_Controller_resetAlert_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_toNonactive_SERIALIZE OM_NO_OP
 
@@ -74,13 +66,11 @@
 //## class Controller
 #ifdef _OMINSTRUMENT
 //#[ ignore
-static AOMClass* _ControllerSuper[8] = {
+static AOMClass* _ControllerSuper[6] = {
 OMAnimatediPrint::staticGetClass(),
 OMAnimatediInitialize::staticGetClass(),
 OMAnimatediConfirmDataReceival::staticGetClass(),
-OMAnimatediGetAlertDetails::staticGetClass(),
 OMAnimatediCalibrateRequest::staticGetClass(),
-OMAnimatediConfirmAlertReceival::staticGetClass(),
 OMAnimatediAktywujStacje::staticGetClass(),
 OMAnimatediUspijStacje::staticGetClass()};
 //#]
@@ -156,9 +146,8 @@ Controller::object_0_C::~object_0_C() {
 Controller::port_33_C::port_33_C() : _p_(0) {
     itsIAktywujStacje = NULL;
     itsICalibrateRequest = NULL;
-    itsIConfirmAlertReceival = NULL;
     itsIConfirmDataReceival = NULL;
-    itsIGetAlertDetails = NULL;
+    itsIInformation = NULL;
     itsIInitialize = NULL;
     itsIPrint = NULL;
     itsIUspijStacje = NULL;
@@ -168,56 +157,62 @@ Controller::port_33_C::~port_33_C() {
     cleanUpRelations();
 }
 
-void Controller::port_33_C::aktywujStacje() {
-    
-    if (itsIAktywujStacje != NULL) {
-        itsIAktywujStacje->aktywujStacje();
-    }
-    
-}
-
-void Controller::port_33_C::calibrateRequest() {
-    
-    if (itsICalibrateRequest != NULL) {
-        itsICalibrateRequest->calibrateRequest();
-    }
-    
-}
-
-void Controller::port_33_C::confirmAlert() {
-    
-    if (itsIConfirmAlertReceival != NULL) {
-        itsIConfirmAlertReceival->confirmAlert();
-    }
-    
-}
-
-void Controller::port_33_C::confirmReceival() {
-    
-    if (itsIConfirmDataReceival != NULL) {
-        itsIConfirmDataReceival->confirmReceival();
-    }
-    
-}
-
 void Controller::port_33_C::connectController(Controller* part) {
     setItsIPrint(part);
     setItsIInitialize(part);
     setItsIConfirmDataReceival(part);
-    setItsIGetAlertDetails(part);
     setItsICalibrateRequest(part);
-    setItsIConfirmAlertReceival(part);
     setItsIAktywujStacje(part);
     setItsIUspijStacje(part);
     
 }
 
-std::vector<std::pair<unsigned long long,std::pair<int,int>>> Controller::port_33_C::getAlertDetails() {
-    std::vector<std::pair<unsigned long long,std::pair<int,int>>> res;
-    if (itsIGetAlertDetails != NULL) {
-        res = itsIGetAlertDetails->getAlertDetails();
+void Controller::port_33_C::evActivateWrap() {
+    
+    if (itsIAktywujStacje != NULL) {
+        itsIAktywujStacje->evActivateWrap();
     }
-    return res;
+    
+}
+
+void Controller::port_33_C::evCalibrateWrap() {
+    
+    if (itsICalibrateRequest != NULL) {
+        itsICalibrateRequest->evCalibrateWrap();
+    }
+    
+}
+
+void Controller::port_33_C::evConfirmPackageReceivalWrap() {
+    
+    if (itsIConfirmDataReceival != NULL) {
+        itsIConfirmDataReceival->evConfirmPackageReceivalWrap();
+    }
+    
+}
+
+void Controller::port_33_C::evGetInfoWrap() {
+    
+    if (itsIInformation != NULL) {
+        itsIInformation->evGetInfoWrap();
+    }
+    
+}
+
+void Controller::port_33_C::evInitializeWrap() {
+    
+    if (itsIInitialize != NULL) {
+        itsIInitialize->evInitializeWrap();
+    }
+    
+}
+
+void Controller::port_33_C::evToNonactiveWrap() {
+    
+    if (itsIUspijStacje != NULL) {
+        itsIUspijStacje->evToNonactiveWrap();
+    }
+    
 }
 
 iAktywujStacje* Controller::port_33_C::getItsIAktywujStacje() {
@@ -228,15 +223,11 @@ iCalibrateRequest* Controller::port_33_C::getItsICalibrateRequest() {
     return this;
 }
 
-iConfirmAlertReceival* Controller::port_33_C::getItsIConfirmAlertReceival() {
-    return this;
-}
-
 iConfirmDataReceival* Controller::port_33_C::getItsIConfirmDataReceival() {
     return this;
 }
 
-iGetAlertDetails* Controller::port_33_C::getItsIGetAlertDetails() {
+iInformation* Controller::port_33_C::getItsIInformation() {
     return this;
 }
 
@@ -252,28 +243,12 @@ iUspijStacje* Controller::port_33_C::getItsIUspijStacje() {
     return this;
 }
 
-void Controller::port_33_C::initialize() {
-    
-    if (itsIInitialize != NULL) {
-        itsIInitialize->initialize();
-    }
-    
-}
-
 StationData Controller::port_33_C::print() {
     StationData res;
     if (itsIPrint != NULL) {
         res = itsIPrint->print();
     }
     return res;
-}
-
-void Controller::port_33_C::uspijStacje() {
-    
-    if (itsIUspijStacje != NULL) {
-        itsIUspijStacje->uspijStacje();
-    }
-    
 }
 
 void Controller::port_33_C::setItsIAktywujStacje(iAktywujStacje* p_iAktywujStacje) {
@@ -284,16 +259,12 @@ void Controller::port_33_C::setItsICalibrateRequest(iCalibrateRequest* p_iCalibr
     itsICalibrateRequest = p_iCalibrateRequest;
 }
 
-void Controller::port_33_C::setItsIConfirmAlertReceival(iConfirmAlertReceival* p_iConfirmAlertReceival) {
-    itsIConfirmAlertReceival = p_iConfirmAlertReceival;
-}
-
 void Controller::port_33_C::setItsIConfirmDataReceival(iConfirmDataReceival* p_iConfirmDataReceival) {
     itsIConfirmDataReceival = p_iConfirmDataReceival;
 }
 
-void Controller::port_33_C::setItsIGetAlertDetails(iGetAlertDetails* p_iGetAlertDetails) {
-    itsIGetAlertDetails = p_iGetAlertDetails;
+void Controller::port_33_C::setItsIInformation(iInformation* p_iInformation) {
+    itsIInformation = p_iInformation;
 }
 
 void Controller::port_33_C::setItsIInitialize(iInitialize* p_iInitialize) {
@@ -317,17 +288,13 @@ void Controller::port_33_C::cleanUpRelations() {
         {
             itsICalibrateRequest = NULL;
         }
-    if(itsIConfirmAlertReceival != NULL)
-        {
-            itsIConfirmAlertReceival = NULL;
-        }
     if(itsIConfirmDataReceival != NULL)
         {
             itsIConfirmDataReceival = NULL;
         }
-    if(itsIGetAlertDetails != NULL)
+    if(itsIInformation != NULL)
         {
-            itsIGetAlertDetails = NULL;
+            itsIInformation = NULL;
         }
     if(itsIInitialize != NULL)
         {
@@ -345,57 +312,36 @@ void Controller::port_33_C::cleanUpRelations() {
 
 Controller::port_35_C::port_35_C() : _p_(0) {
     itsIInform = NULL;
-    itsISendAlert = NULL;
 }
 
 Controller::port_35_C::~port_35_C() {
     cleanUpRelations();
 }
 
+void Controller::port_35_C::evInformPackReadyWrap() {
+    
+    if (itsIInform != NULL) {
+        itsIInform->evInformPackReadyWrap();
+    }
+    
+}
+
 iInform* Controller::port_35_C::getItsIInform() {
     return this;
 }
 
-iSendAlert* Controller::port_35_C::getItsISendAlert() {
+iInform* Controller::port_35_C::getOutBound() {
     return this;
-}
-
-Controller::port_35_C* Controller::port_35_C::getOutBound() {
-    return this;
-}
-
-void Controller::port_35_C::inform() {
-    
-    if (itsIInform != NULL) {
-        itsIInform->inform();
-    }
-    
-}
-
-void Controller::port_35_C::sendAlert() {
-    
-    if (itsISendAlert != NULL) {
-        itsISendAlert->sendAlert();
-    }
-    
 }
 
 void Controller::port_35_C::setItsIInform(iInform* p_iInform) {
     itsIInform = p_iInform;
 }
 
-void Controller::port_35_C::setItsISendAlert(iSendAlert* p_iSendAlert) {
-    itsISendAlert = p_iSendAlert;
-}
-
 void Controller::port_35_C::cleanUpRelations() {
     if(itsIInform != NULL)
         {
             itsIInform = NULL;
-        }
-    if(itsISendAlert != NULL)
-        {
-            itsISendAlert = NULL;
         }
 }
 //#]
@@ -465,13 +411,6 @@ void Controller::evCalibrateWrap() {
     //#]
 }
 
-void Controller::confirmAlert() {
-    NOTIFY_OPERATION(confirmAlert, confirmAlert(), 0, MainPackage_Controller_confirmAlert_SERIALIZE);
-    //#[ operation confirmAlert()
-    GEN(confirmAlertReceival);
-    //#]
-}
-
 void Controller::evConfirmPackageReceivalWrap() {
     NOTIFY_OPERATION(evConfirmPackageReceivalWrap, evConfirmPackageReceivalWrap(), 0, MainPackage_Controller_evConfirmPackageReceivalWrap_SERIALIZE);
     //#[ operation evConfirmPackageReceivalWrap()
@@ -495,20 +434,6 @@ void Controller::deletePackage() {
     //#]
 }
 
-std::vector<std::pair<unsigned long long, std::pair<int,int>  >> Controller::getAlertDetails() {
-    NOTIFY_OPERATION(getAlertDetails, getAlertDetails(), 0, MainPackage_Controller_getAlertDetails_SERIALIZE);
-    //#[ operation getAlertDetails()
-    std::vector<std::pair<unsigned long long, std::pair<int,int>>> temp;
-    for (iterator++; iterator <= static_cast<int>(alert.size()); iterator++) {
-    	if (alert[iterator]== true) 
-    		temp.emplace_back(std::make_pair(dataPackage->getTime(),std::make_pair(iterator,static_cast<int>(getGivenPercentage(iterator)))));
-    		//std::cout << "getAlertDetails(): " << dataPackage->getTime() << std::endl;
-    }
-    iterator = 0;
-    return temp;
-    //#]
-}
-
 StationData* Controller::getDataPackage() const {
     NOTIFY_OPERATION(getDataPackage, getDataPackage() const, 0, MainPackage_Controller_getDataPackage_SERIALIZE);
     //#[ operation getDataPackage() const
@@ -521,20 +446,6 @@ void Controller::evInitializeWrap() {
     //#[ operation evInitializeWrap()
     GEN(evInitialize);
     //std::cout << "from rec to contr - initialize" << std::endl;
-    //#]
-}
-
-bool Controller::isAnyAlert() {
-    NOTIFY_OPERATION(isAnyAlert, isAnyAlert(), 0, MainPackage_Controller_isAnyAlert_SERIALIZE);
-    //#[ operation isAnyAlert()
-    bool temp = false;
-    for (iterator++; iterator <=static_cast<int>(alert.size()); iterator++) {
-    	if (alert[iterator] == true)
-    		temp = true; 
-    }          
-    iterator = 0;
-    //std::cout << "Czy ktorys element jest ponad poziom?" << temp << std::endl;
-    return temp;
     //#]
 }
 
@@ -567,16 +478,12 @@ void Controller::printPackage() {
     NOTIFY_OPERATION(printPackage, printPackage(), 0, MainPackage_Controller_printPackage_SERIALIZE);
     //#[ operation printPackage()
     std::cout << "========data package time: "<<dataPackage->getTime() << "========" << std::endl
-    		<< "O3: " << dataPackage->get(1) << std::endl
-    		<< "CO: " << dataPackage->get(2) << std::endl
-    		<< "SO2: " << dataPackage->get(3) << std::endl
-    		<< "NO2: " << dataPackage->get(4) << std::endl
-    		<< "PM1: " << dataPackage->get(5) << std::endl
-    		<< "PM2.5: " << dataPackage->get(6) << std::endl
-    		<< "PM10: " << dataPackage->get(7) << std::endl
-    		<< "thermometer " << dataPackage->get(8) << std::endl
-    		<< "hygrometer: " << dataPackage->get(9) << std::endl
-    		<< "barometer: " << dataPackage->get(10) << std::endl
+    		<< "Annemometer: " << dataPackage->get(WIND_SPEED_SENS) << std::endl
+    		<< "Rain Sensor: " << dataPackage->get(RAIN_AMOUNT_SENS) << std::endl
+    		<< "Wind Direction Sensor: " << dataPackage->get(WIND_DIR_SENS) << std::endl
+    		<< "Temperature Sensor: " << dataPackage->get(TEMP_SENS) << std::endl
+    		<< "Humidity Sensor: " << dataPackage->get(HUMID_SENS) << std::endl
+    		<< "Pressure Sensor: " << dataPackage->get(PRESSURE_SENS) << std::endl
     		<< "==========================================" << std::endl;
     		
     //		<< "O3: " << dataPackage->getO3() << std::endl;
@@ -598,29 +505,6 @@ void Controller::readInfo() {
     			<< "Pressure id: " << itsPressureSensor.getId() << std::endl
     		
     		 << "============================================" << std::endl;  
-    //#]
-}
-
-void Controller::resetAlert() {
-    NOTIFY_OPERATION(resetAlert, resetAlert(), 0, MainPackage_Controller_resetAlert_SERIALIZE);
-    //#[ operation resetAlert()
-    for (iterator++; iterator <= static_cast<int>(alert.size()); iterator++) {
-    	alert[iterator] = false;
-    }
-    iterator = 0;
-    //#]
-}
-
-void Controller::checkLevels() {
-    NOTIFY_OPERATION(checkLevels, checkLevels(), 0, MainPackage_Controller_checkLevels_SERIALIZE);
-    //#[ operation checkLevels()
-    setWhenDue(1,240); //  o3
-    setWhenDue(2,60);  //  co
-    setWhenDue(3,500);  //  so2
-    setWhenDue(4,400);  // no2
-    setWhenDue(5,5);    //pm1
-    setWhenDue(6,25);    // pm2.5
-    setWhenDue(7,50);     //pm10
     //#]
 }
 
@@ -725,6 +609,13 @@ void Controller::evActivateWrap() {
     //#]
 }
 
+void Controller::evGetInfoWrap() {
+    NOTIFY_OPERATION(evGetInfoWrap, evGetInfoWrap(), 0, MainPackage_Controller_evGetInfoWrap_SERIALIZE);
+    //#[ operation evGetInfoWrap()
+    GEN(evGetInfo);
+    //#]
+}
+
 void Controller::evToNonactiveWrap() {
     NOTIFY_OPERATION(evToNonactiveWrap, evToNonactiveWrap(), 0, MainPackage_Controller_evToNonactiveWrap_SERIALIZE);
     //#[ operation evToNonactiveWrap()
@@ -807,7 +698,6 @@ void Controller::rootState_entDef() {
         NOTIFY_STATE_ENTERED("ROOT");
         NOTIFY_TRANSITION_STARTED("2");
         NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
-        pushNullTransition();
         rootState_subState = STAND_BY_CONTROLLER;
         rootState_active = STAND_BY_CONTROLLER;
         //#[ state STAND_BY_CONTROLLER.(Entry) 
@@ -824,29 +714,6 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
         case STAND_BY_CONTROLLER:
         {
             res = STAND_BY_CONTROLLER_handleEvent();
-        }
-        break;
-        // State wysylanieAlertu
-        case wysylanieAlertu:
-        {
-            if(IS_EVENT_TYPE_OF(confirmAlertReceival_MainPackage_id))
-                {
-                    NOTIFY_TRANSITION_STARTED("9");
-                    NOTIFY_STATE_EXITED("ROOT.wysylanieAlertu");
-                    //#[ transition 9 
-                    resetAlert();
-                    //#]
-                    NOTIFY_STATE_ENTERED("ROOT.DELETE_PACKAGE");
-                    pushNullTransition();
-                    rootState_subState = DELETE_PACKAGE;
-                    rootState_active = DELETE_PACKAGE;
-                    //#[ state DELETE_PACKAGE.(Entry) 
-                    deletePackage();
-                    //#]
-                    NOTIFY_TRANSITION_TERMINATED("9");
-                    res = eventConsumed;
-                }
-            
         }
         break;
         // State PACKAGE_READY
@@ -897,7 +764,6 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.DELETE_PACKAGE");
                     NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
-                    pushNullTransition();
                     rootState_subState = STAND_BY_CONTROLLER;
                     rootState_active = STAND_BY_CONTROLLER;
                     //#[ state STAND_BY_CONTROLLER.(Entry) 
@@ -909,93 +775,24 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
             
         }
         break;
-        // State checkLimits
-        case checkLimits:
-        {
-            if(IS_EVENT_TYPE_OF(OMNullEventId))
-                {
-                    //## transition 7 
-                    if(isAnyAlert())
-                        {
-                            NOTIFY_TRANSITION_STARTED("6");
-                            NOTIFY_TRANSITION_STARTED("7");
-                            popNullTransition();
-                            NOTIFY_STATE_EXITED("ROOT.checkLimits");
-                            NOTIFY_STATE_ENTERED("ROOT.wysylanieAlertu");
-                            rootState_subState = wysylanieAlertu;
-                            rootState_active = wysylanieAlertu;
-                            //#[ state wysylanieAlertu.(Entry) 
-                            OUT_PORT(port_35)->sendAlert();
-                            //resetAlert();
-                            
-                            //#]
-                            NOTIFY_TRANSITION_TERMINATED("7");
-                            NOTIFY_TRANSITION_TERMINATED("6");
-                            res = eventConsumed;
-                        }
-                    else
-                        {
-                            NOTIFY_TRANSITION_STARTED("6");
-                            NOTIFY_TRANSITION_STARTED("8");
-                            popNullTransition();
-                            NOTIFY_STATE_EXITED("ROOT.checkLimits");
-                            NOTIFY_STATE_ENTERED("ROOT.DELETE_PACKAGE");
-                            pushNullTransition();
-                            rootState_subState = DELETE_PACKAGE;
-                            rootState_active = DELETE_PACKAGE;
-                            //#[ state DELETE_PACKAGE.(Entry) 
-                            deletePackage();
-                            //#]
-                            NOTIFY_TRANSITION_TERMINATED("8");
-                            NOTIFY_TRANSITION_TERMINATED("6");
-                            res = eventConsumed;
-                        }
-                }
-            
-        }
-        break;
         // State SIGNAL_JOIN_TIMER_SERVER_REQUEST
         case SIGNAL_JOIN_TIMER_SERVER_REQUEST:
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
-                    //## transition 11 
-                    if(whetherTimerRead)
-                        {
-                            NOTIFY_TRANSITION_STARTED("10");
-                            NOTIFY_TRANSITION_STARTED("11");
-                            popNullTransition();
-                            NOTIFY_STATE_EXITED("ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST");
-                            NOTIFY_STATE_ENTERED("ROOT.checkLimits");
-                            pushNullTransition();
-                            rootState_subState = checkLimits;
-                            rootState_active = checkLimits;
-                            //#[ state checkLimits.(Entry) 
-                            checkLevels();
-                            whetherTimerRead = false;
-                            //#]
-                            NOTIFY_TRANSITION_TERMINATED("11");
-                            NOTIFY_TRANSITION_TERMINATED("10");
-                            res = eventConsumed;
-                        }
-                    else
-                        {
-                            NOTIFY_TRANSITION_STARTED("10");
-                            NOTIFY_TRANSITION_STARTED("12");
-                            popNullTransition();
-                            NOTIFY_STATE_EXITED("ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST");
-                            NOTIFY_STATE_ENTERED("ROOT.PACKAGE_READY");
-                            rootState_subState = PACKAGE_READY;
-                            rootState_active = PACKAGE_READY;
-                            //#[ state PACKAGE_READY.(Entry) 
-                            OUT_PORT(port_35)->evInformPackReadyWrap();
-                            
-                            //#]
-                            rootState_timeout = scheduleTimeout(150, "ROOT.PACKAGE_READY");
-                            NOTIFY_TRANSITION_TERMINATED("12");
-                            NOTIFY_TRANSITION_TERMINATED("10");
-                            res = eventConsumed;
-                        }
+                    NOTIFY_TRANSITION_STARTED("28");
+                    popNullTransition();
+                    NOTIFY_STATE_EXITED("ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST");
+                    NOTIFY_STATE_ENTERED("ROOT.PACKAGE_READY");
+                    rootState_subState = PACKAGE_READY;
+                    rootState_active = PACKAGE_READY;
+                    //#[ state PACKAGE_READY.(Entry) 
+                    OUT_PORT(port_35)->evInformPackReadyWrap();
+                    
+                    //#]
+                    rootState_timeout = scheduleTimeout(150, "ROOT.PACKAGE_READY");
+                    NOTIFY_TRANSITION_TERMINATED("28");
+                    res = eventConsumed;
                 }
             
         }
@@ -1007,28 +804,27 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                 {
                     if(getCurrentEvent() == rootState_timeout)
                         {
-                            NOTIFY_TRANSITION_STARTED("28");
-                            //#[ transition 28 
+                            NOTIFY_TRANSITION_STARTED("21");
+                            //#[ transition 21 
                             std::cout<<"==========================" << std::endl;
                             GEN(evExitCalibration);
                             //#]
-                            NOTIFY_TRANSITION_TERMINATED("28");
+                            NOTIFY_TRANSITION_TERMINATED("21");
                             res = eventConsumed;
                         }
                 }
             else if(IS_EVENT_TYPE_OF(evExitCalibration_MainPackage_id))
                 {
-                    NOTIFY_TRANSITION_STARTED("14");
+                    NOTIFY_TRANSITION_STARTED("7");
                     cancel(rootState_timeout);
                     NOTIFY_STATE_EXITED("ROOT.CALIBRATE");
                     NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
-                    pushNullTransition();
                     rootState_subState = STAND_BY_CONTROLLER;
                     rootState_active = STAND_BY_CONTROLLER;
                     //#[ state STAND_BY_CONTROLLER.(Entry) 
                     handleEnergySavingSystem();
                     //#]
-                    NOTIFY_TRANSITION_TERMINATED("14");
+                    NOTIFY_TRANSITION_TERMINATED("7");
                     res = eventConsumed;
                 }
             
@@ -1041,37 +837,37 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                 {
                     if(getCurrentEvent() == rootState_timeout)
                         {
-                            NOTIFY_TRANSITION_STARTED("15");
+                            NOTIFY_TRANSITION_STARTED("8");
                             cancel(rootState_timeout);
                             NOTIFY_STATE_EXITED("ROOT.sendaction_37");
                             NOTIFY_STATE_ENTERED("ROOT.sendaction_38");
                             rootState_subState = sendaction_38;
                             rootState_active = sendaction_38;
                             //#[ state sendaction_38.(Entry) 
-                            itsRainAmountSensor.GEN(readSensorMess);
+                            itsRainAmountSensor.GEN(evReadSensor);
                             //#]
                             rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_38");
-                            NOTIFY_TRANSITION_TERMINATED("15");
+                            NOTIFY_TRANSITION_TERMINATED("8");
                             res = eventConsumed;
                         }
                 }
             else if(IS_EVENT_TYPE_OF(evSendReadFromSensor_MainPackage_id))
                 {
                     OMSETPARAMS(evSendReadFromSensor);
-                    NOTIFY_TRANSITION_STARTED("21");
+                    NOTIFY_TRANSITION_STARTED("14");
                     cancel(rootState_timeout);
                     NOTIFY_STATE_EXITED("ROOT.sendaction_37");
-                    //#[ transition 21 
+                    //#[ transition 14 
                     appendToPackage(itsAnnemometer.getId(),params->valueBeingSent);
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.sendaction_38");
                     rootState_subState = sendaction_38;
                     rootState_active = sendaction_38;
                     //#[ state sendaction_38.(Entry) 
-                    itsRainAmountSensor.GEN(readSensorMess);
+                    itsRainAmountSensor.GEN(evReadSensor);
                     //#]
                     rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_38");
-                    NOTIFY_TRANSITION_TERMINATED("21");
+                    NOTIFY_TRANSITION_TERMINATED("14");
                     res = eventConsumed;
                 }
             
@@ -1084,37 +880,37 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                 {
                     if(getCurrentEvent() == rootState_timeout)
                         {
-                            NOTIFY_TRANSITION_STARTED("16");
+                            NOTIFY_TRANSITION_STARTED("9");
                             cancel(rootState_timeout);
                             NOTIFY_STATE_EXITED("ROOT.sendaction_38");
                             NOTIFY_STATE_ENTERED("ROOT.sendaction_39");
                             rootState_subState = sendaction_39;
                             rootState_active = sendaction_39;
                             //#[ state sendaction_39.(Entry) 
-                            itsWindDirectionSensor.GEN(readSensorMess);
+                            itsWindDirectionSensor.GEN(evReadSensor);
                             //#]
                             rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_39");
-                            NOTIFY_TRANSITION_TERMINATED("16");
+                            NOTIFY_TRANSITION_TERMINATED("9");
                             res = eventConsumed;
                         }
                 }
             else if(IS_EVENT_TYPE_OF(evSendReadFromSensor_MainPackage_id))
                 {
                     OMSETPARAMS(evSendReadFromSensor);
-                    NOTIFY_TRANSITION_STARTED("22");
+                    NOTIFY_TRANSITION_STARTED("15");
                     cancel(rootState_timeout);
                     NOTIFY_STATE_EXITED("ROOT.sendaction_38");
-                    //#[ transition 22 
+                    //#[ transition 15 
                     appendToPackage(itsRainAmountSensor.getId(),params->valueBeingSent);
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.sendaction_39");
                     rootState_subState = sendaction_39;
                     rootState_active = sendaction_39;
                     //#[ state sendaction_39.(Entry) 
-                    itsWindDirectionSensor.GEN(readSensorMess);
+                    itsWindDirectionSensor.GEN(evReadSensor);
                     //#]
                     rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_39");
-                    NOTIFY_TRANSITION_TERMINATED("22");
+                    NOTIFY_TRANSITION_TERMINATED("15");
                     res = eventConsumed;
                 }
             
@@ -1127,37 +923,37 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                 {
                     if(getCurrentEvent() == rootState_timeout)
                         {
-                            NOTIFY_TRANSITION_STARTED("17");
+                            NOTIFY_TRANSITION_STARTED("10");
                             cancel(rootState_timeout);
                             NOTIFY_STATE_EXITED("ROOT.sendaction_39");
                             NOTIFY_STATE_ENTERED("ROOT.sendaction_40");
                             rootState_subState = sendaction_40;
                             rootState_active = sendaction_40;
                             //#[ state sendaction_40.(Entry) 
-                            itsTemperatureSensor.GEN(readSensorMess);
+                            itsTemperatureSensor.GEN(evReadSensor);
                             //#]
                             rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_40");
-                            NOTIFY_TRANSITION_TERMINATED("17");
+                            NOTIFY_TRANSITION_TERMINATED("10");
                             res = eventConsumed;
                         }
                 }
             else if(IS_EVENT_TYPE_OF(evSendReadFromSensor_MainPackage_id))
                 {
                     OMSETPARAMS(evSendReadFromSensor);
-                    NOTIFY_TRANSITION_STARTED("23");
+                    NOTIFY_TRANSITION_STARTED("16");
                     cancel(rootState_timeout);
                     NOTIFY_STATE_EXITED("ROOT.sendaction_39");
-                    //#[ transition 23 
+                    //#[ transition 16 
                     appendToPackage(itsWindDirectionSensor.getId(),params->valueBeingSent);
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.sendaction_40");
                     rootState_subState = sendaction_40;
                     rootState_active = sendaction_40;
                     //#[ state sendaction_40.(Entry) 
-                    itsTemperatureSensor.GEN(readSensorMess);
+                    itsTemperatureSensor.GEN(evReadSensor);
                     //#]
                     rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_40");
-                    NOTIFY_TRANSITION_TERMINATED("23");
+                    NOTIFY_TRANSITION_TERMINATED("16");
                     res = eventConsumed;
                 }
             
@@ -1170,37 +966,37 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                 {
                     if(getCurrentEvent() == rootState_timeout)
                         {
-                            NOTIFY_TRANSITION_STARTED("18");
+                            NOTIFY_TRANSITION_STARTED("11");
                             cancel(rootState_timeout);
                             NOTIFY_STATE_EXITED("ROOT.sendaction_40");
                             NOTIFY_STATE_ENTERED("ROOT.sendaction_41");
                             rootState_subState = sendaction_41;
                             rootState_active = sendaction_41;
                             //#[ state sendaction_41.(Entry) 
-                            itsHumiditySensor.GEN(readSensorMess);
+                            itsHumiditySensor.GEN(evReadSensor);
                             //#]
                             rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_41");
-                            NOTIFY_TRANSITION_TERMINATED("18");
+                            NOTIFY_TRANSITION_TERMINATED("11");
                             res = eventConsumed;
                         }
                 }
             else if(IS_EVENT_TYPE_OF(evSendReadFromSensor_MainPackage_id))
                 {
                     OMSETPARAMS(evSendReadFromSensor);
-                    NOTIFY_TRANSITION_STARTED("24");
+                    NOTIFY_TRANSITION_STARTED("17");
                     cancel(rootState_timeout);
                     NOTIFY_STATE_EXITED("ROOT.sendaction_40");
-                    //#[ transition 24 
+                    //#[ transition 17 
                     appendToPackage(itsTemperatureSensor.getId(), params->valueBeingSent);
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.sendaction_41");
                     rootState_subState = sendaction_41;
                     rootState_active = sendaction_41;
                     //#[ state sendaction_41.(Entry) 
-                    itsHumiditySensor.GEN(readSensorMess);
+                    itsHumiditySensor.GEN(evReadSensor);
                     //#]
                     rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_41");
-                    NOTIFY_TRANSITION_TERMINATED("24");
+                    NOTIFY_TRANSITION_TERMINATED("17");
                     res = eventConsumed;
                 }
             
@@ -1213,37 +1009,37 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                 {
                     if(getCurrentEvent() == rootState_timeout)
                         {
-                            NOTIFY_TRANSITION_STARTED("19");
+                            NOTIFY_TRANSITION_STARTED("12");
                             cancel(rootState_timeout);
                             NOTIFY_STATE_EXITED("ROOT.sendaction_41");
                             NOTIFY_STATE_ENTERED("ROOT.sendaction_42");
                             rootState_subState = sendaction_42;
                             rootState_active = sendaction_42;
                             //#[ state sendaction_42.(Entry) 
-                            itsPressureSensor.GEN(readSensorMess);
+                            itsPressureSensor.GEN(evReadSensor);
                             //#]
                             rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_42");
-                            NOTIFY_TRANSITION_TERMINATED("19");
+                            NOTIFY_TRANSITION_TERMINATED("12");
                             res = eventConsumed;
                         }
                 }
             else if(IS_EVENT_TYPE_OF(evSendReadFromSensor_MainPackage_id))
                 {
                     OMSETPARAMS(evSendReadFromSensor);
-                    NOTIFY_TRANSITION_STARTED("25");
+                    NOTIFY_TRANSITION_STARTED("18");
                     cancel(rootState_timeout);
                     NOTIFY_STATE_EXITED("ROOT.sendaction_41");
-                    //#[ transition 25 
+                    //#[ transition 18 
                     appendToPackage(itsHumiditySensor.getId() ,params->valueBeingSent);
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.sendaction_42");
                     rootState_subState = sendaction_42;
                     rootState_active = sendaction_42;
                     //#[ state sendaction_42.(Entry) 
-                    itsPressureSensor.GEN(readSensorMess);
+                    itsPressureSensor.GEN(evReadSensor);
                     //#]
                     rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_42");
-                    NOTIFY_TRANSITION_TERMINATED("25");
+                    NOTIFY_TRANSITION_TERMINATED("18");
                     res = eventConsumed;
                 }
             
@@ -1256,31 +1052,31 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                 {
                     if(getCurrentEvent() == rootState_timeout)
                         {
-                            NOTIFY_TRANSITION_STARTED("20");
+                            NOTIFY_TRANSITION_STARTED("13");
                             cancel(rootState_timeout);
                             NOTIFY_STATE_EXITED("ROOT.sendaction_42");
                             NOTIFY_STATE_ENTERED("ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST");
                             pushNullTransition();
                             rootState_subState = SIGNAL_JOIN_TIMER_SERVER_REQUEST;
                             rootState_active = SIGNAL_JOIN_TIMER_SERVER_REQUEST;
-                            NOTIFY_TRANSITION_TERMINATED("20");
+                            NOTIFY_TRANSITION_TERMINATED("13");
                             res = eventConsumed;
                         }
                 }
             else if(IS_EVENT_TYPE_OF(evSendReadFromSensor_MainPackage_id))
                 {
                     OMSETPARAMS(evSendReadFromSensor);
-                    NOTIFY_TRANSITION_STARTED("26");
+                    NOTIFY_TRANSITION_STARTED("19");
                     cancel(rootState_timeout);
                     NOTIFY_STATE_EXITED("ROOT.sendaction_42");
-                    //#[ transition 26 
+                    //#[ transition 19 
                     appendToPackage(itsPressureSensor.getId() ,params->valueBeingSent);
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST");
                     pushNullTransition();
                     rootState_subState = SIGNAL_JOIN_TIMER_SERVER_REQUEST;
                     rootState_active = SIGNAL_JOIN_TIMER_SERVER_REQUEST;
-                    NOTIFY_TRANSITION_TERMINATED("26");
+                    NOTIFY_TRANSITION_TERMINATED("19");
                     res = eventConsumed;
                 }
             
@@ -1292,19 +1088,19 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
             if(IS_EVENT_TYPE_OF(evProvideTime_MainPackage_id))
                 {
                     OMSETPARAMS(evProvideTime);
-                    NOTIFY_TRANSITION_STARTED("27");
+                    NOTIFY_TRANSITION_STARTED("20");
                     NOTIFY_STATE_EXITED("ROOT.sendaction_44");
-                    //#[ transition 27 
+                    //#[ transition 20 
                     createPackage(params->time);
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.sendaction_37");
                     rootState_subState = sendaction_37;
                     rootState_active = sendaction_37;
                     //#[ state sendaction_37.(Entry) 
-                    itsAnnemometer.GEN(readSensorMess);
+                    itsAnnemometer.GEN(evReadSensor);
                     //#]
                     rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_37");
-                    NOTIFY_TRANSITION_TERMINATED("27");
+                    NOTIFY_TRANSITION_TERMINATED("20");
                     res = eventConsumed;
                 }
             
@@ -1315,17 +1111,16 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
-                    NOTIFY_TRANSITION_STARTED("30");
+                    NOTIFY_TRANSITION_STARTED("23");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.INTO_NON_ACTIVE");
                     NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
-                    pushNullTransition();
                     rootState_subState = STAND_BY_CONTROLLER;
                     rootState_active = STAND_BY_CONTROLLER;
                     //#[ state STAND_BY_CONTROLLER.(Entry) 
                     handleEnergySavingSystem();
                     //#]
-                    NOTIFY_TRANSITION_TERMINATED("30");
+                    NOTIFY_TRANSITION_TERMINATED("23");
                     res = eventConsumed;
                 }
             
@@ -1336,17 +1131,16 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
-                    NOTIFY_TRANSITION_STARTED("32");
+                    NOTIFY_TRANSITION_STARTED("25");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.ACTIVATE");
                     NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
-                    pushNullTransition();
                     rootState_subState = STAND_BY_CONTROLLER;
                     rootState_active = STAND_BY_CONTROLLER;
                     //#[ state STAND_BY_CONTROLLER.(Entry) 
                     handleEnergySavingSystem();
                     //#]
-                    NOTIFY_TRANSITION_TERMINATED("32");
+                    NOTIFY_TRANSITION_TERMINATED("25");
                     res = eventConsumed;
                 }
             
@@ -1357,17 +1151,16 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
-                    NOTIFY_TRANSITION_STARTED("33");
+                    NOTIFY_TRANSITION_STARTED("26");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.READ_INFO");
                     NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
-                    pushNullTransition();
                     rootState_subState = STAND_BY_CONTROLLER;
                     rootState_active = STAND_BY_CONTROLLER;
                     //#[ state STAND_BY_CONTROLLER.(Entry) 
                     handleEnergySavingSystem();
                     //#]
-                    NOTIFY_TRANSITION_TERMINATED("33");
+                    NOTIFY_TRANSITION_TERMINATED("26");
                     res = eventConsumed;
                 }
             
@@ -1383,13 +1176,12 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
     IOxfReactive::TakeEventStatus res = eventNotConsumed;
     if(IS_EVENT_TYPE_OF(evCalibrate_MainPackage_id))
         {
-            //## transition 13 
+            //## transition 6 
             if(stopMeasurementFlag)
                 {
-                    NOTIFY_TRANSITION_STARTED("13");
-                    popNullTransition();
+                    NOTIFY_TRANSITION_STARTED("6");
                     NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
-                    //#[ transition 13 
+                    //#[ transition 6 
                     handleEnergySavingSystem();
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.CALIBRATE");
@@ -1400,14 +1192,27 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
                     std::cout << "=====calibration=====" << std::endl;
                     //#]
                     rootState_timeout = scheduleTimeout(1000, "ROOT.CALIBRATE");
-                    NOTIFY_TRANSITION_TERMINATED("13");
+                    NOTIFY_TRANSITION_TERMINATED("6");
                     res = eventConsumed;
                 }
         }
+    else if(IS_EVENT_TYPE_OF(evGetInfo_MainPackage_id))
+        {
+            NOTIFY_TRANSITION_STARTED("27");
+            NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
+            NOTIFY_STATE_ENTERED("ROOT.READ_INFO");
+            pushNullTransition();
+            rootState_subState = READ_INFO;
+            rootState_active = READ_INFO;
+            //#[ state READ_INFO.(Entry) 
+            readInfo();
+            //#]
+            NOTIFY_TRANSITION_TERMINATED("27");
+            res = eventConsumed;
+        }
     else if(IS_EVENT_TYPE_OF(evActivate_MainPackage_id))
         {
-            NOTIFY_TRANSITION_STARTED("31");
-            popNullTransition();
+            NOTIFY_TRANSITION_STARTED("24");
             NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
             NOTIFY_STATE_ENTERED("ROOT.ACTIVATE");
             pushNullTransition();
@@ -1417,13 +1222,12 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
             activate();
             
             //#]
-            NOTIFY_TRANSITION_TERMINATED("31");
+            NOTIFY_TRANSITION_TERMINATED("24");
             res = eventConsumed;
         }
     else if(IS_EVENT_TYPE_OF(evToNonactive_MainPackage_id))
         {
-            NOTIFY_TRANSITION_STARTED("29");
-            popNullTransition();
+            NOTIFY_TRANSITION_STARTED("22");
             NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
             NOTIFY_STATE_ENTERED("ROOT.INTO_NON_ACTIVE");
             pushNullTransition();
@@ -1432,22 +1236,7 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
             //#[ state INTO_NON_ACTIVE.(Entry) 
             toNonactive();
             //#]
-            NOTIFY_TRANSITION_TERMINATED("29");
-            res = eventConsumed;
-        }
-    else if(IS_EVENT_TYPE_OF(OMNullEventId))
-        {
-            NOTIFY_TRANSITION_STARTED("34");
-            popNullTransition();
-            NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
-            NOTIFY_STATE_ENTERED("ROOT.READ_INFO");
-            pushNullTransition();
-            rootState_subState = READ_INFO;
-            rootState_active = READ_INFO;
-            //#[ state READ_INFO.(Entry) 
-            readInfo();
-            //#]
-            NOTIFY_TRANSITION_TERMINATED("34");
+            NOTIFY_TRANSITION_TERMINATED("22");
             res = eventConsumed;
         }
     else if(IS_EVENT_TYPE_OF(evInitialize_MainPackage_id))
@@ -1456,7 +1245,6 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
             if(!stopMeasurementFlag)
                 {
                     NOTIFY_TRANSITION_STARTED("0");
-                    popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
                     //#[ transition 0 
                     handleEnergySavingSystem();
@@ -1478,7 +1266,6 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
             if(!stopMeasurementFlag)
                 {
                     NOTIFY_TRANSITION_STARTED("3");
-                    popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
                     //#[ transition 3 
                     handleEnergySavingSystem();whetherTimerRead=true;createPackage(params->time);
@@ -1487,7 +1274,7 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
                     rootState_subState = sendaction_37;
                     rootState_active = sendaction_37;
                     //#[ state sendaction_37.(Entry) 
-                    itsAnnemometer.GEN(readSensorMess);
+                    itsAnnemometer.GEN(evReadSensor);
                     //#]
                     rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_37");
                     NOTIFY_TRANSITION_TERMINATED("3");
@@ -1512,9 +1299,7 @@ void OMAnimatedController::serializeAttributes(AOMSAttributes* aomsAttributes) c
     OMAnimatediPrint::serializeAttributes(aomsAttributes);
     OMAnimatediInitialize::serializeAttributes(aomsAttributes);
     OMAnimatediConfirmDataReceival::serializeAttributes(aomsAttributes);
-    OMAnimatediGetAlertDetails::serializeAttributes(aomsAttributes);
     OMAnimatediCalibrateRequest::serializeAttributes(aomsAttributes);
-    OMAnimatediConfirmAlertReceival::serializeAttributes(aomsAttributes);
     OMAnimatediAktywujStacje::serializeAttributes(aomsAttributes);
     OMAnimatediUspijStacje::serializeAttributes(aomsAttributes);
 }
@@ -1539,9 +1324,7 @@ void OMAnimatedController::serializeRelations(AOMSRelations* aomsRelations) cons
     OMAnimatediPrint::serializeRelations(aomsRelations);
     OMAnimatediInitialize::serializeRelations(aomsRelations);
     OMAnimatediConfirmDataReceival::serializeRelations(aomsRelations);
-    OMAnimatediGetAlertDetails::serializeRelations(aomsRelations);
     OMAnimatediCalibrateRequest::serializeRelations(aomsRelations);
-    OMAnimatediConfirmAlertReceival::serializeRelations(aomsRelations);
     OMAnimatediAktywujStacje::serializeRelations(aomsRelations);
     OMAnimatediUspijStacje::serializeRelations(aomsRelations);
 }
@@ -1554,11 +1337,6 @@ void OMAnimatedController::rootState_serializeStates(AOMSState* aomsState) const
             STAND_BY_CONTROLLER_serializeStates(aomsState);
         }
         break;
-        case Controller::wysylanieAlertu:
-        {
-            wysylanieAlertu_serializeStates(aomsState);
-        }
-        break;
         case Controller::PACKAGE_READY:
         {
             PACKAGE_READY_serializeStates(aomsState);
@@ -1567,11 +1345,6 @@ void OMAnimatedController::rootState_serializeStates(AOMSState* aomsState) const
         case Controller::DELETE_PACKAGE:
         {
             DELETE_PACKAGE_serializeStates(aomsState);
-        }
-        break;
-        case Controller::checkLimits:
-        {
-            checkLimits_serializeStates(aomsState);
         }
         break;
         case Controller::SIGNAL_JOIN_TIMER_SERVER_REQUEST:
@@ -1639,10 +1412,6 @@ void OMAnimatedController::rootState_serializeStates(AOMSState* aomsState) const
     }
 }
 
-void OMAnimatedController::wysylanieAlertu_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.wysylanieAlertu");
-}
-
 void OMAnimatedController::STAND_BY_CONTROLLER_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.STAND_BY_CONTROLLER");
 }
@@ -1695,10 +1464,6 @@ void OMAnimatedController::DELETE_PACKAGE_serializeStates(AOMSState* aomsState) 
     aomsState->addState("ROOT.DELETE_PACKAGE");
 }
 
-void OMAnimatedController::checkLimits_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.checkLimits");
-}
-
 void OMAnimatedController::CALIBRATE_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.CALIBRATE");
 }
@@ -1708,7 +1473,7 @@ void OMAnimatedController::ACTIVATE_serializeStates(AOMSState* aomsState) const 
 }
 //#]
 
-IMPLEMENT_REACTIVE_META_M_P(Controller, MainPackage, false, _ControllerSuper, 8, OMAnimatedController)
+IMPLEMENT_REACTIVE_META_M_P(Controller, MainPackage, false, _ControllerSuper, 6, OMAnimatedController)
 
 OMINIT_SUPERCLASS(iPrint, OMAnimatediPrint)
 
@@ -1716,11 +1481,7 @@ OMINIT_SUPERCLASS(iInitialize, OMAnimatediInitialize)
 
 OMINIT_SUPERCLASS(iConfirmDataReceival, OMAnimatediConfirmDataReceival)
 
-OMINIT_SUPERCLASS(iGetAlertDetails, OMAnimatediGetAlertDetails)
-
 OMINIT_SUPERCLASS(iCalibrateRequest, OMAnimatediCalibrateRequest)
-
-OMINIT_SUPERCLASS(iConfirmAlertReceival, OMAnimatediConfirmAlertReceival)
 
 OMINIT_SUPERCLASS(iAktywujStacje, OMAnimatediAktywujStacje)
 

@@ -57,8 +57,8 @@ public :
     
     ////    Operations    ////
     
-    //## operation confirmReceival()
-    virtual void confirmReceival() = 0;
+    //## operation evConfirmPackageReceivalWrap()
+    virtual void evConfirmPackageReceivalWrap() = 0;
 };
 
 #ifdef _OMINSTRUMENT

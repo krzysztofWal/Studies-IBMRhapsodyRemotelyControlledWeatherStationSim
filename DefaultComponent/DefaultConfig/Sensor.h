@@ -141,13 +141,13 @@ public :
     //## statechart_method
     virtual IOxfReactive::TakeEventStatus rootState_processEvent();
     
+    // SENSOR_STAND_BY:
+    //## statechart_method
+    inline bool SENSOR_STAND_BY_IN() const;
+    
     // sendaction_7:
     //## statechart_method
     inline bool sendaction_7_IN() const;
-    
-    // OczekiwanieSensor:
-    //## statechart_method
-    inline bool OczekiwanieSensor_IN() const;
     
     ////    Framework    ////
 
@@ -156,8 +156,8 @@ protected :
 //#[ ignore
     enum Sensor_Enum {
         OMNonState = 0,
-        sendaction_7 = 1,
-        OczekiwanieSensor = 2
+        SENSOR_STAND_BY = 1,
+        sendaction_7 = 2
     };
     
     int rootState_subState;
@@ -183,10 +183,10 @@ public :
     void rootState_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
-    void sendaction_7_serializeStates(AOMSState* aomsState) const;
+    void SENSOR_STAND_BY_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
-    void OczekiwanieSensor_serializeStates(AOMSState* aomsState) const;
+    void sendaction_7_serializeStates(AOMSState* aomsState) const;
 };
 //#]
 #endif // _OMINSTRUMENT
@@ -195,12 +195,12 @@ inline bool Sensor::rootState_IN() const {
     return true;
 }
 
-inline bool Sensor::sendaction_7_IN() const {
-    return rootState_subState == sendaction_7;
+inline bool Sensor::SENSOR_STAND_BY_IN() const {
+    return rootState_subState == SENSOR_STAND_BY;
 }
 
-inline bool Sensor::OczekiwanieSensor_IN() const {
-    return rootState_subState == OczekiwanieSensor;
+inline bool Sensor::sendaction_7_IN() const {
+    return rootState_subState == sendaction_7;
 }
 
 #endif

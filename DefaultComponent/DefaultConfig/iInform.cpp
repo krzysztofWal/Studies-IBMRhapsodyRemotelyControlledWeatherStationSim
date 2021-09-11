@@ -17,7 +17,7 @@
 //#[ ignore
 #define MainPackage_iInform_iInform_SERIALIZE OM_NO_OP
 
-#define MainPackage_iInform_inform_SERIALIZE OM_NO_OP
+#define MainPackage_iInform_evInformPackReadyWrap_SERIALIZE OM_NO_OP
 //#]
 
 //## package MainPackage

@@ -163,7 +163,7 @@ IOxfReactive::TakeEventStatus Timer::rootState_processEvent() {
                             res = eventConsumed;
                         }
                 }
-            else if(IS_EVENT_TYPE_OF(evInitilizeInTimer_MainPackage_id))
+            else if(IS_EVENT_TYPE_OF(evInitializeInTimer_MainPackage_id))
                 {
                     NOTIFY_TRANSITION_STARTED("4");
                     cancel(rootState_timeout);

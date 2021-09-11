@@ -3,13 +3,13 @@
 	Login		: student
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
-	Model Element	: iInform
+	Model Element	: iInformation
 //!	Generated Date	: Sat, 11, Sep 2021  
-	File Path	: DefaultComponent\DefaultConfig\iInform.h
+	File Path	: DefaultComponent\DefaultConfig\iInformation.h
 *********************************************************************/
 
-#ifndef iInform_H
-#define iInform_H
+#ifndef iInformation_H
+#define iInformation_H
 
 //## auto_generated
 #include <oxf\oxf.h>
@@ -37,39 +37,39 @@
 #include <math.h>
 //## package MainPackage
 
-//## class iInform
-class iInform {
+//## class iInformation
+class iInformation {
     ////    Friends    ////
     
 public :
 
 #ifdef _OMINSTRUMENT
-    friend class OMAnimatediInform;
+    friend class OMAnimatediInformation;
 #endif // _OMINSTRUMENT
 
     ////    Constructors and destructors    ////
     
     //## auto_generated
-    iInform();
+    iInformation();
     
     //## auto_generated
-    virtual ~iInform() = 0;
+    virtual ~iInformation() = 0;
     
     ////    Operations    ////
     
-    //## operation evInformPackReadyWrap()
-    virtual void evInformPackReadyWrap() = 0;
+    //## operation evGetInfoWrap()
+    virtual void evGetInfoWrap() = 0;
 };
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
-class OMAnimatediInform : virtual public AOMInstance {
-    DECLARE_META(iInform, OMAnimatediInform)
+class OMAnimatediInformation : virtual public AOMInstance {
+    DECLARE_META(iInformation, OMAnimatediInformation)
 };
 //#]
 #endif // _OMINSTRUMENT
 
 #endif
 /*********************************************************************
-	File Path	: DefaultComponent\DefaultConfig\iInform.h
+	File Path	: DefaultComponent\DefaultConfig\iInformation.h
 *********************************************************************/

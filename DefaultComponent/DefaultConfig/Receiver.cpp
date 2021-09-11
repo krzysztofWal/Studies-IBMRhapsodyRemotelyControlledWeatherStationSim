@@ -19,9 +19,7 @@
 //#[ ignore
 #define MainPackage_Receiver_Receiver_SERIALIZE OM_NO_OP
 
-#define MainPackage_Receiver_evInformPackageReadyWrap_SERIALIZE OM_NO_OP
-
-#define MainPackage_Receiver_sendAlert_SERIALIZE OM_NO_OP
+#define MainPackage_Receiver_evInformPackReadyWrap_SERIALIZE OM_NO_OP
 //#]
 
 //## package MainPackage
@@ -31,9 +29,8 @@
 Receiver::port_3_C::port_3_C() : _p_(0) {
     itsIAktywujStacje = NULL;
     itsICalibrateRequest = NULL;
-    itsIConfirmAlertReceival = NULL;
     itsIConfirmDataReceival = NULL;
-    itsIGetAlertDetails = NULL;
+    itsIInformation = NULL;
     itsIInitialize = NULL;
     itsIPrint = NULL;
     itsIUspijStacje = NULL;
@@ -43,44 +40,52 @@ Receiver::port_3_C::~port_3_C() {
     cleanUpRelations();
 }
 
-void Receiver::port_3_C::aktywujStacje() {
+void Receiver::port_3_C::evActivateWrap() {
     
     if (itsIAktywujStacje != NULL) {
-        itsIAktywujStacje->aktywujStacje();
+        itsIAktywujStacje->evActivateWrap();
     }
     
 }
 
-void Receiver::port_3_C::calibrateRequest() {
+void Receiver::port_3_C::evCalibrateWrap() {
     
     if (itsICalibrateRequest != NULL) {
-        itsICalibrateRequest->calibrateRequest();
+        itsICalibrateRequest->evCalibrateWrap();
     }
     
 }
 
-void Receiver::port_3_C::confirmAlert() {
-    
-    if (itsIConfirmAlertReceival != NULL) {
-        itsIConfirmAlertReceival->confirmAlert();
-    }
-    
-}
-
-void Receiver::port_3_C::confirmReceival() {
+void Receiver::port_3_C::evConfirmPackageReceivalWrap() {
     
     if (itsIConfirmDataReceival != NULL) {
-        itsIConfirmDataReceival->confirmReceival();
+        itsIConfirmDataReceival->evConfirmPackageReceivalWrap();
     }
     
 }
 
-std::vector<std::pair<unsigned long long,std::pair<int,int>>> Receiver::port_3_C::getAlertDetails() {
-    std::vector<std::pair<unsigned long long,std::pair<int,int>>> res;
-    if (itsIGetAlertDetails != NULL) {
-        res = itsIGetAlertDetails->getAlertDetails();
+void Receiver::port_3_C::evGetInfoWrap() {
+    
+    if (itsIInformation != NULL) {
+        itsIInformation->evGetInfoWrap();
     }
-    return res;
+    
+}
+
+void Receiver::port_3_C::evInitializeWrap() {
+    
+    if (itsIInitialize != NULL) {
+        itsIInitialize->evInitializeWrap();
+    }
+    
+}
+
+void Receiver::port_3_C::evToNonactiveWrap() {
+    
+    if (itsIUspijStacje != NULL) {
+        itsIUspijStacje->evToNonactiveWrap();
+    }
+    
 }
 
 iAktywujStacje* Receiver::port_3_C::getItsIAktywujStacje() {
@@ -91,15 +96,11 @@ iCalibrateRequest* Receiver::port_3_C::getItsICalibrateRequest() {
     return this;
 }
 
-iConfirmAlertReceival* Receiver::port_3_C::getItsIConfirmAlertReceival() {
-    return this;
-}
-
 iConfirmDataReceival* Receiver::port_3_C::getItsIConfirmDataReceival() {
     return this;
 }
 
-iGetAlertDetails* Receiver::port_3_C::getItsIGetAlertDetails() {
+iInformation* Receiver::port_3_C::getItsIInformation() {
     return this;
 }
 
@@ -119,28 +120,12 @@ Receiver::port_3_C* Receiver::port_3_C::getOutBound() {
     return this;
 }
 
-void Receiver::port_3_C::initialize() {
-    
-    if (itsIInitialize != NULL) {
-        itsIInitialize->initialize();
-    }
-    
-}
-
 StationData Receiver::port_3_C::print() {
     StationData res;
     if (itsIPrint != NULL) {
         res = itsIPrint->print();
     }
     return res;
-}
-
-void Receiver::port_3_C::uspijStacje() {
-    
-    if (itsIUspijStacje != NULL) {
-        itsIUspijStacje->uspijStacje();
-    }
-    
 }
 
 void Receiver::port_3_C::setItsIAktywujStacje(iAktywujStacje* p_iAktywujStacje) {
@@ -151,16 +136,12 @@ void Receiver::port_3_C::setItsICalibrateRequest(iCalibrateRequest* p_iCalibrate
     itsICalibrateRequest = p_iCalibrateRequest;
 }
 
-void Receiver::port_3_C::setItsIConfirmAlertReceival(iConfirmAlertReceival* p_iConfirmAlertReceival) {
-    itsIConfirmAlertReceival = p_iConfirmAlertReceival;
-}
-
 void Receiver::port_3_C::setItsIConfirmDataReceival(iConfirmDataReceival* p_iConfirmDataReceival) {
     itsIConfirmDataReceival = p_iConfirmDataReceival;
 }
 
-void Receiver::port_3_C::setItsIGetAlertDetails(iGetAlertDetails* p_iGetAlertDetails) {
-    itsIGetAlertDetails = p_iGetAlertDetails;
+void Receiver::port_3_C::setItsIInformation(iInformation* p_iInformation) {
+    itsIInformation = p_iInformation;
 }
 
 void Receiver::port_3_C::setItsIInitialize(iInitialize* p_iInitialize) {
@@ -184,17 +165,13 @@ void Receiver::port_3_C::cleanUpRelations() {
         {
             itsICalibrateRequest = NULL;
         }
-    if(itsIConfirmAlertReceival != NULL)
-        {
-            itsIConfirmAlertReceival = NULL;
-        }
     if(itsIConfirmDataReceival != NULL)
         {
             itsIConfirmDataReceival = NULL;
         }
-    if(itsIGetAlertDetails != NULL)
+    if(itsIInformation != NULL)
         {
-            itsIGetAlertDetails = NULL;
+            itsIInformation = NULL;
         }
     if(itsIInitialize != NULL)
         {
@@ -212,7 +189,6 @@ void Receiver::port_3_C::cleanUpRelations() {
 
 Receiver::port_5_C::port_5_C() : _p_(0) {
     itsIInform = NULL;
-    itsISendAlert = NULL;
 }
 
 Receiver::port_5_C::~port_5_C() {
@@ -221,7 +197,14 @@ Receiver::port_5_C::~port_5_C() {
 
 void Receiver::port_5_C::connectReceiver(Receiver* part) {
     setItsIInform(part);
-    setItsISendAlert(part);
+    
+}
+
+void Receiver::port_5_C::evInformPackReadyWrap() {
+    
+    if (itsIInform != NULL) {
+        itsIInform->evInformPackReadyWrap();
+    }
     
 }
 
@@ -229,42 +212,14 @@ iInform* Receiver::port_5_C::getItsIInform() {
     return this;
 }
 
-iSendAlert* Receiver::port_5_C::getItsISendAlert() {
-    return this;
-}
-
-void Receiver::port_5_C::inform() {
-    
-    if (itsIInform != NULL) {
-        itsIInform->inform();
-    }
-    
-}
-
-void Receiver::port_5_C::sendAlert() {
-    
-    if (itsISendAlert != NULL) {
-        itsISendAlert->sendAlert();
-    }
-    
-}
-
 void Receiver::port_5_C::setItsIInform(iInform* p_iInform) {
     itsIInform = p_iInform;
-}
-
-void Receiver::port_5_C::setItsISendAlert(iSendAlert* p_iSendAlert) {
-    itsISendAlert = p_iSendAlert;
 }
 
 void Receiver::port_5_C::cleanUpRelations() {
     if(itsIInform != NULL)
         {
             itsIInform = NULL;
-        }
-    if(itsISendAlert != NULL)
-        {
-            itsISendAlert = NULL;
         }
 }
 //#]
@@ -281,18 +236,11 @@ Receiver::~Receiver() {
     cancelTimeouts();
 }
 
-void Receiver::evInformPackageReadyWrap() {
-    NOTIFY_OPERATION(evInformPackageReadyWrap, evInformPackageReadyWrap(), 0, MainPackage_Receiver_evInformPackageReadyWrap_SERIALIZE);
-    //#[ operation evInformPackageReadyWrap()
-    GEN(Inform);
+void Receiver::evInformPackReadyWrap() {
+    NOTIFY_OPERATION(evInformPackReadyWrap, evInformPackReadyWrap(), 0, MainPackage_Receiver_evInformPackReadyWrap_SERIALIZE);
+    //#[ operation evInformPackReadyWrap()
+    GEN(evInform);
     //std::cout << "contr to rec - 've got data you can have them" << std::endl;
-    //#]
-}
-
-void Receiver::sendAlert() {
-    NOTIFY_OPERATION(sendAlert, sendAlert(), 0, MainPackage_Receiver_sendAlert_SERIALIZE);
-    //#[ operation sendAlert()
-    GEN(SendAlert);
     //#]
 }
 
@@ -392,24 +340,24 @@ IOxfReactive::TakeEventStatus Receiver::rootState_processEvent() {
             res = STANDBY_handleEvent();
         }
         break;
-        // State begin
-        case begin:
+        // State DEMAND_SEND
+        case DEMAND_SEND:
         {
             if(IS_EVENT_TYPE_OF(OMTimeoutEventId))
                 {
                     if(getCurrentEvent() == rootState_timeout)
                         {
-                            NOTIFY_TRANSITION_STARTED("7");
+                            NOTIFY_TRANSITION_STARTED("5");
                             cancel(rootState_timeout);
-                            NOTIFY_STATE_EXITED("ROOT.begin");
-                            NOTIFY_STATE_ENTERED("ROOT.begin");
-                            rootState_subState = begin;
-                            rootState_active = begin;
-                            //#[ state begin.(Entry) 
+                            NOTIFY_STATE_EXITED("ROOT.DEMAND_SEND");
+                            NOTIFY_STATE_ENTERED("ROOT.DEMAND_SEND");
+                            rootState_subState = DEMAND_SEND;
+                            rootState_active = DEMAND_SEND;
+                            //#[ state DEMAND_SEND.(Entry) 
                             OUT_PORT(port_3)->evInitializeWrap();
                             //#]
-                            rootState_timeout = scheduleTimeout(600, "ROOT.begin");
-                            NOTIFY_TRANSITION_TERMINATED("7");
+                            rootState_timeout = scheduleTimeout(600, "ROOT.DEMAND_SEND");
+                            NOTIFY_TRANSITION_TERMINATED("5");
                             res = eventConsumed;
                         }
                 }
@@ -417,7 +365,7 @@ IOxfReactive::TakeEventStatus Receiver::rootState_processEvent() {
                 {
                     NOTIFY_TRANSITION_STARTED("1");
                     cancel(rootState_timeout);
-                    NOTIFY_STATE_EXITED("ROOT.begin");
+                    NOTIFY_STATE_EXITED("ROOT.DEMAND_SEND");
                     //#[ transition 1 
                     dataReceived.emplace_back(OUT_PORT(port_3)->print());
                     OUT_PORT(port_3)->evConfirmPackageReceivalWrap();
@@ -431,38 +379,18 @@ IOxfReactive::TakeEventStatus Receiver::rootState_processEvent() {
             
         }
         break;
-        // State alertReceival
-        case alertReceival:
-        {
-            if(IS_EVENT_TYPE_OF(OMNullEventId))
-                {
-                    NOTIFY_TRANSITION_STARTED("4");
-                    popNullTransition();
-                    NOTIFY_STATE_EXITED("ROOT.alertReceival");
-                    //#[ transition 4 
-                    OUT_PORT(port_3)->confirmAlert();
-                    //#]
-                    NOTIFY_STATE_ENTERED("ROOT.STANDBY");
-                    rootState_subState = STANDBY;
-                    rootState_active = STANDBY;
-                    NOTIFY_TRANSITION_TERMINATED("4");
-                    res = eventConsumed;
-                }
-            
-        }
-        break;
         // State CALIBRATE_SEND
         case CALIBRATE_SEND:
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
-                    NOTIFY_TRANSITION_STARTED("6");
+                    NOTIFY_TRANSITION_STARTED("4");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.CALIBRATE_SEND");
                     NOTIFY_STATE_ENTERED("ROOT.STANDBY");
                     rootState_subState = STANDBY;
                     rootState_active = STANDBY;
-                    NOTIFY_TRANSITION_TERMINATED("6");
+                    NOTIFY_TRANSITION_TERMINATED("4");
                     res = eventConsumed;
                 }
             
@@ -473,13 +401,13 @@ IOxfReactive::TakeEventStatus Receiver::rootState_processEvent() {
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
-                    NOTIFY_TRANSITION_STARTED("9");
+                    NOTIFY_TRANSITION_STARTED("7");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.DESACTIVATE_SEND");
                     NOTIFY_STATE_ENTERED("ROOT.STANDBY");
                     rootState_subState = STANDBY;
                     rootState_active = STANDBY;
-                    NOTIFY_TRANSITION_TERMINATED("9");
+                    NOTIFY_TRANSITION_TERMINATED("7");
                     res = eventConsumed;
                 }
             
@@ -490,9 +418,26 @@ IOxfReactive::TakeEventStatus Receiver::rootState_processEvent() {
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
-                    NOTIFY_TRANSITION_STARTED("11");
+                    NOTIFY_TRANSITION_STARTED("9");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.ACTIVATE_SEND");
+                    NOTIFY_STATE_ENTERED("ROOT.STANDBY");
+                    rootState_subState = STANDBY;
+                    rootState_active = STANDBY;
+                    NOTIFY_TRANSITION_TERMINATED("9");
+                    res = eventConsumed;
+                }
+            
+        }
+        break;
+        // State INFO_DEMAND_SEND
+        case INFO_DEMAND_SEND:
+        {
+            if(IS_EVENT_TYPE_OF(OMNullEventId))
+                {
+                    NOTIFY_TRANSITION_STARTED("11");
+                    popNullTransition();
+                    NOTIFY_STATE_EXITED("ROOT.INFO_DEMAND_SEND");
                     NOTIFY_STATE_ENTERED("ROOT.STANDBY");
                     rootState_subState = STANDBY;
                     rootState_active = STANDBY;
@@ -512,7 +457,7 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
     IOxfReactive::TakeEventStatus res = eventNotConsumed;
     if(IS_EVENT_TYPE_OF(evServGoIntoInactive_MainPackage_id))
         {
-            NOTIFY_TRANSITION_STARTED("8");
+            NOTIFY_TRANSITION_STARTED("6");
             NOTIFY_STATE_EXITED("ROOT.STANDBY");
             NOTIFY_STATE_ENTERED("ROOT.DESACTIVATE_SEND");
             pushNullTransition();
@@ -521,12 +466,12 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
             //#[ state DESACTIVATE_SEND.(Entry) 
             OUT_PORT(port_3)->evToNonactiveWrap();
             //#]
-            NOTIFY_TRANSITION_TERMINATED("8");
+            NOTIFY_TRANSITION_TERMINATED("6");
             res = eventConsumed;
         }
     else if(IS_EVENT_TYPE_OF(evServCalibrate_MainPackage_id))
         {
-            NOTIFY_TRANSITION_STARTED("5");
+            NOTIFY_TRANSITION_STARTED("3");
             NOTIFY_STATE_EXITED("ROOT.STANDBY");
             NOTIFY_STATE_ENTERED("ROOT.CALIBRATE_SEND");
             pushNullTransition();
@@ -535,47 +480,40 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
             //#[ state CALIBRATE_SEND.(Entry) 
             OUT_PORT(port_3)->evCalibrateWrap();
             //#]
-            NOTIFY_TRANSITION_TERMINATED("5");
+            NOTIFY_TRANSITION_TERMINATED("3");
+            res = eventConsumed;
+        }
+    else if(IS_EVENT_TYPE_OF(evServGetInfo_MainPackage_id))
+        {
+            NOTIFY_TRANSITION_STARTED("10");
+            NOTIFY_STATE_EXITED("ROOT.STANDBY");
+            NOTIFY_STATE_ENTERED("ROOT.INFO_DEMAND_SEND");
+            pushNullTransition();
+            rootState_subState = INFO_DEMAND_SEND;
+            rootState_active = INFO_DEMAND_SEND;
+            //#[ state INFO_DEMAND_SEND.(Entry) 
+            OUT_PORT(port_3)->evGetInfoWrap();
+            //#]
+            NOTIFY_TRANSITION_TERMINATED("10");
             res = eventConsumed;
         }
     else if(IS_EVENT_TYPE_OF(evServerDemandPacket_MainPackage_id))
         {
             NOTIFY_TRANSITION_STARTED("2");
             NOTIFY_STATE_EXITED("ROOT.STANDBY");
-            NOTIFY_STATE_ENTERED("ROOT.begin");
-            rootState_subState = begin;
-            rootState_active = begin;
-            //#[ state begin.(Entry) 
+            NOTIFY_STATE_ENTERED("ROOT.DEMAND_SEND");
+            rootState_subState = DEMAND_SEND;
+            rootState_active = DEMAND_SEND;
+            //#[ state DEMAND_SEND.(Entry) 
             OUT_PORT(port_3)->evInitializeWrap();
             //#]
-            rootState_timeout = scheduleTimeout(600, "ROOT.begin");
+            rootState_timeout = scheduleTimeout(600, "ROOT.DEMAND_SEND");
             NOTIFY_TRANSITION_TERMINATED("2");
-            res = eventConsumed;
-        }
-    else if(IS_EVENT_TYPE_OF(SendAlert_MainPackage_id))
-        {
-            NOTIFY_TRANSITION_STARTED("3");
-            NOTIFY_STATE_EXITED("ROOT.STANDBY");
-            NOTIFY_STATE_ENTERED("ROOT.alertReceival");
-            pushNullTransition();
-            rootState_subState = alertReceival;
-            rootState_active = alertReceival;
-            //#[ state alertReceival.(Entry) 
-            auto vec = OUT_PORT(port_3)->getAlertDetails();
-            std::cout << "======received alert=======" << std::endl;
-            for (; iterator < static_cast<int>(vec.size()) ;iterator++) {
-            	std::cout << "time: " << vec.at(iterator).first << " measured pollutant: " << vec.at(iterator).second.first << " level: " << vec.at(iterator).second.second << "%" << std::endl; 
-            	Alert_TimeAndWhichParticulate.emplace_back(vec.at(iterator));
-            }                                                                                                                    
-            std::cout << "=============================" << std::endl;
-            iterator = 0;
-            //#]
-            NOTIFY_TRANSITION_TERMINATED("3");
             res = eventConsumed;
         }
     else if(IS_EVENT_TYPE_OF(evServerActivate_MainPackage_id))
         {
-            NOTIFY_TRANSITION_STARTED("10");
+            NOTIFY_TRANSITION_STARTED("8");
             NOTIFY_STATE_EXITED("ROOT.STANDBY");
             NOTIFY_STATE_ENTERED("ROOT.ACTIVATE_SEND");
             pushNullTransition();
@@ -584,7 +522,7 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
             //#[ state ACTIVATE_SEND.(Entry) 
             OUT_PORT(port_3)->evActivateWrap();
             //#]
-            NOTIFY_TRANSITION_TERMINATED("10");
+            NOTIFY_TRANSITION_TERMINATED("8");
             res = eventConsumed;
         }
     
@@ -598,12 +536,10 @@ void OMAnimatedReceiver::serializeAttributes(AOMSAttributes* aomsAttributes) con
     aomsAttributes->addAttribute("Alert_TimeAndWhichParticulate", UNKNOWN2STRING(myReal->Alert_TimeAndWhichParticulate));
     aomsAttributes->addAttribute("iterator", x2String(myReal->iterator));
     OMAnimatediInform::serializeAttributes(aomsAttributes);
-    OMAnimatediSendAlert::serializeAttributes(aomsAttributes);
 }
 
 void OMAnimatedReceiver::serializeRelations(AOMSRelations* aomsRelations) const {
     OMAnimatediInform::serializeRelations(aomsRelations);
-    OMAnimatediSendAlert::serializeRelations(aomsRelations);
 }
 
 void OMAnimatedReceiver::rootState_serializeStates(AOMSState* aomsState) const {
@@ -614,14 +550,9 @@ void OMAnimatedReceiver::rootState_serializeStates(AOMSState* aomsState) const {
             STANDBY_serializeStates(aomsState);
         }
         break;
-        case Receiver::begin:
+        case Receiver::DEMAND_SEND:
         {
-            begin_serializeStates(aomsState);
-        }
-        break;
-        case Receiver::alertReceival:
-        {
-            alertReceival_serializeStates(aomsState);
+            DEMAND_SEND_serializeStates(aomsState);
         }
         break;
         case Receiver::CALIBRATE_SEND:
@@ -639,6 +570,11 @@ void OMAnimatedReceiver::rootState_serializeStates(AOMSState* aomsState) const {
             ACTIVATE_SEND_serializeStates(aomsState);
         }
         break;
+        case Receiver::INFO_DEMAND_SEND:
+        {
+            INFO_DEMAND_SEND_serializeStates(aomsState);
+        }
+        break;
         default:
             break;
     }
@@ -648,36 +584,30 @@ void OMAnimatedReceiver::STANDBY_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.STANDBY");
 }
 
+void OMAnimatedReceiver::INFO_DEMAND_SEND_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.INFO_DEMAND_SEND");
+}
+
 void OMAnimatedReceiver::DESACTIVATE_SEND_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.DESACTIVATE_SEND");
+}
+
+void OMAnimatedReceiver::DEMAND_SEND_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.DEMAND_SEND");
 }
 
 void OMAnimatedReceiver::CALIBRATE_SEND_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.CALIBRATE_SEND");
 }
 
-void OMAnimatedReceiver::begin_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.begin");
-}
-
-void OMAnimatedReceiver::alertReceival_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.alertReceival");
-}
-
 void OMAnimatedReceiver::ACTIVATE_SEND_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.ACTIVATE_SEND");
 }
-
-static AOMClass* _ReceiverSuper[2] = {
-OMAnimatediInform::staticGetClass(),
-OMAnimatediSendAlert::staticGetClass()};
 //#]
 
-IMPLEMENT_REACTIVE_META_M_P(Receiver, MainPackage, false, _ReceiverSuper, 2, OMAnimatedReceiver)
+IMPLEMENT_REACTIVE_META_S_P(Receiver, MainPackage, false, iInform, OMAnimatediInform, OMAnimatedReceiver)
 
 OMINIT_SUPERCLASS(iInform, OMAnimatediInform)
-
-OMINIT_SUPERCLASS(iSendAlert, OMAnimatediSendAlert)
 
 OMREGISTER_REACTIVE_CLASS
 #endif // _OMINSTRUMENT

@@ -57,8 +57,8 @@ public :
     
     ////    Operations    ////
     
-    //## operation uspijStacje()
-    virtual void uspijStacje() = 0;
+    //## operation evToNonactiveWrap()
+    virtual void evToNonactiveWrap() = 0;
 };
 
 #ifdef _OMINSTRUMENT
