@@ -263,8 +263,8 @@ public :
     
     ////    Operations    ////
     
-    //## operation inform()
-    virtual void inform();
+    //## operation evInformPackageReadyWrap()
+    virtual void evInformPackageReadyWrap();
     
     //## operation sendAlert()
     virtual void sendAlert();

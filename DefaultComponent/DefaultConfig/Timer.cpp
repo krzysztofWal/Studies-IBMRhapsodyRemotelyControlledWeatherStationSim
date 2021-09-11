@@ -152,7 +152,7 @@ IOxfReactive::TakeEventStatus Timer::rootState_processEvent() {
                             	time += 50;
                             	if (time%5000 ==0){
                             		//std::cout << "sending signal: " << time << std::endl;
-                            		GEN(inicjujOdczytTimer);
+                            		GEN(evInitializeInTimer);
                             	}
                             }
                              else {
@@ -163,7 +163,7 @@ IOxfReactive::TakeEventStatus Timer::rootState_processEvent() {
                             res = eventConsumed;
                         }
                 }
-            else if(IS_EVENT_TYPE_OF(inicjujOdczytTimer_MainPackage_id))
+            else if(IS_EVENT_TYPE_OF(evInitilizeInTimer_MainPackage_id))
                 {
                     NOTIFY_TRANSITION_STARTED("4");
                     cancel(rootState_timeout);
@@ -178,7 +178,7 @@ IOxfReactive::TakeEventStatus Timer::rootState_processEvent() {
                     NOTIFY_TRANSITION_TERMINATED("4");
                     res = eventConsumed;
                 }
-            else if(IS_EVENT_TYPE_OF(requestTime_MainPackage_id))
+            else if(IS_EVENT_TYPE_OF(evRequestTime_MainPackage_id))
                 {
                     NOTIFY_TRANSITION_STARTED("2");
                     cancel(rootState_timeout);

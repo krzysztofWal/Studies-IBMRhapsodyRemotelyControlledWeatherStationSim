@@ -19,7 +19,7 @@
 //#[ ignore
 #define MainPackage_Receiver_Receiver_SERIALIZE OM_NO_OP
 
-#define MainPackage_Receiver_inform_SERIALIZE OM_NO_OP
+#define MainPackage_Receiver_evInformPackageReadyWrap_SERIALIZE OM_NO_OP
 
 #define MainPackage_Receiver_sendAlert_SERIALIZE OM_NO_OP
 //#]
@@ -281,9 +281,9 @@ Receiver::~Receiver() {
     cancelTimeouts();
 }
 
-void Receiver::inform() {
-    NOTIFY_OPERATION(inform, inform(), 0, MainPackage_Receiver_inform_SERIALIZE);
-    //#[ operation inform()
+void Receiver::evInformPackageReadyWrap() {
+    NOTIFY_OPERATION(evInformPackageReadyWrap, evInformPackageReadyWrap(), 0, MainPackage_Receiver_evInformPackageReadyWrap_SERIALIZE);
+    //#[ operation evInformPackageReadyWrap()
     GEN(Inform);
     //std::cout << "contr to rec - 've got data you can have them" << std::endl;
     //#]
@@ -406,21 +406,21 @@ IOxfReactive::TakeEventStatus Receiver::rootState_processEvent() {
                             rootState_subState = begin;
                             rootState_active = begin;
                             //#[ state begin.(Entry) 
-                            OUT_PORT(port_3)->evInitialize();
+                            OUT_PORT(port_3)->evInitializeWrap();
                             //#]
                             rootState_timeout = scheduleTimeout(600, "ROOT.begin");
                             NOTIFY_TRANSITION_TERMINATED("7");
                             res = eventConsumed;
                         }
                 }
-            else if(IS_EVENT_TYPE_OF(Inform_MainPackage_id))
+            else if(IS_EVENT_TYPE_OF(evInform_MainPackage_id))
                 {
                     NOTIFY_TRANSITION_STARTED("1");
                     cancel(rootState_timeout);
                     NOTIFY_STATE_EXITED("ROOT.begin");
                     //#[ transition 1 
                     dataReceived.emplace_back(OUT_PORT(port_3)->print());
-                    OUT_PORT(port_3)->confirmReceival();
+                    OUT_PORT(port_3)->evConfirmPackageReceivalWrap();
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.STANDBY");
                     rootState_subState = STANDBY;
@@ -519,9 +519,23 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
             rootState_subState = DESACTIVATE_SEND;
             rootState_active = DESACTIVATE_SEND;
             //#[ state DESACTIVATE_SEND.(Entry) 
-            OUT_PORT(port_3)->evToNonactive();
+            OUT_PORT(port_3)->evToNonactiveWrap();
             //#]
             NOTIFY_TRANSITION_TERMINATED("8");
+            res = eventConsumed;
+        }
+    else if(IS_EVENT_TYPE_OF(evServCalibrate_MainPackage_id))
+        {
+            NOTIFY_TRANSITION_STARTED("5");
+            NOTIFY_STATE_EXITED("ROOT.STANDBY");
+            NOTIFY_STATE_ENTERED("ROOT.CALIBRATE_SEND");
+            pushNullTransition();
+            rootState_subState = CALIBRATE_SEND;
+            rootState_active = CALIBRATE_SEND;
+            //#[ state CALIBRATE_SEND.(Entry) 
+            OUT_PORT(port_3)->evCalibrateWrap();
+            //#]
+            NOTIFY_TRANSITION_TERMINATED("5");
             res = eventConsumed;
         }
     else if(IS_EVENT_TYPE_OF(evServerDemandPacket_MainPackage_id))
@@ -532,24 +546,10 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
             rootState_subState = begin;
             rootState_active = begin;
             //#[ state begin.(Entry) 
-            OUT_PORT(port_3)->evInitialize();
+            OUT_PORT(port_3)->evInitializeWrap();
             //#]
             rootState_timeout = scheduleTimeout(600, "ROOT.begin");
             NOTIFY_TRANSITION_TERMINATED("2");
-            res = eventConsumed;
-        }
-    else if(IS_EVENT_TYPE_OF(serwSkalibruj_MainPackage_id))
-        {
-            NOTIFY_TRANSITION_STARTED("5");
-            NOTIFY_STATE_EXITED("ROOT.STANDBY");
-            NOTIFY_STATE_ENTERED("ROOT.CALIBRATE_SEND");
-            pushNullTransition();
-            rootState_subState = CALIBRATE_SEND;
-            rootState_active = CALIBRATE_SEND;
-            //#[ state CALIBRATE_SEND.(Entry) 
-            OUT_PORT(port_3)->calibrateRequest();
-            //#]
-            NOTIFY_TRANSITION_TERMINATED("5");
             res = eventConsumed;
         }
     else if(IS_EVENT_TYPE_OF(SendAlert_MainPackage_id))
@@ -582,7 +582,7 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
             rootState_subState = ACTIVATE_SEND;
             rootState_active = ACTIVATE_SEND;
             //#[ state ACTIVATE_SEND.(Entry) 
-            OUT_PORT(port_3)->evActivate();
+            OUT_PORT(port_3)->evActivateWrap();
             //#]
             NOTIFY_TRANSITION_TERMINATED("10");
             res = eventConsumed;

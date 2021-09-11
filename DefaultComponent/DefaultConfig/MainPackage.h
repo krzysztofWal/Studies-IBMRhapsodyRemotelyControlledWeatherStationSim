@@ -87,59 +87,51 @@ class iUspijStacje;
 
 #define create_MainPackage_id 18603
 
-#define evInicjujWyslaniePakietu_MainPackage_id 18604
+#define potwierdzOdbior_MainPackage_id 18604
 
-#define potwierdzOdbior_MainPackage_id 18605
+#define evConfirmPackageReceival_MainPackage_id 18605
 
-#define evConfirmPackageReceival_MainPackage_id 18606
+#define evInform_MainPackage_id 18606
 
-#define Inform_MainPackage_id 18607
+#define SendAlert_MainPackage_id 18607
 
-#define SendAlert_MainPackage_id 18608
+#define serwZadajPakietu_MainPackage_id 18608
 
-#define serwZadajPakietu_MainPackage_id 18609
+#define readSensorMess_MainPackage_id 18609
 
-#define readSensorMess_MainPackage_id 18610
+#define evTimerInitialize_MainPackage_id 18610
 
-#define evTimerInitialize_MainPackage_id 18611
+#define serwSkalibruj_MainPackage_id 18611
 
-#define serwSkalibruj_MainPackage_id 18612
+#define evCalibrate_MainPackage_id 18612
 
-#define evCalibrate_MainPackage_id 18613
+#define evRequestTime_MainPackage_id 18613
 
-#define requestTime_MainPackage_id 18614
+#define evProvideTime_MainPackage_id 18614
 
-#define evProvideTime_MainPackage_id 18615
+#define evInitilizeInTimer_MainPackage_id 18615
 
-#define inicjujOdczytTimer_MainPackage_id 18616
+#define evExitCalibration_MainPackage_id 18616
 
-#define evExitCalibration_MainPackage_id 18617
+#define potwierdzSygnalOdTimera_MainPackage_id 18617
 
-#define potwierdzSygnalOdTimera_MainPackage_id 18618
+#define confirmAlertReceival_MainPackage_id 18618
 
-#define confirmAlertReceival_MainPackage_id 18619
+#define evActivate_MainPackage_id 18619
 
-#define serwPrzejdzWStanNieaktywny_MainPackage_id 18620
+#define e_MainPackage_id 18620
 
-#define serwAktywuj_MainPackage_id 18621
+#define evToNonactive_MainPackage_id 18621
 
-#define serwCzytajLog_MainPackage_id 18622
+#define evServerDemandPacket_MainPackage_id 18622
 
-#define serwCzytajInfo_MainPackage_id 18623
+#define evServerActivate_MainPackage_id 18623
 
-#define UspijStacje_MainPackage_id 18624
+#define evServGoIntoInactive_MainPackage_id 18624
 
-#define evActivate_MainPackage_id 18625
+#define evSerwSkalibruj_MainPackage_id 18625
 
-#define e_MainPackage_id 18626
-
-#define evToNonactive_MainPackage_id 18627
-
-#define evServerDemandPacket_MainPackage_id 18628
-
-#define evServerActivate_MainPackage_id 18629
-
-#define evServGoIntoInactive_MainPackage_id 18630
+#define evServCalibrate_MainPackage_id 18626
 //#]
 
 //## package MainPackage
@@ -287,35 +279,6 @@ class OMAnimatedcreate : virtual public AOMEvent {
 //#]
 #endif // _OMINSTRUMENT
 
-//## event evInicjujWyslaniePakietu()
-class evInicjujWyslaniePakietu : public OMEvent {
-    ////    Friends    ////
-    
-public :
-
-#ifdef _OMINSTRUMENT
-    friend class OMAnimatedevInicjujWyslaniePakietu;
-#endif // _OMINSTRUMENT
-
-    ////    Constructors and destructors    ////
-    
-    //## auto_generated
-    evInicjujWyslaniePakietu();
-    
-    ////    Framework operations    ////
-    
-    //## statechart_method
-    virtual bool isTypeOf(const short id) const;
-};
-
-#ifdef _OMINSTRUMENT
-//#[ ignore
-class OMAnimatedevInicjujWyslaniePakietu : virtual public AOMEvent {
-    DECLARE_META_EVENT(evInicjujWyslaniePakietu)
-};
-//#]
-#endif // _OMINSTRUMENT
-
 //## event potwierdzOdbior()
 class potwierdzOdbior : public OMEvent {
     ////    Friends    ////
@@ -374,20 +337,20 @@ class OMAnimatedevConfirmPackageReceival : virtual public AOMEvent {
 //#]
 #endif // _OMINSTRUMENT
 
-//## event Inform()
-class Inform : public OMEvent {
+//## event evInform()
+class evInform : public OMEvent {
     ////    Friends    ////
     
 public :
 
 #ifdef _OMINSTRUMENT
-    friend class OMAnimatedInform;
+    friend class OMAnimatedevInform;
 #endif // _OMINSTRUMENT
 
     ////    Constructors and destructors    ////
     
     //## auto_generated
-    Inform();
+    evInform();
     
     ////    Framework operations    ////
     
@@ -397,8 +360,8 @@ public :
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
-class OMAnimatedInform : virtual public AOMEvent {
-    DECLARE_META_EVENT(Inform)
+class OMAnimatedevInform : virtual public AOMEvent {
+    DECLARE_META_EVENT(evInform)
 };
 //#]
 #endif // _OMINSTRUMENT
@@ -584,20 +547,20 @@ class OMAnimatedevCalibrate : virtual public AOMEvent {
 //#]
 #endif // _OMINSTRUMENT
 
-//## event requestTime()
-class requestTime : public OMEvent {
+//## event evRequestTime()
+class evRequestTime : public OMEvent {
     ////    Friends    ////
     
 public :
 
 #ifdef _OMINSTRUMENT
-    friend class OMAnimatedrequestTime;
+    friend class OMAnimatedevRequestTime;
 #endif // _OMINSTRUMENT
 
     ////    Constructors and destructors    ////
     
     //## auto_generated
-    requestTime();
+    evRequestTime();
     
     ////    Framework operations    ////
     
@@ -607,8 +570,8 @@ public :
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
-class OMAnimatedrequestTime : virtual public AOMEvent {
-    DECLARE_META_EVENT(requestTime)
+class OMAnimatedevRequestTime : virtual public AOMEvent {
+    DECLARE_META_EVENT(evRequestTime)
 };
 //#]
 #endif // _OMINSTRUMENT
@@ -649,20 +612,20 @@ class OMAnimatedevProvideTime : virtual public AOMEvent {
 //#]
 #endif // _OMINSTRUMENT
 
-//## event inicjujOdczytTimer()
-class inicjujOdczytTimer : public OMEvent {
+//## event evInitilizeInTimer()
+class evInitilizeInTimer : public OMEvent {
     ////    Friends    ////
     
 public :
 
 #ifdef _OMINSTRUMENT
-    friend class OMAnimatedinicjujOdczytTimer;
+    friend class OMAnimatedevInitilizeInTimer;
 #endif // _OMINSTRUMENT
 
     ////    Constructors and destructors    ////
     
     //## auto_generated
-    inicjujOdczytTimer();
+    evInitilizeInTimer();
     
     ////    Framework operations    ////
     
@@ -672,8 +635,8 @@ public :
 
 #ifdef _OMINSTRUMENT
 //#[ ignore
-class OMAnimatedinicjujOdczytTimer : virtual public AOMEvent {
-    DECLARE_META_EVENT(inicjujOdczytTimer)
+class OMAnimatedevInitilizeInTimer : virtual public AOMEvent {
+    DECLARE_META_EVENT(evInitilizeInTimer)
 };
 //#]
 #endif // _OMINSTRUMENT
@@ -761,151 +724,6 @@ public :
 //#[ ignore
 class OMAnimatedconfirmAlertReceival : virtual public AOMEvent {
     DECLARE_META_EVENT(confirmAlertReceival)
-};
-//#]
-#endif // _OMINSTRUMENT
-
-//## event serwPrzejdzWStanNieaktywny()
-class serwPrzejdzWStanNieaktywny : public OMEvent {
-    ////    Friends    ////
-    
-public :
-
-#ifdef _OMINSTRUMENT
-    friend class OMAnimatedserwPrzejdzWStanNieaktywny;
-#endif // _OMINSTRUMENT
-
-    ////    Constructors and destructors    ////
-    
-    //## auto_generated
-    serwPrzejdzWStanNieaktywny();
-    
-    ////    Framework operations    ////
-    
-    //## statechart_method
-    virtual bool isTypeOf(const short id) const;
-};
-
-#ifdef _OMINSTRUMENT
-//#[ ignore
-class OMAnimatedserwPrzejdzWStanNieaktywny : virtual public AOMEvent {
-    DECLARE_META_EVENT(serwPrzejdzWStanNieaktywny)
-};
-//#]
-#endif // _OMINSTRUMENT
-
-//## event serwAktywuj()
-class serwAktywuj : public OMEvent {
-    ////    Friends    ////
-    
-public :
-
-#ifdef _OMINSTRUMENT
-    friend class OMAnimatedserwAktywuj;
-#endif // _OMINSTRUMENT
-
-    ////    Constructors and destructors    ////
-    
-    //## auto_generated
-    serwAktywuj();
-    
-    ////    Framework operations    ////
-    
-    //## statechart_method
-    virtual bool isTypeOf(const short id) const;
-};
-
-#ifdef _OMINSTRUMENT
-//#[ ignore
-class OMAnimatedserwAktywuj : virtual public AOMEvent {
-    DECLARE_META_EVENT(serwAktywuj)
-};
-//#]
-#endif // _OMINSTRUMENT
-
-//## event serwCzytajLog()
-class serwCzytajLog : public OMEvent {
-    ////    Friends    ////
-    
-public :
-
-#ifdef _OMINSTRUMENT
-    friend class OMAnimatedserwCzytajLog;
-#endif // _OMINSTRUMENT
-
-    ////    Constructors and destructors    ////
-    
-    //## auto_generated
-    serwCzytajLog();
-    
-    ////    Framework operations    ////
-    
-    //## statechart_method
-    virtual bool isTypeOf(const short id) const;
-};
-
-#ifdef _OMINSTRUMENT
-//#[ ignore
-class OMAnimatedserwCzytajLog : virtual public AOMEvent {
-    DECLARE_META_EVENT(serwCzytajLog)
-};
-//#]
-#endif // _OMINSTRUMENT
-
-//## event serwCzytajInfo()
-class serwCzytajInfo : public OMEvent {
-    ////    Friends    ////
-    
-public :
-
-#ifdef _OMINSTRUMENT
-    friend class OMAnimatedserwCzytajInfo;
-#endif // _OMINSTRUMENT
-
-    ////    Constructors and destructors    ////
-    
-    //## auto_generated
-    serwCzytajInfo();
-    
-    ////    Framework operations    ////
-    
-    //## statechart_method
-    virtual bool isTypeOf(const short id) const;
-};
-
-#ifdef _OMINSTRUMENT
-//#[ ignore
-class OMAnimatedserwCzytajInfo : virtual public AOMEvent {
-    DECLARE_META_EVENT(serwCzytajInfo)
-};
-//#]
-#endif // _OMINSTRUMENT
-
-//## event UspijStacje()
-class UspijStacje : public OMEvent {
-    ////    Friends    ////
-    
-public :
-
-#ifdef _OMINSTRUMENT
-    friend class OMAnimatedUspijStacje;
-#endif // _OMINSTRUMENT
-
-    ////    Constructors and destructors    ////
-    
-    //## auto_generated
-    UspijStacje();
-    
-    ////    Framework operations    ////
-    
-    //## statechart_method
-    virtual bool isTypeOf(const short id) const;
-};
-
-#ifdef _OMINSTRUMENT
-//#[ ignore
-class OMAnimatedUspijStacje : virtual public AOMEvent {
-    DECLARE_META_EVENT(UspijStacje)
 };
 //#]
 #endif // _OMINSTRUMENT
@@ -1080,6 +898,64 @@ public :
 //#[ ignore
 class OMAnimatedevServGoIntoInactive : virtual public AOMEvent {
     DECLARE_META_EVENT(evServGoIntoInactive)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//## event evSerwSkalibruj()
+class evSerwSkalibruj : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedevSerwSkalibruj;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    evSerwSkalibruj();
+    
+    ////    Framework operations    ////
+    
+    //## statechart_method
+    virtual bool isTypeOf(const short id) const;
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedevSerwSkalibruj : virtual public AOMEvent {
+    DECLARE_META_EVENT(evSerwSkalibruj)
+};
+//#]
+#endif // _OMINSTRUMENT
+
+//## event evServCalibrate()
+class evServCalibrate : public OMEvent {
+    ////    Friends    ////
+    
+public :
+
+#ifdef _OMINSTRUMENT
+    friend class OMAnimatedevServCalibrate;
+#endif // _OMINSTRUMENT
+
+    ////    Constructors and destructors    ////
+    
+    //## auto_generated
+    evServCalibrate();
+    
+    ////    Framework operations    ////
+    
+    //## statechart_method
+    virtual bool isTypeOf(const short id) const;
+};
+
+#ifdef _OMINSTRUMENT
+//#[ ignore
+class OMAnimatedevServCalibrate : virtual public AOMEvent {
+    DECLARE_META_EVENT(evServCalibrate)
 };
 //#]
 #endif // _OMINSTRUMENT

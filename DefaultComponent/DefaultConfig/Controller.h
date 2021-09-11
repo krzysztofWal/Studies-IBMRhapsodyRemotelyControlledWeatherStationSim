@@ -343,14 +343,14 @@ public :
     //## operation calibrate()
     void calibrate();
     
-    //## operation calibrateRequest()
-    void calibrateRequest();
+    //## operation evCalibrateWrap()
+    void evCalibrateWrap();
     
     //## operation confirmAlert()
     void confirmAlert();
     
-    //## operation confirmReceival()
-    void confirmReceival();
+    //## operation evConfirmPackageReceivalWrap()
+    void evConfirmPackageReceivalWrap();
     
     //## operation createPackage(unsigned long long)
     void createPackage(unsigned long long time);
@@ -364,8 +364,8 @@ public :
     //## operation getDataPackage() const
     StationData* getDataPackage() const;
     
-    //## operation initialize()
-    void initialize();
+    //## operation evInitializeWrap()
+    void evInitializeWrap();
     
     //## operation isAnyAlert()
     bool isAnyAlert();
@@ -384,9 +384,6 @@ public :
     
     //## operation resetAlert()
     void resetAlert();
-    
-    //## operation setWhenDue(int,double)
-    void setWhenDue(int which, double limit);
     
     //## operation checkLevels()
     void checkLevels();
@@ -484,8 +481,14 @@ protected :
 
 public :
 
-    //## operation aktywujStacje()
-    void aktywujStacje();
+    //## operation activate()
+    void activate();
+    
+    //## operation evActivateWrap()
+    void evActivateWrap();
+    
+    //## operation evToNonactiveWrap()
+    void evToNonactiveWrap();
     
     //## operation getGivenPercentage(int) const
     double getGivenPercentage(int position) const;
@@ -493,14 +496,8 @@ public :
     //## operation giveGenTime()
     unsigned long long giveGenTime();
     
-    //## operation stacjaAktywna()
-    void stacjaAktywna();
-    
-    //## operation stacjaUspiona()
-    void stacjaUspiona();
-    
-    //## operation uspijStacje()
-    void uspijStacje();
+    //## operation toNonactive()
+    void toNonactive();
     
     //## auto_generated
     Annemometer* getItsAnnemometer() const;

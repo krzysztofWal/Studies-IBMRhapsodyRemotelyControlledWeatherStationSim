@@ -20,26 +20,29 @@
 #define MainPackage_Controller_appendToPackage_SERIALIZE \
     aomsmethod->addAttribute("whichSensor", x2String(whichSensor));\
     aomsmethod->addAttribute("value", x2String(value));
-#define MainPackage_Controller_setWhenDue_SERIALIZE \
-    aomsmethod->addAttribute("which", x2String(which));\
-    aomsmethod->addAttribute("limit", x2String(limit));
 #define MainPackage_Controller_Controller_SERIALIZE OM_NO_OP
 
-#define MainPackage_Controller_aktywujStacje_SERIALIZE OM_NO_OP
+#define MainPackage_Controller_activate_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_calibrate_SERIALIZE OM_NO_OP
-
-#define MainPackage_Controller_calibrateRequest_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_checkLevels_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_confirmAlert_SERIALIZE OM_NO_OP
 
-#define MainPackage_Controller_confirmReceival_SERIALIZE OM_NO_OP
-
 #define MainPackage_Controller_createPackage_SERIALIZE aomsmethod->addAttribute("time", x2String(time));
 
 #define MainPackage_Controller_deletePackage_SERIALIZE OM_NO_OP
+
+#define MainPackage_Controller_evActivateWrap_SERIALIZE OM_NO_OP
+
+#define MainPackage_Controller_evCalibrateWrap_SERIALIZE OM_NO_OP
+
+#define MainPackage_Controller_evConfirmPackageReceivalWrap_SERIALIZE OM_NO_OP
+
+#define MainPackage_Controller_evInitializeWrap_SERIALIZE OM_NO_OP
+
+#define MainPackage_Controller_evToNonactiveWrap_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_getAlertDetails_SERIALIZE OM_NO_OP
 
@@ -51,8 +54,6 @@
 
 #define MainPackage_Controller_handleEnergySavingSystem_SERIALIZE OM_NO_OP
 
-#define MainPackage_Controller_initialize_SERIALIZE OM_NO_OP
-
 #define MainPackage_Controller_isAnyAlert_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_print_SERIALIZE OM_NO_OP
@@ -63,11 +64,7 @@
 
 #define MainPackage_Controller_resetAlert_SERIALIZE OM_NO_OP
 
-#define MainPackage_Controller_stacjaAktywna_SERIALIZE OM_NO_OP
-
-#define MainPackage_Controller_stacjaUspiona_SERIALIZE OM_NO_OP
-
-#define MainPackage_Controller_uspijStacje_SERIALIZE OM_NO_OP
+#define MainPackage_Controller_toNonactive_SERIALIZE OM_NO_OP
 
 #define MainPackage_object_0_object_0_SERIALIZE OM_NO_OP
 //#]
@@ -461,9 +458,9 @@ void Controller::calibrate() {
     //#]
 }
 
-void Controller::calibrateRequest() {
-    NOTIFY_OPERATION(calibrateRequest, calibrateRequest(), 0, MainPackage_Controller_calibrateRequest_SERIALIZE);
-    //#[ operation calibrateRequest()
+void Controller::evCalibrateWrap() {
+    NOTIFY_OPERATION(evCalibrateWrap, evCalibrateWrap(), 0, MainPackage_Controller_evCalibrateWrap_SERIALIZE);
+    //#[ operation evCalibrateWrap()
     GEN(evCalibrate);
     //#]
 }
@@ -475,9 +472,9 @@ void Controller::confirmAlert() {
     //#]
 }
 
-void Controller::confirmReceival() {
-    NOTIFY_OPERATION(confirmReceival, confirmReceival(), 0, MainPackage_Controller_confirmReceival_SERIALIZE);
-    //#[ operation confirmReceival()
+void Controller::evConfirmPackageReceivalWrap() {
+    NOTIFY_OPERATION(evConfirmPackageReceivalWrap, evConfirmPackageReceivalWrap(), 0, MainPackage_Controller_evConfirmPackageReceivalWrap_SERIALIZE);
+    //#[ operation evConfirmPackageReceivalWrap()
     GEN(evConfirmPackageReceival);
     //std::cout << "rec to contr - i have the data, can delete"<< std::endl;
     //#]
@@ -519,9 +516,9 @@ StationData* Controller::getDataPackage() const {
     //#]
 }
 
-void Controller::initialize() {
-    NOTIFY_OPERATION(initialize, initialize(), 0, MainPackage_Controller_initialize_SERIALIZE);
-    //#[ operation initialize()
+void Controller::evInitializeWrap() {
+    NOTIFY_OPERATION(evInitializeWrap, evInitializeWrap(), 0, MainPackage_Controller_evInitializeWrap_SERIALIZE);
+    //#[ operation evInitializeWrap()
     GEN(evInitialize);
     //std::cout << "from rec to contr - initialize" << std::endl;
     //#]
@@ -611,15 +608,6 @@ void Controller::resetAlert() {
     	alert[iterator] = false;
     }
     iterator = 0;
-    //#]
-}
-
-void Controller::setWhenDue(int which, double limit) {
-    NOTIFY_OPERATION(setWhenDue, setWhenDue(int,double), 2, MainPackage_Controller_setWhenDue_SERIALIZE);
-    //#[ operation setWhenDue(int,double)
-    if(dataPackage->get(which)> limit)
-    alert[which] = true;
-    //std::cout << "setWhenDue: " << alert[which] << std::endl;
     //#]
 }
 
@@ -721,10 +709,26 @@ void Controller::setIterator(int p_iterator) {
     iterator = p_iterator;
 }
 
-void Controller::aktywujStacje() {
-    NOTIFY_OPERATION(aktywujStacje, aktywujStacje(), 0, MainPackage_Controller_aktywujStacje_SERIALIZE);
-    //#[ operation aktywujStacje()
+void Controller::activate() {
+    NOTIFY_OPERATION(activate, activate(), 0, MainPackage_Controller_activate_SERIALIZE);
+    //#[ operation activate()
+    if (stopMeasurementFlag)
+    	stopMeasurementFlag = false;
+    //std::cout << stopMeasurementFlag << " in activation" << std::endl;
+    //#]
+}
+
+void Controller::evActivateWrap() {
+    NOTIFY_OPERATION(evActivateWrap, evActivateWrap(), 0, MainPackage_Controller_evActivateWrap_SERIALIZE);
+    //#[ operation evActivateWrap()
     GEN(evActivate);
+    //#]
+}
+
+void Controller::evToNonactiveWrap() {
+    NOTIFY_OPERATION(evToNonactiveWrap, evToNonactiveWrap(), 0, MainPackage_Controller_evToNonactiveWrap_SERIALIZE);
+    //#[ operation evToNonactiveWrap()
+    GEN(evToNonactive);
     //#]
 }
 
@@ -761,28 +765,12 @@ unsigned long long Controller::giveGenTime() {
     //#]
 }
 
-void Controller::stacjaAktywna() {
-    NOTIFY_OPERATION(stacjaAktywna, stacjaAktywna(), 0, MainPackage_Controller_stacjaAktywna_SERIALIZE);
-    //#[ operation stacjaAktywna()
-    if (stopMeasurementFlag)
-    	stopMeasurementFlag = false;
-    //std::cout << stopMeasurementFlag << " in activation" << std::endl;
-    //#]
-}
-
-void Controller::stacjaUspiona() {
-    NOTIFY_OPERATION(stacjaUspiona, stacjaUspiona(), 0, MainPackage_Controller_stacjaUspiona_SERIALIZE);
-    //#[ operation stacjaUspiona()
+void Controller::toNonactive() {
+    NOTIFY_OPERATION(toNonactive, toNonactive(), 0, MainPackage_Controller_toNonactive_SERIALIZE);
+    //#[ operation toNonactive()
     if (!stopMeasurementFlag)
     	stopMeasurementFlag = true;
     std::cout << "Debug: entered non-active mode" << std::endl;
-    //#]
-}
-
-void Controller::uspijStacje() {
-    NOTIFY_OPERATION(uspijStacje, uspijStacje(), 0, MainPackage_Controller_uspijStacje_SERIALIZE);
-    //#[ operation uspijStacje()
-    GEN(UspijStacje);
     //#]
 }
 
@@ -1000,7 +988,7 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                             rootState_subState = PACKAGE_READY;
                             rootState_active = PACKAGE_READY;
                             //#[ state PACKAGE_READY.(Entry) 
-                            OUT_PORT(port_35)->inform();
+                            OUT_PORT(port_35)->evInformPackReadyWrap();
                             
                             //#]
                             rootState_timeout = scheduleTimeout(150, "ROOT.PACKAGE_READY");
@@ -1426,7 +1414,8 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
             rootState_subState = ACTIVATE;
             rootState_active = ACTIVATE;
             //#[ state ACTIVATE.(Entry) 
-            stacjaAktywna();
+            activate();
+            
             //#]
             NOTIFY_TRANSITION_TERMINATED("31");
             res = eventConsumed;
@@ -1441,7 +1430,7 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
             rootState_subState = INTO_NON_ACTIVE;
             rootState_active = INTO_NON_ACTIVE;
             //#[ state INTO_NON_ACTIVE.(Entry) 
-            stacjaUspiona();
+            toNonactive();
             //#]
             NOTIFY_TRANSITION_TERMINATED("29");
             res = eventConsumed;
@@ -1476,7 +1465,7 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
                     rootState_subState = sendaction_44;
                     rootState_active = sendaction_44;
                     //#[ state sendaction_44.(Entry) 
-                    itsTimer.GEN(requestTime);
+                    itsTimer.GEN(evRequestTime);
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("0");
                     res = eventConsumed;

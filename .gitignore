@@ -1,2 +1,6 @@
 *.txt
+
 **/eclipse configuration_1/
+**/*.exe
+**/*.obj
+**/*.o

@@ -11,8 +11,8 @@
 			<_id type="a">GUID 276dc1ec-c611-4917-836a-e9a49290292e</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Project</_name>
-			<_modifiedTimeWeak type="a">9.11.2021::19:33:44</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::19:37:27</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.11.2021::20:36:24</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.11.2021::20:36:24</_modifiedTime>
 			<_UserColors type="w">
 				<IRPYRawContainer type="e">
 					<size type="a">16</size>
@@ -735,8 +735,8 @@
 			</_properties>
 			<_name type="a">Klasy</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::19:33:44</_modifiedTime>
-			<_lastModifiedTime type="a">9.11.2021::19:33:44</_lastModifiedTime>
+			<_modifiedTime type="a">9.11.2021::20:36:41</_modifiedTime>
+			<_lastModifiedTime type="a">9.11.2021::20:36:41</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -2784,18 +2784,6 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">1</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">11</_itemValueOfFontPropertiesMapCount>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
 		<CGIClass type="e">
 			<_id type="a">GUID e3d2c4ba-8021-4155-afbc-3df7ab34f197</_id>
@@ -4153,7 +4141,7 @@
 			<m_SubType type="a">0</m_SubType>
 			<m_providedInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iGetAlertDetails, iCalibrateRequest, iConfirmAlertReceival, iAktywujStacje, iUspijStacje</m_str>
+					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iCalibrateRequest, iAktywujStacje, iUspijStacje</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -4268,7 +4256,7 @@
 			</m_providedInterfaceLabel>
 			<m_requiredInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iGetAlertDetails, iCalibrateRequest, iConfirmAlertReceival, iUspijStacje, iAktywujStacje</m_str>
+					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iCalibrateRequest, iUspijStacje, iAktywujStacje</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -4347,7 +4335,7 @@
 			<m_SubType type="a">0</m_SubType>
 			<m_providedInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iGetAlertDetails, iCalibrateRequest, iConfirmAlertReceival, iAktywujStacje, iUspijStacje</m_str>
+					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iCalibrateRequest, iAktywujStacje, iUspijStacje</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -4462,7 +4450,7 @@
 			</m_providedInterfaceLabel>
 			<m_requiredInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iGetAlertDetails, iCalibrateRequest, iConfirmAlertReceival, iUspijStacje, iAktywujStacje</m_str>
+					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iCalibrateRequest, iUspijStacje, iAktywujStacje</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -4614,9 +4602,7 @@
 			<m_displayOption type="a">Public</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">11</_itemValueOfFontPropertiesMapCount>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_itemValueOfFontPropertiesMapCount type="a">9</_itemValueOfFontPropertiesMapCount>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
@@ -4760,10 +4746,7 @@
 			<m_displayOption type="a">Public</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">41</_itemValueOfFontPropertiesMapCount>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_itemValueOfFontPropertiesMapCount type="a">38</_itemValueOfFontPropertiesMapCount>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
@@ -5008,7 +4991,7 @@
 			</m_providedInterfaceLabel>
 			<m_requiredInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iInform, iSendAlert</m_str>
+					<m_str type="a">iInform</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -5105,7 +5088,7 @@
 			</m_providedInterfaceLabel>
 			<m_requiredInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iInform, iSendAlert</m_str>
+					<m_str type="a">iInform</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -5186,7 +5169,7 @@
 			<m_SubType type="a">0</m_SubType>
 			<m_providedInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iInform, iSendAlert</m_str>
+					<m_str type="a">iInform</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -5283,7 +5266,7 @@
 			<m_SubType type="a">0</m_SubType>
 			<m_providedInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iInform, iSendAlert</m_str>
+					<m_str type="a">iInform</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
