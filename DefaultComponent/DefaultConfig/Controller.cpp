@@ -50,11 +50,11 @@
 
 #define MainPackage_Controller_handleEnergySavingSystem_SERIALIZE OM_NO_OP
 
+#define MainPackage_Controller_makeInfoStr_SERIALIZE OM_NO_OP
+
 #define MainPackage_Controller_print_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_printPackage_SERIALIZE OM_NO_OP
-
-#define MainPackage_Controller_readInfo_SERIALIZE OM_NO_OP
 
 #define MainPackage_Controller_toNonactive_SERIALIZE OM_NO_OP
 
@@ -326,6 +326,15 @@ void Controller::port_35_C::evInformPackReadyWrap() {
     
 }
 
+void Controller::port_35_C::getInfo(
+std::string info) {
+    
+    if (itsIInform != NULL) {
+        itsIInform->getInfo(info);
+    }
+    
+}
+
 iInform* Controller::port_35_C::getItsIInform() {
     return this;
 }
@@ -495,23 +504,6 @@ void Controller::printPackage() {
     //#]
 }
 
-void Controller::readInfo() {
-    NOTIFY_OPERATION(readInfo, readInfo(), 0, MainPackage_Controller_readInfo_SERIALIZE);
-    //#[ operation readInfo()
-    std::cout << "===============System information===========" << std::endl;
-    std::cout << "station id: " << stationId << std::endl
-    			<< "sensors:" << std::endl
-    			<< "Annemometer id: " << itsAnnemometer.getId() << std::endl
-    			<< "Rain Tipping Gauge id: " << itsRainAmountSensor.getId() << std::endl
-    			<< "Wind Direction id: " << itsWindDirectionSensor.getId() << std::endl
-    			<< "Temperature id: " << itsTemperatureSensor.getId() << std::endl
-    			<< "Humidity id: " << itsHumiditySensor.getId() << std::endl
-    			<< "Pressure id: " << itsPressureSensor.getId() << std::endl
-    		
-    		 << "============================================" << std::endl;  
-    //#]
-}
-
 Controller::port_33_C* Controller::getPort_33() const {
     return (Controller::port_33_C*) &port_33;
 }
@@ -609,6 +601,7 @@ void Controller::evGetInfoWrap() {
     NOTIFY_OPERATION(evGetInfoWrap, evGetInfoWrap(), 0, MainPackage_Controller_evGetInfoWrap_SERIALIZE);
     //#[ operation evGetInfoWrap()
     GEN(evGetInfo);
+    std::cout << "Debug: Controller::evGetInfoWrap(): evGetInfo generated\n" << std::endl;
     //#]
 }
 
@@ -649,6 +642,25 @@ unsigned long long Controller::giveGenTime() {
     NOTIFY_OPERATION(giveGenTime, giveGenTime(), 0, MainPackage_Controller_giveGenTime_SERIALIZE);
     //#[ operation giveGenTime()
     return itsTimer.getTimestamp();
+    //#]
+}
+
+std::string Controller::makeInfoStr() {
+    NOTIFY_OPERATION(makeInfoStr, makeInfoStr(), 0, MainPackage_Controller_makeInfoStr_SERIALIZE);
+    //#[ operation makeInfoStr()
+    std::string temp = std::string("===============System information===========") + 
+    std::string("\nstation id: ") + std::to_string(static_cast<long long>(stationId)) + 
+    std::string("\nsensors:") +
+    std::string("\nAnnemometer id: ") + std::to_string(static_cast<long long>(itsAnnemometer.getId())) + 
+    std::string("\nRain Tipping Gauge id: ") + std::to_string(static_cast<long long>(itsRainAmountSensor.getId())) +
+    std::string("\nWind Direction id: ") + std::to_string(static_cast<long long>(itsWindDirectionSensor.getId()))+ 
+    std::string("\nTemperature id: ") + std::to_string(static_cast<long long>(itsTemperatureSensor.getId()))+ 
+    std::string("\nHumidity id: ") + std::to_string(static_cast<long long>(itsHumiditySensor.getId()))+ 
+    std::string("\nPressure id: ") + std::to_string(static_cast<long long>(itsPressureSensor.getId()))+ 
+    std::string("\n============================================");
+    return temp;
+    
+    
     //#]
 }
 
@@ -1150,6 +1162,26 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
             
         }
         break;
+        // State state_51
+        case state_51:
+        {
+            if(IS_EVENT_TYPE_OF(OMNullEventId))
+                {
+                    NOTIFY_TRANSITION_STARTED("26");
+                    popNullTransition();
+                    NOTIFY_STATE_EXITED("ROOT.state_51");
+                    NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
+                    rootState_subState = STAND_BY_CONTROLLER;
+                    rootState_active = STAND_BY_CONTROLLER;
+                    //#[ state STAND_BY_CONTROLLER.(Entry) 
+                    handleEnergySavingSystem();
+                    //#]
+                    NOTIFY_TRANSITION_TERMINATED("26");
+                    res = eventConsumed;
+                }
+            
+        }
+        break;
         default:
             break;
     }
@@ -1163,14 +1195,12 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
             NOTIFY_TRANSITION_STARTED("23");
             NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
             //#[ transition 23 
-            readInfo();
+            OUT_PORT(port_35)->getInfo(makeInfoStr());
             //#]
-            NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
-            rootState_subState = STAND_BY_CONTROLLER;
-            rootState_active = STAND_BY_CONTROLLER;
-            //#[ state STAND_BY_CONTROLLER.(Entry) 
-            handleEnergySavingSystem();
-            //#]
+            NOTIFY_STATE_ENTERED("ROOT.state_51");
+            pushNullTransition();
+            rootState_subState = state_51;
+            rootState_active = state_51;
             NOTIFY_TRANSITION_TERMINATED("23");
             res = eventConsumed;
         }
@@ -1337,9 +1367,18 @@ void OMAnimatedController::rootState_serializeStates(AOMSState* aomsState) const
             NON_ACTIVE_serializeStates(aomsState);
         }
         break;
+        case Controller::state_51:
+        {
+            state_51_serializeStates(aomsState);
+        }
+        break;
         default:
             break;
     }
+}
+
+void OMAnimatedController::state_51_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.state_51");
 }
 
 void OMAnimatedController::STAND_BY_CONTROLLER_serializeStates(AOMSState* aomsState) const {

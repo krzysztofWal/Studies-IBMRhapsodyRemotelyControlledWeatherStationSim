@@ -21,6 +21,8 @@
 
 #define MainPackage_Receiver_evInformPackReadyWrap_SERIALIZE OM_NO_OP
 
+#define MainPackage_Receiver_getInfo_SERIALIZE aomsmethod->addAttribute("info", UNKNOWN2STRING(info));
+
 #define OMAnim_MainPackage_Receiver_setWhichToCalibrate_int_UNSERIALIZE_ARGS OP_UNSER(OMDestructiveString2X,p_whichToCalibrate)
 
 #define OMAnim_MainPackage_Receiver_setWhichToCalibrate_int_SERIALIZE_RET_VAL
@@ -212,6 +214,15 @@ void Receiver::port_5_C::evInformPackReadyWrap() {
     
 }
 
+void Receiver::port_5_C::getInfo(
+std::string info) {
+    
+    if (itsIInform != NULL) {
+        itsIInform->getInfo(info);
+    }
+    
+}
+
 iInform* Receiver::port_5_C::getItsIInform() {
     return this;
 }
@@ -245,6 +256,13 @@ void Receiver::evInformPackReadyWrap() {
     //#[ operation evInformPackReadyWrap()
     GEN(evInform);
     //std::cout << "contr to rec - 've got data you can have them" << std::endl;
+    //#]
+}
+
+void Receiver::getInfo(std::string info) {
+    NOTIFY_OPERATION(getInfo, getInfo(std::string), 1, MainPackage_Receiver_getInfo_SERIALIZE);
+    //#[ operation getInfo(std::string)
+    std::cout << info << std::endl;
     //#]
 }
 
@@ -374,6 +392,7 @@ IOxfReactive::TakeEventStatus Receiver::rootState_processEvent() {
                     //#[ transition 1 
                     dataReceived.emplace_back(OUT_PORT(port_3)->print());
                     OUT_PORT(port_3)->evConfirmPackageReceivalWrap();
+                    std::cout << "Debug: receiverStates: received package";
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.STANDBY");
                     rootState_subState = STANDBY;
@@ -486,6 +505,21 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
             OUT_PORT(port_3)->evCalibrateWrap(whichToCalibrate);
             //#]
             NOTIFY_TRANSITION_TERMINATED("3");
+            res = eventConsumed;
+        }
+    else if(IS_EVENT_TYPE_OF(evInform_MainPackage_id))
+        {
+            NOTIFY_TRANSITION_STARTED("12");
+            NOTIFY_STATE_EXITED("ROOT.STANDBY");
+            //#[ transition 12 
+            dataReceived.emplace_back(OUT_PORT(port_3)->print());
+            OUT_PORT(port_3)->evConfirmPackageReceivalWrap();
+            std::cout << "Debug: receiverStates: received package";
+            //#]
+            NOTIFY_STATE_ENTERED("ROOT.STANDBY");
+            rootState_subState = STANDBY;
+            rootState_active = STANDBY;
+            NOTIFY_TRANSITION_TERMINATED("12");
             res = eventConsumed;
         }
     else if(IS_EVENT_TYPE_OF(evServGetInfo_MainPackage_id))

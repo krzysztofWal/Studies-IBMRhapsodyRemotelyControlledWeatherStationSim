@@ -283,6 +283,10 @@ public :
         virtual void evInformPackReadyWrap();
         
         //## auto_generated
+        virtual void getInfo(
+        std::string info);
+        
+        //## auto_generated
         iInform* getItsIInform();
         
         //## auto_generated
@@ -343,9 +347,6 @@ public :
     
     //## operation printPackage()
     void printPackage();
-    
-    //## operation readInfo()
-    void readInfo();
     
     //## auto_generated
     port_33_C* getPort_33() const;
@@ -446,6 +447,9 @@ public :
     //## operation giveGenTime()
     unsigned long long giveGenTime();
     
+    //## operation makeInfoStr()
+    std::string makeInfoStr();
+    
     //## operation toNonactive()
     void toNonactive();
     
@@ -503,6 +507,10 @@ public :
     
     //## statechart_method
     virtual IOxfReactive::TakeEventStatus rootState_processEvent();
+    
+    // state_51:
+    //## statechart_method
+    inline bool state_51_IN() const;
     
     // STAND_BY_CONTROLLER:
     //## statechart_method
@@ -564,19 +572,20 @@ protected :
 //#[ ignore
     enum Controller_Enum {
         OMNonState = 0,
-        STAND_BY_CONTROLLER = 1,
-        SIGNAL_JOIN_TIMER_SERVER_REQUEST = 2,
-        sendaction_44 = 3,
-        sendaction_42 = 4,
-        sendaction_41 = 5,
-        sendaction_40 = 6,
-        sendaction_39 = 7,
-        sendaction_38 = 8,
-        sendaction_37 = 9,
-        PACKAGE_READY = 10,
-        NON_ACTIVE = 11,
-        DELETE_PACKAGE = 12,
-        CALIBRATE = 13
+        state_51 = 1,
+        STAND_BY_CONTROLLER = 2,
+        SIGNAL_JOIN_TIMER_SERVER_REQUEST = 3,
+        sendaction_44 = 4,
+        sendaction_42 = 5,
+        sendaction_41 = 6,
+        sendaction_40 = 7,
+        sendaction_39 = 8,
+        sendaction_38 = 9,
+        sendaction_37 = 10,
+        PACKAGE_READY = 11,
+        NON_ACTIVE = 12,
+        DELETE_PACKAGE = 13,
+        CALIBRATE = 14
     };
     
     int rootState_subState;
@@ -602,6 +611,9 @@ public :
     
     //## statechart_method
     void rootState_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void state_51_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
     void STAND_BY_CONTROLLER_serializeStates(AOMSState* aomsState) const;
@@ -651,6 +663,10 @@ class OMAnimatedobject_0_C : virtual public AOMInstance {
 
 inline bool Controller::rootState_IN() const {
     return true;
+}
+
+inline bool Controller::state_51_IN() const {
+    return rootState_subState == state_51;
 }
 
 inline bool Controller::STAND_BY_CONTROLLER_IN() const {

@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: iInform
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\iInform.cpp
 *********************************************************************/
 
@@ -18,6 +18,8 @@
 #define MainPackage_iInform_iInform_SERIALIZE OM_NO_OP
 
 #define MainPackage_iInform_evInformPackReadyWrap_SERIALIZE OM_NO_OP
+
+#define MainPackage_iInform_getInfo_SERIALIZE aomsmethod->addAttribute("info", UNKNOWN2STRING(info));
 //#]
 
 //## package MainPackage

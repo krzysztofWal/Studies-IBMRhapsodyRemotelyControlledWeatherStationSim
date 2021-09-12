@@ -43,8 +43,8 @@
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">Project</_name>
-			<_modifiedTimeWeak type="a">9.12.2021::21:15:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.12.2021::21:46:58</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::23:36:52</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::23:36:52</_modifiedTime>
 			<_UserColors type="w">
 				<IRPYRawContainer type="e">
 					<size type="a">16</size>
@@ -767,8 +767,8 @@
 			</_properties>
 			<_name type="a">Klasy</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.12.2021::21:2:47</_modifiedTime>
-			<_lastModifiedTime type="a">9.12.2021::21:2:47</_lastModifiedTime>
+			<_modifiedTime type="a">9.12.2021::23:37:55</_modifiedTime>
+			<_lastModifiedTime type="a">9.12.2021::23:37:55</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -1211,7 +1211,8 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">1</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">7</_itemValueOfFontPropertiesMapCount>
+			<_itemValueOfFontPropertiesMapCount type="a">8</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
@@ -2746,7 +2747,7 @@
 												<size type="a">1</size>
 												<IProperty type="e">
 													<_Name type="a">Compartments</_Name>
-													<_Value type="a">Attribute,Operation,</_Value>
+													<_Value type="a">Attribute,Operation</_Value>
 													<_Type type="a">MultiLine</_Type>
 												</IProperty>
 												
@@ -2789,8 +2790,8 @@
 					<m_nOrientationCtrlPt type="a">5</m_nOrientationCtrlPt>
 				</CGIText>
 			</m_name>
-			<m_drawBehavior type="a">395368</m_drawBehavior>
-			<m_transform type="a">0.218311 0 0 0.244207 1402.56 89.6542 </m_transform>
+			<m_drawBehavior type="a">2152</m_drawBehavior>
+			<m_transform type="a">0.218311 0 0 0.244207 1402.56 87.6542 </m_transform>
 			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
 			<m_AdditionalLabel type="p">
 				<CGIText type="e">
@@ -2834,9 +2835,10 @@
 			<_id type="a">GUID e0535764-edaf-4bce-85af-3fc22ca465aa</_id>
 			<m_name type="a">Attribute</m_name>
 			<m_displayOption type="a">All</m_displayOption>
-			<m_bShowInherited type="a">1</m_bShowInherited>
+			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">2</_itemValueOfFontPropertiesMapCount>
+			<_itemValueOfFontPropertiesMapCount type="a">3</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
@@ -2844,16 +2846,8 @@
 			<_id type="a">GUID ce548044-e36c-4332-8105-4b2a50a31c19</_id>
 			<m_name type="a">Operation</m_name>
 			<m_displayOption type="a">All</m_displayOption>
-			<m_bShowInherited type="a">1</m_bShowInherited>
+			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">7</_itemValueOfFontPropertiesMapCount>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
 		<CGIClass type="e">
 			<_id type="a">GUID e3d2c4ba-8021-4155-afbc-3df7ab34f197</_id>
@@ -4672,14 +4666,6 @@
 			<m_displayOption type="a">Public</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">7</_itemValueOfFontPropertiesMapCount>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
 		<CGIObjectInstance type="e">
 			<_id type="a">GUID d2af7789-863d-4fe4-82c7-dc71b21f44c0</_id>
@@ -5757,8 +5743,7 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">5</_itemValueOfFontPropertiesMapCount>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_itemValueOfFontPropertiesMapCount type="a">4</_itemValueOfFontPropertiesMapCount>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>

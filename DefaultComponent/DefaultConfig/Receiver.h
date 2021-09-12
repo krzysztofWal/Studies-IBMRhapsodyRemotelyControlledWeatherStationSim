@@ -203,6 +203,10 @@ public :
         virtual void evInformPackReadyWrap();
         
         //## auto_generated
+        virtual void getInfo(
+        std::string info);
+        
+        //## auto_generated
         iInform* getItsIInform();
         
         ////    Additional operations    ////
@@ -243,6 +247,9 @@ public :
     
     //## operation evInformPackReadyWrap()
     virtual void evInformPackReadyWrap();
+    
+    //## operation getInfo(std::string)
+    void getInfo(std::string info);
     
     ////    Additional operations    ////
     

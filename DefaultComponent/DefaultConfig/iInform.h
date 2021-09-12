@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: iInform
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\iInform.h
 *********************************************************************/
 
@@ -59,6 +59,10 @@ public :
     
     //## operation evInformPackReadyWrap()
     virtual void evInformPackReadyWrap() = 0;
+    
+    //## operation getInfo(std::string)
+    virtual void getInfo(
+    std::string info) = 0;
 };
 
 #ifdef _OMINSTRUMENT
