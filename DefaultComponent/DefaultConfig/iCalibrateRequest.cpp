@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: iCalibrateRequest
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\iCalibrateRequest.cpp
 *********************************************************************/
 
@@ -17,7 +17,7 @@
 //#[ ignore
 #define MainPackage_iCalibrateRequest_iCalibrateRequest_SERIALIZE OM_NO_OP
 
-#define MainPackage_iCalibrateRequest_evCalibrateWrap_SERIALIZE OM_NO_OP
+#define MainPackage_iCalibrateRequest_evCalibrateWrap_SERIALIZE aomsmethod->addAttribute("whichSensor", x2String(whichSensor));
 //#]
 
 //## package MainPackage

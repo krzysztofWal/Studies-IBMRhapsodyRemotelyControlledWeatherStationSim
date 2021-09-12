@@ -32,7 +32,7 @@
 
 #define MainPackage_Controller_evActivateWrap_SERIALIZE OM_NO_OP
 
-#define MainPackage_Controller_evCalibrateWrap_SERIALIZE OM_NO_OP
+#define MainPackage_Controller_evCalibrateWrap_SERIALIZE aomsmethod->addAttribute("whichSensor", x2String(whichSensor));
 
 #define MainPackage_Controller_evConfirmPackageReceivalWrap_SERIALIZE OM_NO_OP
 
@@ -407,9 +407,10 @@ void Controller::calibrate() {
     //#]
 }
 
-void Controller::evCalibrateWrap() {
-    NOTIFY_OPERATION(evCalibrateWrap, evCalibrateWrap(), 0, MainPackage_Controller_evCalibrateWrap_SERIALIZE);
-    //#[ operation evCalibrateWrap()
+void Controller::evCalibrateWrap(int whichSensor) {
+    NOTIFY_OPERATION(evCalibrateWrap, evCalibrateWrap(int), 1, MainPackage_Controller_evCalibrateWrap_SERIALIZE);
+    //#[ operation evCalibrateWrap(int)
+    whichSensorCal = whichSensor;
     GEN(evCalibrate);
     //#]
 }
@@ -685,6 +686,14 @@ WindDirectionSensor* Controller::getItsWindDirectionSensor() const {
     return (WindDirectionSensor*) &itsWindDirectionSensor;
 }
 
+int Controller::getWhichSensorCal() const {
+    return whichSensorCal;
+}
+
+void Controller::setWhichSensorCal(int p_whichSensorCal) {
+    whichSensorCal = p_whichSensorCal;
+}
+
 void Controller::setDataPackage(StationData* p_dataPackage) {
     dataPackage = p_dataPackage;
 }
@@ -802,7 +811,6 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                         {
                             NOTIFY_TRANSITION_STARTED("21");
                             //#[ transition 21 
-                            std::cout<<"==========================" << std::endl;
                             GEN(evExitCalibration);
                             //#]
                             NOTIFY_TRANSITION_TERMINATED("21");
@@ -1117,7 +1125,7 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                     rootState_active = CALIBRATE;
                     //#[ state CALIBRATE.(Entry) 
                     calibrate();
-                    std::cout << "=====calibration=====" << std::endl;
+                    std::cout << "Debug: calibration; sensor: " << whichSensorCal << std::endl;
                     //#]
                     rootState_timeout = scheduleTimeout(1000, "ROOT.CALIBRATE");
                     NOTIFY_TRANSITION_TERMINATED("6");
@@ -1227,6 +1235,7 @@ void OMAnimatedController::serializeAttributes(AOMSAttributes* aomsAttributes) c
     aomsAttributes->addAttribute("alert", UNKNOWN2STRING(myReal->alert));
     aomsAttributes->addAttribute("iterator", x2String(myReal->iterator));
     aomsAttributes->addAttribute("whetherTimerRead", x2String(myReal->whetherTimerRead));
+    aomsAttributes->addAttribute("whichSensorCal", x2String(myReal->whichSensorCal));
     OMAnimatediPrint::serializeAttributes(aomsAttributes);
     OMAnimatediInitialize::serializeAttributes(aomsAttributes);
     OMAnimatediConfirmDataReceival::serializeAttributes(aomsAttributes);

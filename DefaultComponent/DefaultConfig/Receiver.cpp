@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Receiver
-//!	Generated Date	: Sun, 12, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\Receiver.cpp
 *********************************************************************/
 
@@ -20,6 +20,10 @@
 #define MainPackage_Receiver_Receiver_SERIALIZE OM_NO_OP
 
 #define MainPackage_Receiver_evInformPackReadyWrap_SERIALIZE OM_NO_OP
+
+#define OMAnim_MainPackage_Receiver_setWhichToCalibrate_int_UNSERIALIZE_ARGS OP_UNSER(OMDestructiveString2X,p_whichToCalibrate)
+
+#define OMAnim_MainPackage_Receiver_setWhichToCalibrate_int_SERIALIZE_RET_VAL
 //#]
 
 //## package MainPackage
@@ -48,10 +52,10 @@ void Receiver::port_3_C::evActivateWrap() {
     
 }
 
-void Receiver::port_3_C::evCalibrateWrap() {
+void Receiver::port_3_C::evCalibrateWrap(int whichSensor) {
     
     if (itsICalibrateRequest != NULL) {
-        itsICalibrateRequest->evCalibrateWrap();
+        itsICalibrateRequest->evCalibrateWrap(whichSensor);
     }
     
 }
@@ -260,6 +264,11 @@ Receiver::port_5_C* Receiver::get_port_5() const {
     return (Receiver::port_5_C*) &port_5;
 }
 
+void Receiver::setWhichToCalibrate(int p_whichToCalibrate) {
+    whichToCalibrate = p_whichToCalibrate;
+    NOTIFY_SET_OPERATION;
+}
+
 bool Receiver::startBehavior() {
     bool done = false;
     done = OMReactive::startBehavior();
@@ -284,6 +293,10 @@ int Receiver::getIterator() const {
 
 void Receiver::setIterator(int p_iterator) {
     iterator = p_iterator;
+}
+
+int Receiver::getWhichToCalibrate() const {
+    return whichToCalibrate;
 }
 
 void Receiver::initRelations() {
@@ -470,7 +483,7 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
             rootState_subState = CALIBRATE_SEND;
             rootState_active = CALIBRATE_SEND;
             //#[ state CALIBRATE_SEND.(Entry) 
-            OUT_PORT(port_3)->evCalibrateWrap();
+            OUT_PORT(port_3)->evCalibrateWrap(whichToCalibrate);
             //#]
             NOTIFY_TRANSITION_TERMINATED("3");
             res = eventConsumed;
@@ -526,6 +539,7 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
 void OMAnimatedReceiver::serializeAttributes(AOMSAttributes* aomsAttributes) const {
     aomsAttributes->addAttribute("dataReceived", UNKNOWN2STRING(myReal->dataReceived));
     aomsAttributes->addAttribute("iterator", x2String(myReal->iterator));
+    aomsAttributes->addAttribute("whichToCalibrate", x2String(myReal->whichToCalibrate));
     OMAnimatediInform::serializeAttributes(aomsAttributes);
 }
 
@@ -601,6 +615,10 @@ IMPLEMENT_REACTIVE_META_S_P(Receiver, MainPackage, false, iInform, OMAnimatediIn
 OMINIT_SUPERCLASS(iInform, OMAnimatediInform)
 
 OMREGISTER_REACTIVE_CLASS
+
+IMPLEMENT_META_OP(OMAnimatedReceiver, MainPackage_Receiver_setWhichToCalibrate_int, "setWhichToCalibrate", FALSE, "setWhichToCalibrate(int)", 1)
+
+IMPLEMENT_OP_CALL(MainPackage_Receiver_setWhichToCalibrate_int, Receiver, setWhichToCalibrate(p_whichToCalibrate), NO_OP())
 #endif // _OMINSTRUMENT
 
 /*********************************************************************

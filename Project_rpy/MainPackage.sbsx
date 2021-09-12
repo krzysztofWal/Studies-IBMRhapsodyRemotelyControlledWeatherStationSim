@@ -11,10 +11,10 @@
 			<_id type="a">GUID e33a1f4f-d5ca-497a-8673-ece9fbd20dfa</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">MainPackage</_name>
-			<_modifiedTimeWeak type="a">9.12.2021::22:3:46</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.12.2021::22:7:48</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:19:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:25:33</_modifiedTime>
 			<_lastID type="a">113</_lastID>
-			<weakCGTime type="a">9.12.2021::22:3:46</weakCGTime>
+			<weakCGTime type="a">9.12.2021::22:19:0</weakCGTime>
 			<strongCGTime type="a">9.10.2021::22:7:33</strongCGTime>
 			<_defaultComposite type="s">GUID 497f565d-f4d4-4b08-a3ce-1d07f510e066</_defaultComposite>
 			<_eventsBaseID type="a">18601</_eventsBaseID>
@@ -5271,7 +5271,7 @@ return num;%0D
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">Controller</_name>
-			<_modifiedTimeWeak type="a">9.12.2021::22:10:17</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">9.12.2021::22:24:3</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -5279,9 +5279,9 @@ return num;%0D
 					<_hid type="a">GUID 6094218e-79b1-4cb5-9edc-8c271d292ca1</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">9.12.2021::22:10:17</_modifiedTime>
-			<_lastID type="a">49</_lastID>
-			<weakCGTime type="a">9.12.2021::22:10:17</weakCGTime>
+			<_modifiedTime type="a">9.12.2021::22:24:3</_modifiedTime>
+			<_lastID type="a">50</_lastID>
+			<weakCGTime type="a">9.12.2021::22:24:3</weakCGTime>
 			<strongCGTime type="a">9.11.2021::19:48:17</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -5333,6 +5333,7 @@ return num;%0D
 				<value>GUID d82472ef-d2cc-4b20-a052-62ac932d0ddc</value>
 				<value>GUID cf55530a-19c0-4c43-82e8-12c59e1efac6</value>
 				<value>GUID e9a1c810-7a7c-4132-adba-87908d7b63c2</value>
+				<value>GUID f84df927-a70f-4870-a07c-6a7d1d194469</value>
 				<value>GUID 46e8e513-95fa-49fa-a5be-0dbc769750fb</value>
 				<value>GUID fd916a54-b3ea-46d9-b7a1-cb1970322f73</value>
 				<value>GUID 1cd0b179-8858-4f08-a0d2-0d1868879855</value>
@@ -7009,14 +7010,10 @@ return num;%0D
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">evCalibrateWrap</_name>
-			<_modifiedTimeWeak type="a">9.11.2021::19:49:14</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::19:49:14</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:20:58</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:20:58</_modifiedTime>
+			<_lastID type="a">1</_lastID>
 			<_virtual type="a">0</_virtual>
-			<Args type="c">
-				<IRPYRawContainer type="e">
-					<size type="a">0</size>
-				</IRPYRawContainer>
-			</Args>
 			<_returnType type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IType</_hm2Class>
@@ -7032,10 +7029,31 @@ return num;%0D
 			<_static type="a">0</_static>
 			<_constant type="a">0</_constant>
 			<_itsBody type="p"><IBody type="e">
-				<_bodyData type="a">GEN(evCalibrate);</_bodyData>
+				<_bodyData type="a">whichSensorCal = whichSensor;%0D
+GEN(evCalibrate);</_bodyData>
 			</IBody>
 			</_itsBody>
+			<AggregatesList type="e">
+				<value>GUID be794825-1d5d-4a24-84dc-564f31d8f72d</value>
+			</AggregatesList>
 		</IPrimitiveOperation>
+		<IArgument type="e">
+			<_id type="a">GUID be794825-1d5d-4a24-84dc-564f31d8f72d</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">whichSensor</_name>
+			<_modifiedTimeWeak type="a">9.12.2021::22:19:31</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:19:31</_modifiedTime>
+			<_typeOf type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IType</_hm2Class>
+					<_hsubsystem type="a">PredefinedTypesCpp</_hsubsystem>
+					<_hname type="a">int</_hname>
+					<_hid type="a">GUID 6024c6ab-fe9e-402e-954f-27aca6d3b5e4</_hid>
+				</IHandle>
+			</_typeOf>
+			<_isOrdered type="a">0</_isOrdered>
+			<_argumentDirection type="a">In</_argumentDirection>
+		</IArgument>
 		<IPrimitiveOperation type="e">
 			<_id type="a">GUID 4e308e6d-41fc-4074-831c-51380e8ba860</_id>
 			<_myState type="a">8192</_myState>
@@ -8166,6 +8184,26 @@ default:%0D
 			<_modifiedTime type="a">7.11.2020::13:45:48</_modifiedTime>
 			<_value type="a">false</_value>
 		</ILiteralSpecification>
+		<IAttribute type="e">
+			<_id type="a">GUID f84df927-a70f-4870-a07c-6a7d1d194469</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">whichSensorCal</_name>
+			<_modifiedTimeWeak type="a">9.12.2021::22:20:15</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:20:15</_modifiedTime>
+			<_typeOf type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IType</_hm2Class>
+					<_hsubsystem type="a">PredefinedTypesCpp</_hsubsystem>
+					<_hname type="a">int</_hname>
+					<_hid type="a">GUID 6024c6ab-fe9e-402e-954f-27aca6d3b5e4</_hid>
+				</IHandle>
+			</_typeOf>
+			<_isOrdered type="a">0</_isOrdered>
+			<_protection type="a">iProtected</_protection>
+			<_static type="a">0</_static>
+			<_isReferenceAttr type="a">0</_isReferenceAttr>
+			<_isConstant type="a">0</_isConstant>
+		</IAttribute>
 		<IGeneralization type="e">
 			<_id type="a">GUID 46e8e513-95fa-49fa-a5be-0dbc769750fb</_id>
 			<Stereotypes type="c">
@@ -8326,8 +8364,8 @@ default:%0D
 			<_id type="a">GUID a94f88e3-e949-4632-b3e6-55aacbbc7fce</_id>
 			<_myState type="a">139264</_myState>
 			<_name type="a">Controller</_name>
-			<_modifiedTimeWeak type="a">9.12.2021::22:10:17</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.12.2021::22:10:17</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:20:6</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:20:6</_modifiedTime>
 			<m_type type="a">implFile</m_type>
 			<AggregatesList type="e">
 				<value>GUID 6a39673e-9c8e-43bd-9965-4a33b2696ef3</value>
@@ -8353,8 +8391,8 @@ default:%0D
 		<IFileFragment type="e">
 			<_id type="a">GUID f46c50d8-3abc-49de-a70d-0463aa885fd3</_id>
 			<_name type="a">Controller</_name>
-			<_modifiedTimeWeak type="a">9.12.2021::22:10:17</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.12.2021::22:10:17</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:20:6</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:20:6</_modifiedTime>
 			<m_type type="a">implFragment</m_type>
 			<m_startRow type="a">78</m_startRow>
 			<m_startCol_Short type="a">24</m_startCol_Short>
@@ -9569,8 +9607,8 @@ default:%0D
 		<IFileFragment type="e">
 			<_id type="a">GUID 4849a58c-0c2a-46cf-8083-9788e6405f75</_id>
 			<_name type="a">evCalibrateWrap</_name>
-			<_modifiedTimeWeak type="a">9.11.2021::19:49:14</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::19:49:14</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:19:31</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:19:31</_modifiedTime>
 			<m_type type="a">implFragment</m_type>
 			<m_startRow type="a">475</m_startRow>
 			<m_startCol_Short type="a">37</m_startCol_Short>
@@ -12240,8 +12278,8 @@ default:%0D
 			<_id type="a">GUID ad93cce7-6ce9-40b5-9746-61848459a8de</_id>
 			<_myState type="a">139264</_myState>
 			<_name type="a">Controller</_name>
-			<_modifiedTimeWeak type="a">9.12.2021::22:10:17</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.12.2021::22:10:17</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:20:6</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:20:6</_modifiedTime>
 			<m_type type="a">specFile</m_type>
 			<AggregatesList type="e">
 				<value>GUID a95b8632-9bb5-4674-92c1-a9282fdbc1b7</value>
@@ -12812,8 +12850,8 @@ default:%0D
 		<IFileFragment type="e">
 			<_id type="a">GUID cc8484ae-122c-4e88-b65b-77bbb4481f63</_id>
 			<_name type="a">Controller</_name>
-			<_modifiedTimeWeak type="a">9.12.2021::22:10:17</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.12.2021::22:10:17</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:20:6</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:20:6</_modifiedTime>
 			<m_type type="a">specFragment</m_type>
 			<m_startRow type="a">83</m_startRow>
 			<m_startCol_Short type="a">1</m_startCol_Short>
@@ -13512,8 +13550,8 @@ default:%0D
 		<IFileFragment type="e">
 			<_id type="a">GUID 97d9ed98-01c1-43aa-803e-9410c2a086c7</_id>
 			<_name type="a">evCalibrateWrap</_name>
-			<_modifiedTimeWeak type="a">9.11.2021::19:49:14</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::19:49:14</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:19:31</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:19:31</_modifiedTime>
 			<m_type type="a">specFragment</m_type>
 			<m_startRow type="a">332</m_startRow>
 			<m_startCol_Short type="a">18</m_startCol_Short>
@@ -14301,10 +14339,10 @@ default:%0D
 			<_id type="a">GUID 892c3d5a-9c15-402b-a022-8e24f74587e8</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">ControllerStates</_name>
-			<_modifiedTimeWeak type="a">9.12.2021::20:8:44</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.12.2021::20:8:44</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:24:3</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:24:48</_modifiedTime>
 			<_lastID type="a">117</_lastID>
-			<weakCGTime type="a">9.12.2021::20:8:44</weakCGTime>
+			<weakCGTime type="a">9.12.2021::22:24:3</weakCGTime>
 			<strongCGTime type="a">9.11.2021::19:48:17</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -14312,7 +14350,7 @@ default:%0D
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
 			<_defNumber type="a">51</_defNumber>
-			<_version type="a">9.12.2021::22:4:26</_version>
+			<_version type="a">9.13.2021::0:24:48</_version>
 			<_baseVersion type="a">1.2.1990::0:0:0</_baseVersion>
 			<_diagram type="s">GUID af63f7bb-a1ad-4d24-b05c-ce3e5f00d823</_diagram>
 			<AggregatesList type="e">
@@ -15094,8 +15132,8 @@ default:%0D
 		</IAction>
 		<ITransition type="e">
 			<_id type="a">GUID 5b29ef02-1c7a-45d4-b755-3aca14e5c16c</_id>
-			<_modifiedTimeWeak type="a">9.12.2021::20:7:58</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::19:18:28</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:24:3</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:24:3</_modifiedTime>
 			<_itsTarget type="s">GUID 515ff200-3139-4b69-9970-b142c3e618b7</_itsTarget>
 			<_staticReaction type="a">1</_staticReaction>
 			<_itsSource type="s">GUID 515ff200-3139-4b69-9970-b142c3e618b7</_itsSource>
@@ -15105,8 +15143,8 @@ default:%0D
 		</ITransition>
 		<ILabel type="e">
 			<_id type="a">GUID 8619c3c6-742d-4149-9b3f-1cd8b58b7b61</_id>
-			<_modifiedTimeWeak type="a">9.11.2021::19:18:28</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::19:18:28</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:24:3</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:24:3</_modifiedTime>
 			<_itsGuard>NULL</_itsGuard>
 			<AggregatesList type="e">
 				<value>GUID 2cba51b1-1fca-4a9f-9671-168fbd0b9f1f</value>
@@ -15122,10 +15160,9 @@ default:%0D
 		</ITimeout>
 		<IAction type="e">
 			<_id type="a">GUID ddc0473d-ed61-4a19-8e58-97ad67a2b250</_id>
-			<_modifiedTimeWeak type="a">9.11.2021::19:18:28</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::19:18:28</_modifiedTime>
-			<_body type="a">std::cout&lt;&lt;&quot;==========================&quot; &lt;&lt; std::endl;%0D
-GEN(evExitCalibration);</_body>
+			<_modifiedTimeWeak type="a">9.12.2021::22:24:3</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:24:3</_modifiedTime>
+			<_body type="a">GEN(evExitCalibration);</_body>
 		</IAction>
 		<ITransition type="e">
 			<_id type="a">GUID 1abafdc1-7387-42ee-841b-ed9deaed1251</_id>
@@ -15332,17 +15369,17 @@ GEN(evExitCalibration);</_body>
 		<IState type="e">
 			<_id type="a">GUID 515ff200-3139-4b69-9970-b142c3e618b7</_id>
 			<_name type="a">CALIBRATE</_name>
-			<_modifiedTimeWeak type="a">9.12.2021::20:7:58</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::16:37:12</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:21:49</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:21:49</_modifiedTime>
 			<_parent type="s">GUID 4fdaec4f-685e-495e-8059-b275e764d086</_parent>
 			<_defaultTrans type="s"></_defaultTrans>
 			<_entryAction type="p"><IAction type="e">
 				<_id type="a">GUID add6597b-0e05-4217-af35-a9b840b08327</_id>
 				<_myState type="a">4096</_myState>
-				<_modifiedTimeWeak type="a">7.13.2020::22:51:15</_modifiedTimeWeak>
-				<_modifiedTime type="a">7.13.2020::22:51:15</_modifiedTime>
+				<_modifiedTimeWeak type="a">9.12.2021::22:21:49</_modifiedTimeWeak>
+				<_modifiedTime type="a">9.12.2021::22:21:49</_modifiedTime>
 				<_body type="a">calibrate();%0D
-std::cout &lt;&lt; &quot;=====calibration=====&quot; &lt;&lt; std::endl;</_body>
+std::cout &lt;&lt; &quot;Debug: calibration; sensor: &quot; &lt;&lt; whichSensorCal &lt;&lt; std::endl;</_body>
 			</IAction>
 			</_entryAction>
 		</IState>
@@ -16027,9 +16064,9 @@ std::cout &lt;&lt; &quot;=====calibration=====&quot; &lt;&lt; std::endl;</_body>
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">statechartdiagram_0</_name>
-			<_modifiedTimeWeak type="a">9.12.2021::20:8:44</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.12.2021::20:8:44</_modifiedTime>
-			<_lastModifiedTime type="a">9.12.2021::20:8:44</_lastModifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::22:21:49</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::22:24:48</_modifiedTime>
+			<_lastModifiedTime type="a">9.12.2021::22:24:48</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -17156,7 +17193,7 @@ std::cout &lt;&lt; &quot;=====calibration=====&quot; &lt;&lt; std::endl;</_body>
 				</CGIText>
 			</m_name>
 			<m_drawBehavior type="a">4104</m_drawBehavior>
-			<m_transform type="a">0.34854 0 0 0.108491 44 548 </m_transform>
+			<m_transform type="a">0.296533 0 0 0.0641512 84 556 </m_transform>
 			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
 			<m_AdditionalLabel type="p">
 				<CGIText type="e">
@@ -17265,7 +17302,7 @@ std::cout &lt;&lt; &quot;=====calibration=====&quot; &lt;&lt; std::endl;</_body>
 			<m_anglePoint2 type="a">0 0 </m_anglePoint2>
 			<m_line_style type="a">6</m_line_style>
 			<m_SourcePort type="a">398 1060 </m_SourcePort>
-			<m_TargetPort type="a">608 0 </m_TargetPort>
+			<m_TargetPort type="a">580 0 </m_TargetPort>
 			<m_pInheritsFrom type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -17329,7 +17366,7 @@ std::cout &lt;&lt; &quot;=====calibration=====&quot; &lt;&lt; std::endl;</_body>
 			<m_anglePoint1 type="a">0 0 </m_anglePoint1>
 			<m_anglePoint2 type="a">0 0 </m_anglePoint2>
 			<m_line_style type="a">6</m_line_style>
-			<m_SourcePort type="a">752 0 </m_SourcePort>
+			<m_SourcePort type="a">749 0 </m_SourcePort>
 			<m_TargetPort type="a">603 1060 </m_TargetPort>
 			<m_pInheritsFrom type="r">
 				<IHandle type="e">
@@ -37614,7 +37651,7 @@ return ll_now;</_bodyData>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Skalibruj czujniki</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::19:49:14</_modifiedTime>
+			<_modifiedTime type="a">9.12.2021::22:19:0</_modifiedTime>
 			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
 			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
 			<_itsStateChart type="r">
@@ -38074,8 +38111,8 @@ return ll_now;</_bodyData>
 			</_properties>
 			<_name type="a">SkalibrujCzujniki</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.11.2021::19:49:14</_modifiedTime>
-			<_lastModifiedTime type="a">9.11.2021::19:49:14</_lastModifiedTime>
+			<_modifiedTime type="a">9.12.2021::22:19:31</_modifiedTime>
+			<_lastModifiedTime type="a">9.12.2021::22:19:31</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -38089,7 +38126,7 @@ return ll_now;</_bodyData>
 			<m_pICollaboration type="p"><ICollaboration type="e">
 				<_id type="a">GUID 752ad35a-cba7-4b79-b50b-139ad202a6d1</_id>
 				<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-				<_modifiedTime type="a">9.11.2021::19:49:14</_modifiedTime>
+				<_modifiedTime type="a">9.12.2021::22:19:0</_modifiedTime>
 				<AggregatesList type="e">
 					<value>GUID 14021837-c123-420c-ab5e-bc14cee7952a</value>
 					<value>GUID d9b14730-1297-4ba4-a6d0-f238d875afb4</value>
@@ -38309,8 +38346,9 @@ return ll_now;</_bodyData>
 				<_id type="a">GUID adcf81bc-5723-4d2e-aba2-1b5b3ce75195</_id>
 				<_name type="a">evCalibrateWrap</_name>
 				<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-				<_modifiedTime type="a">9.11.2021::19:49:14</_modifiedTime>
+				<_modifiedTime type="a">9.12.2021::22:19:31</_modifiedTime>
 				<m_szSequence type="a">1.</m_szSequence>
+				<m_szActualArgs type="a">whichSensor</m_szActualArgs>
 				<m_pCommunicationConnection type="r">
 					<IHandle type="e">
 					</IHandle>
@@ -38893,7 +38931,7 @@ return ll_now;</_bodyData>
 			<m_pParent type="s"></m_pParent>
 			<m_name type="p">
 				<CGIText type="e">
-					<m_str type="a">evCalibrateWrap()</m_str>
+					<m_str type="a">evCalibrateWrap(whichSensor)</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">

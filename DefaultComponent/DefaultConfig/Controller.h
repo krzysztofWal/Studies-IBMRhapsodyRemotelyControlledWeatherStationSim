@@ -317,8 +317,8 @@ public :
     //## operation calibrate()
     void calibrate();
     
-    //## operation evCalibrateWrap()
-    void evCalibrateWrap();
+    //## operation evCalibrateWrap(int)
+    void evCalibrateWrap(int whichSensor);
     
     //## operation evConfirmPackageReceivalWrap()
     void evConfirmPackageReceivalWrap();
@@ -467,6 +467,14 @@ public :
     //## auto_generated
     WindDirectionSensor* getItsWindDirectionSensor() const;
 
+protected :
+
+    //## auto_generated
+    int getWhichSensorCal() const;
+    
+    //## auto_generated
+    void setWhichSensorCal(int p_whichSensorCal);
+
 private :
 
     //## auto_generated
@@ -474,6 +482,8 @@ private :
 
 protected :
 
+    int whichSensorCal;		//## attribute whichSensorCal
+    
 //#[ ignore
     port_33_C port_33;
     

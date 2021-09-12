@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: iCalibrateRequest
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\iCalibrateRequest.h
 *********************************************************************/
 
@@ -57,8 +57,8 @@ public :
     
     ////    Operations    ////
     
-    //## operation evCalibrateWrap()
-    virtual void evCalibrateWrap() = 0;
+    //## operation evCalibrateWrap(int)
+    virtual void evCalibrateWrap(int whichSensor) = 0;
 };
 
 #ifdef _OMINSTRUMENT

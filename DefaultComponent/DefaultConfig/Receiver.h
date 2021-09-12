@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Receiver
-//!	Generated Date	: Sun, 12, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\Receiver.h
 *********************************************************************/
 
@@ -63,6 +63,10 @@
 #include <ctime>
 //## auto_generated
 #include <math.h>
+//#[ ignore
+#define OMAnim_MainPackage_Receiver_setWhichToCalibrate_int_ARGS_DECLARATION int p_whichToCalibrate;
+//#]
+
 //## package MainPackage
 
 //## class Receiver
@@ -88,7 +92,7 @@ public :
         virtual void evActivateWrap();
         
         //## auto_generated
-        virtual void evCalibrateWrap();
+        virtual void evCalibrateWrap(int whichSensor);
         
         //## auto_generated
         virtual void evConfirmPackageReceivalWrap();
@@ -255,6 +259,9 @@ public :
     port_5_C* get_port_5() const;
     
     //## auto_generated
+    void setWhichToCalibrate(int p_whichToCalibrate);
+    
+    //## auto_generated
     virtual bool startBehavior();
 
 protected :
@@ -270,6 +277,9 @@ protected :
     
     //## auto_generated
     void setIterator(int p_iterator);
+    
+    //## auto_generated
+    int getWhichToCalibrate() const;
     
     //## auto_generated
     void initRelations();
@@ -288,6 +298,8 @@ protected :
     std::vector<StationData> dataReceived;		//## attribute dataReceived
     
     int iterator;		//## attribute iterator
+    
+    int whichToCalibrate;		//## attribute whichToCalibrate
     
     ////    Relations and components    ////
     
@@ -362,9 +374,13 @@ protected :
 };
 
 #ifdef _OMINSTRUMENT
+DECLARE_OPERATION_CLASS(MainPackage_Receiver_setWhichToCalibrate_int)
+
 //#[ ignore
 class OMAnimatedReceiver : public OMAnimatediInform {
     DECLARE_REACTIVE_META(Receiver, OMAnimatedReceiver)
+    
+    DECLARE_META_OP(MainPackage_Receiver_setWhichToCalibrate_int)
     
     ////    Framework operations    ////
     
