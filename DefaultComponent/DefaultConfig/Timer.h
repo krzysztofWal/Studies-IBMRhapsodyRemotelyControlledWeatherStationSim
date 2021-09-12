@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Timer
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\Timer.h
 *********************************************************************/
 
@@ -43,6 +43,8 @@
 #include <ctime>
 //## auto_generated
 #include <math.h>
+//## auto_generated
+#include "Windows.h"
 //## link itsController
 class Controller;
 
@@ -68,8 +70,8 @@ public :
     
     ////    Operations    ////
     
-    //## operation getTime()
-    unsigned long long getTime();
+    //## operation getTimestamp()
+    unsigned long long getTimestamp();
     
     ////    Additional operations    ////
     
@@ -99,13 +101,16 @@ protected :
 private :
 
     //## auto_generated
-    void setTime(unsigned long long p_time);
+    unsigned long long getVar() const;
+    
+    //## auto_generated
+    void setVar(unsigned long long p_var);
     
     ////    Attributes    ////
 
 protected :
 
-    unsigned long long time;		//## attribute time
+    unsigned long long var;		//## attribute var
     
     ////    Relations and components    ////
     
@@ -134,13 +139,9 @@ public :
     //## statechart_method
     virtual IOxfReactive::TakeEventStatus rootState_processEvent();
     
-    // TimerStandByState:
+    // TIMER_STAND_BY:
     //## statechart_method
-    inline bool TimerStandByState_IN() const;
-    
-    // timeIncrement:
-    //## statechart_method
-    inline bool timeIncrement_IN() const;
+    inline bool TIMER_STAND_BY_IN() const;
     
     // sendaction_4:
     //## statechart_method
@@ -150,6 +151,10 @@ public :
     //## statechart_method
     inline bool sendaction_1_IN() const;
     
+    // INCREMENT:
+    //## statechart_method
+    inline bool INCREMENT_IN() const;
+    
     ////    Framework    ////
 
 protected :
@@ -157,10 +162,10 @@ protected :
 //#[ ignore
     enum Timer_Enum {
         OMNonState = 0,
-        TimerStandByState = 1,
-        timeIncrement = 2,
-        sendaction_4 = 3,
-        sendaction_1 = 4
+        TIMER_STAND_BY = 1,
+        sendaction_4 = 2,
+        sendaction_1 = 3,
+        INCREMENT = 4
     };
     
     int rootState_subState;
@@ -188,16 +193,16 @@ public :
     void rootState_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
-    void TimerStandByState_serializeStates(AOMSState* aomsState) const;
-    
-    //## statechart_method
-    void timeIncrement_serializeStates(AOMSState* aomsState) const;
+    void TIMER_STAND_BY_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
     void sendaction_4_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
     void sendaction_1_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void INCREMENT_serializeStates(AOMSState* aomsState) const;
 };
 //#]
 #endif // _OMINSTRUMENT
@@ -206,12 +211,8 @@ inline bool Timer::rootState_IN() const {
     return true;
 }
 
-inline bool Timer::TimerStandByState_IN() const {
-    return rootState_subState == TimerStandByState;
-}
-
-inline bool Timer::timeIncrement_IN() const {
-    return rootState_subState == timeIncrement;
+inline bool Timer::TIMER_STAND_BY_IN() const {
+    return rootState_subState == TIMER_STAND_BY;
 }
 
 inline bool Timer::sendaction_4_IN() const {
@@ -220,6 +221,10 @@ inline bool Timer::sendaction_4_IN() const {
 
 inline bool Timer::sendaction_1_IN() const {
     return rootState_subState == sendaction_1;
+}
+
+inline bool Timer::INCREMENT_IN() const {
+    return rootState_subState == INCREMENT;
 }
 
 #endif

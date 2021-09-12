@@ -76,9 +76,9 @@ double Sensor::gen(double a, double b, unsigned long long seed) {
     //#[ operation gen(double,double,unsigned long long)
     srand((unsigned int)seed+(unsigned int)recentValue*10);
     num = rand() / (RAND_MAX + 1.0)*100.0; 
-    std::cout << "Debug: Sensor::gen() num: " << num <<" in: " << this->id << "\n";
+    //std::cout << "Debug: Sensor::gen() num: " << num <<" in: " << this->id << "\n";
     num = static_cast<double>(static_cast<int>((((int)num/100)*(b-a)+a)*10)/10); 
-    std::cout << "Debug: Sensor::gen() num_mapped: " << num<<" in: " << this->id << "\n";
+    //std::cout << "Debug: Sensor::gen() num_mapped: " << num<<" in: " << this->id << "\n";
     return num;
     
     

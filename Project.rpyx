@@ -10,9 +10,41 @@
 	<IProject type="e">
 			<_id type="a">GUID 276dc1ec-c611-4917-836a-e9a49290292e</_id>
 			<_myState type="a">8192</_myState>
+			<_properties type="p"><IPropertyContainer type="e">
+				<Subjects type="c">
+					<IRPYRawContainer type="e">
+						<size type="a">1</size>
+						<IPropertySubject type="e">
+							<_Name type="a">CPP_CG</_Name>
+							<Metaclasses type="c">
+								<IRPYRawContainer type="e">
+									<size type="a">1</size>
+									<IPropertyMetaclass type="e">
+										<_Name type="a">Class</_Name>
+										<Properties type="c">
+											<IRPYRawContainer type="e">
+												<size type="a">1</size>
+												<IProperty type="e">
+													<_Name type="a">SpecIncludes</_Name>
+													<_Value type="a">&quot;Windows.h&quot;</_Value>
+													<_Type type="a">String</_Type>
+												</IProperty>
+												
+											</IRPYRawContainer>
+										</Properties>
+									</IPropertyMetaclass>
+									
+								</IRPYRawContainer>
+							</Metaclasses>
+						</IPropertySubject>
+						
+					</IRPYRawContainer>
+				</Subjects>
+			</IPropertyContainer>
+			</_properties>
 			<_name type="a">Project</_name>
-			<_modifiedTimeWeak type="a">9.12.2021::19:45:14</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.12.2021::19:45:14</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.12.2021::21:15:8</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.12.2021::21:46:58</_modifiedTime>
 			<_UserColors type="w">
 				<IRPYRawContainer type="e">
 					<size type="a">16</size>
@@ -735,8 +767,8 @@
 			</_properties>
 			<_name type="a">Klasy</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.12.2021::19:45:14</_modifiedTime>
-			<_lastModifiedTime type="a">9.12.2021::19:45:14</_lastModifiedTime>
+			<_modifiedTime type="a">9.12.2021::21:2:47</_modifiedTime>
+			<_lastModifiedTime type="a">9.12.2021::21:2:47</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -1842,11 +1874,11 @@
 					<m_nOrientationCtrlPt type="a">1</m_nOrientationCtrlPt>
 				</CGIText>
 			</m_rpn>
-			<m_arrow type="a">1 546 432  </m_arrow>
+			<m_arrow type="a">1 519 432  </m_arrow>
 			<m_anglePoint1 type="a">0 0 </m_anglePoint1>
 			<m_anglePoint2 type="a">0 0 </m_anglePoint2>
 			<m_line_style type="a">2</m_line_style>
-			<m_SourcePort type="a">149 329 </m_SourcePort>
+			<m_SourcePort type="a">-4 336 </m_SourcePort>
 			<m_TargetPort type="a">1061 1305 </m_TargetPort>
 			<m_ShowName type="a">0</m_ShowName>
 			<m_ShowStereotype type="a">1</m_ShowStereotype>
@@ -5725,7 +5757,8 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">4</_itemValueOfFontPropertiesMapCount>
+			<_itemValueOfFontPropertiesMapCount type="a">5</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>

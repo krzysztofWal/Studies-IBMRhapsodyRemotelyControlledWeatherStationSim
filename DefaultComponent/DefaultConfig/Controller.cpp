@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Controller
-//!	Generated Date	: Sun, 12, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\Controller.cpp
 *********************************************************************/
 
@@ -175,10 +175,10 @@ void Controller::port_33_C::evActivateWrap() {
     
 }
 
-void Controller::port_33_C::evCalibrateWrap() {
+void Controller::port_33_C::evCalibrateWrap(int whichSensor) {
     
     if (itsICalibrateRequest != NULL) {
-        itsICalibrateRequest->evCalibrateWrap();
+        itsICalibrateRequest->evCalibrateWrap(whichSensor);
     }
     
 }
@@ -395,8 +395,9 @@ void Controller::appendToPackage(int whichSensor, double value) {
     NOTIFY_OPERATION(appendToPackage, appendToPackage(int,double), 2, MainPackage_Controller_appendToPackage_SERIALIZE);
     //#[ operation appendToPackage(int,double)
     dataPackage->set(whichSensor,value);
-    std::cout << "Debug: Controller::appendToPackage: " << value
+    /*std::cout << "Debug: Controller::appendToPackage: " << value
     	 	  << " set on field: " << whichSensor << std::endl;
+    	 	  */
     //#]
 }
 
@@ -646,7 +647,7 @@ double Controller::getGivenPercentage(int position) const {
 unsigned long long Controller::giveGenTime() {
     NOTIFY_OPERATION(giveGenTime, giveGenTime(), 0, MainPackage_Controller_giveGenTime_SERIALIZE);
     //#[ operation giveGenTime()
-    return itsTimer.getTime();
+    return itsTimer.getTimestamp();
     //#]
 }
 

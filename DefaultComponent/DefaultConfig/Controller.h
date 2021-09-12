@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Controller
-//!	Generated Date	: Sun, 12, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\Controller.h
 *********************************************************************/
 
@@ -178,7 +178,7 @@ public :
         virtual void evActivateWrap();
         
         //## auto_generated
-        virtual void evCalibrateWrap();
+        virtual void evCalibrateWrap(int whichSensor);
         
         //## auto_generated
         virtual void evConfirmPackageReceivalWrap();

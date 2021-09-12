@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Timer
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\Timer.cpp
 *********************************************************************/
 
@@ -21,7 +21,7 @@
 //#[ ignore
 #define MainPackage_Timer_Timer_SERIALIZE OM_NO_OP
 
-#define MainPackage_Timer_getTime_SERIALIZE OM_NO_OP
+#define MainPackage_Timer_getTimestamp_SERIALIZE OM_NO_OP
 //#]
 
 //## package MainPackage
@@ -40,10 +40,17 @@ Timer::~Timer() {
     cancelTimeouts();
 }
 
-unsigned long long Timer::getTime() {
-    NOTIFY_OPERATION(getTime, getTime(), 0, MainPackage_Timer_getTime_SERIALIZE);
-    //#[ operation getTime()
-    return time;
+unsigned long long Timer::getTimestamp() {
+    NOTIFY_OPERATION(getTimestamp, getTimestamp(), 0, MainPackage_Timer_getTimestamp_SERIALIZE);
+    //#[ operation getTimestamp()
+    FILETIME ft_now;
+    GetSystemTimeAsFileTime(&ft_now);
+    
+    _int64 ll_now = (LONGLONG)ft_now.dwLowDateTime + ((LONGLONG)(ft_now.dwHighDateTime) << 32LL);
+    ll_now -= 116444736000000000LL;
+    ll_now /= 10000;
+    
+    return ll_now;
     //#]
 }
 
@@ -93,8 +100,12 @@ bool Timer::cancelTimeout(const IOxfTimeout* arg) {
     return res;
 }
 
-void Timer::setTime(unsigned long long p_time) {
-    time = p_time;
+unsigned long long Timer::getVar() const {
+    return var;
+}
+
+void Timer::setVar(unsigned long long p_var) {
+    var = p_var;
 }
 
 void Timer::__setItsController(Controller* p_Controller) {
@@ -122,10 +133,10 @@ void Timer::rootState_entDef() {
     {
         NOTIFY_STATE_ENTERED("ROOT");
         NOTIFY_TRANSITION_STARTED("0");
-        NOTIFY_STATE_ENTERED("ROOT.TimerStandByState");
-        rootState_subState = TimerStandByState;
-        rootState_active = TimerStandByState;
-        rootState_timeout = scheduleTimeout(50, "ROOT.TimerStandByState");
+        NOTIFY_STATE_ENTERED("ROOT.TIMER_STAND_BY");
+        rootState_subState = TIMER_STAND_BY;
+        rootState_active = TIMER_STAND_BY;
+        rootState_timeout = scheduleTimeout(50, "ROOT.TIMER_STAND_BY");
         NOTIFY_TRANSITION_TERMINATED("0");
     }
 }
@@ -133,8 +144,8 @@ void Timer::rootState_entDef() {
 IOxfReactive::TakeEventStatus Timer::rootState_processEvent() {
     IOxfReactive::TakeEventStatus res = eventNotConsumed;
     switch (rootState_active) {
-        // State TimerStandByState
-        case TimerStandByState:
+        // State TIMER_STAND_BY
+        case TIMER_STAND_BY:
         {
             if(IS_EVENT_TYPE_OF(OMTimeoutEventId))
                 {
@@ -142,21 +153,19 @@ IOxfReactive::TakeEventStatus Timer::rootState_processEvent() {
                         {
                             NOTIFY_TRANSITION_STARTED("5");
                             cancel(rootState_timeout);
-                            NOTIFY_STATE_EXITED("ROOT.TimerStandByState");
-                            NOTIFY_STATE_ENTERED("ROOT.timeIncrement");
+                            NOTIFY_STATE_EXITED("ROOT.TIMER_STAND_BY");
+                            NOTIFY_STATE_ENTERED("ROOT.INCREMENT");
                             pushNullTransition();
-                            rootState_subState = timeIncrement;
-                            rootState_active = timeIncrement;
-                            //#[ state timeIncrement.(Entry) 
-                            if (time < ULLONG_MAX - 50) {
-                            	time += 50;
-                            	if (time%5000 ==0){
-                            		//std::cout << "sending signal: " << time << std::endl;
+                            rootState_subState = INCREMENT;
+                            rootState_active = INCREMENT;
+                            //#[ state INCREMENT.(Entry) 
+                            if (var < ULLONG_MAX - 50) {
+                            	var += 50;
+                            	if(var%5000 == 0) {
                             		GEN(evInitializeInTimer);
-                            	}
-                            }
-                             else {
-                             	time = 0;
+                            	}                       
+                            } else {
+                            	var = 0;
                             }
                             //#]
                             NOTIFY_TRANSITION_TERMINATED("5");
@@ -167,13 +176,13 @@ IOxfReactive::TakeEventStatus Timer::rootState_processEvent() {
                 {
                     NOTIFY_TRANSITION_STARTED("4");
                     cancel(rootState_timeout);
-                    NOTIFY_STATE_EXITED("ROOT.TimerStandByState");
+                    NOTIFY_STATE_EXITED("ROOT.TIMER_STAND_BY");
                     NOTIFY_STATE_ENTERED("ROOT.sendaction_1");
                     pushNullTransition();
                     rootState_subState = sendaction_1;
                     rootState_active = sendaction_1;
                     //#[ state sendaction_1.(Entry) 
-                    itsController->GEN(evTimerInitialize(time));
+                    itsController->GEN(evTimerInitialize(getTimestamp()));
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("4");
                     res = eventConsumed;
@@ -182,13 +191,13 @@ IOxfReactive::TakeEventStatus Timer::rootState_processEvent() {
                 {
                     NOTIFY_TRANSITION_STARTED("2");
                     cancel(rootState_timeout);
-                    NOTIFY_STATE_EXITED("ROOT.TimerStandByState");
+                    NOTIFY_STATE_EXITED("ROOT.TIMER_STAND_BY");
                     NOTIFY_STATE_ENTERED("ROOT.sendaction_4");
                     pushNullTransition();
                     rootState_subState = sendaction_4;
                     rootState_active = sendaction_4;
                     //#[ state sendaction_4.(Entry) 
-                    itsController->GEN(evProvideTime(time));
+                    itsController->GEN(evProvideTime(getTimestamp()));
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("2");
                     res = eventConsumed;
@@ -204,10 +213,13 @@ IOxfReactive::TakeEventStatus Timer::rootState_processEvent() {
                     NOTIFY_TRANSITION_STARTED("1");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.sendaction_1");
-                    NOTIFY_STATE_ENTERED("ROOT.TimerStandByState");
-                    rootState_subState = TimerStandByState;
-                    rootState_active = TimerStandByState;
-                    rootState_timeout = scheduleTimeout(50, "ROOT.TimerStandByState");
+                    //#[ transition 1 
+                    getTimestamp();
+                    //#]
+                    NOTIFY_STATE_ENTERED("ROOT.TIMER_STAND_BY");
+                    rootState_subState = TIMER_STAND_BY;
+                    rootState_active = TIMER_STAND_BY;
+                    rootState_timeout = scheduleTimeout(50, "ROOT.TIMER_STAND_BY");
                     NOTIFY_TRANSITION_TERMINATED("1");
                     res = eventConsumed;
                 }
@@ -222,28 +234,28 @@ IOxfReactive::TakeEventStatus Timer::rootState_processEvent() {
                     NOTIFY_TRANSITION_STARTED("3");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.sendaction_4");
-                    NOTIFY_STATE_ENTERED("ROOT.TimerStandByState");
-                    rootState_subState = TimerStandByState;
-                    rootState_active = TimerStandByState;
-                    rootState_timeout = scheduleTimeout(50, "ROOT.TimerStandByState");
+                    NOTIFY_STATE_ENTERED("ROOT.TIMER_STAND_BY");
+                    rootState_subState = TIMER_STAND_BY;
+                    rootState_active = TIMER_STAND_BY;
+                    rootState_timeout = scheduleTimeout(50, "ROOT.TIMER_STAND_BY");
                     NOTIFY_TRANSITION_TERMINATED("3");
                     res = eventConsumed;
                 }
             
         }
         break;
-        // State timeIncrement
-        case timeIncrement:
+        // State INCREMENT
+        case INCREMENT:
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
                     NOTIFY_TRANSITION_STARTED("6");
                     popNullTransition();
-                    NOTIFY_STATE_EXITED("ROOT.timeIncrement");
-                    NOTIFY_STATE_ENTERED("ROOT.TimerStandByState");
-                    rootState_subState = TimerStandByState;
-                    rootState_active = TimerStandByState;
-                    rootState_timeout = scheduleTimeout(50, "ROOT.TimerStandByState");
+                    NOTIFY_STATE_EXITED("ROOT.INCREMENT");
+                    NOTIFY_STATE_ENTERED("ROOT.TIMER_STAND_BY");
+                    rootState_subState = TIMER_STAND_BY;
+                    rootState_active = TIMER_STAND_BY;
+                    rootState_timeout = scheduleTimeout(50, "ROOT.TIMER_STAND_BY");
                     NOTIFY_TRANSITION_TERMINATED("6");
                     res = eventConsumed;
                 }
@@ -259,7 +271,7 @@ IOxfReactive::TakeEventStatus Timer::rootState_processEvent() {
 #ifdef _OMINSTRUMENT
 //#[ ignore
 void OMAnimatedTimer::serializeAttributes(AOMSAttributes* aomsAttributes) const {
-    aomsAttributes->addAttribute("time", x2String(myReal->time));
+    aomsAttributes->addAttribute("var", x2String(myReal->var));
 }
 
 void OMAnimatedTimer::serializeRelations(AOMSRelations* aomsRelations) const {
@@ -273,9 +285,9 @@ void OMAnimatedTimer::serializeRelations(AOMSRelations* aomsRelations) const {
 void OMAnimatedTimer::rootState_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT");
     switch (myReal->rootState_subState) {
-        case Timer::TimerStandByState:
+        case Timer::TIMER_STAND_BY:
         {
-            TimerStandByState_serializeStates(aomsState);
+            TIMER_STAND_BY_serializeStates(aomsState);
         }
         break;
         case Timer::sendaction_1:
@@ -288,9 +300,9 @@ void OMAnimatedTimer::rootState_serializeStates(AOMSState* aomsState) const {
             sendaction_4_serializeStates(aomsState);
         }
         break;
-        case Timer::timeIncrement:
+        case Timer::INCREMENT:
         {
-            timeIncrement_serializeStates(aomsState);
+            INCREMENT_serializeStates(aomsState);
         }
         break;
         default:
@@ -298,12 +310,8 @@ void OMAnimatedTimer::rootState_serializeStates(AOMSState* aomsState) const {
     }
 }
 
-void OMAnimatedTimer::TimerStandByState_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.TimerStandByState");
-}
-
-void OMAnimatedTimer::timeIncrement_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.timeIncrement");
+void OMAnimatedTimer::TIMER_STAND_BY_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.TIMER_STAND_BY");
 }
 
 void OMAnimatedTimer::sendaction_4_serializeStates(AOMSState* aomsState) const {
@@ -312,6 +320,10 @@ void OMAnimatedTimer::sendaction_4_serializeStates(AOMSState* aomsState) const {
 
 void OMAnimatedTimer::sendaction_1_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.sendaction_1");
+}
+
+void OMAnimatedTimer::INCREMENT_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.INCREMENT");
 }
 //#]
 
