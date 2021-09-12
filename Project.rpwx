@@ -16,34 +16,37 @@
 			<isLoadOnDemand type="a">0</isLoadOnDemand>
 			<myViewsWithID type="c">
 				<IRPYRawContainer type="e">
-					<size type="a">5</size>
+					<size type="a">10</size>
 					<CGEMdiDiagramParams type="e">
 						<_placement type="p">
 							<CCommon_WINDOWPLACEMENT type="e">
 								<m_nLength type="a">44</m_nLength>
 								<m_nFlags type="a">0</m_nFlags>
-								<m_showCmd type="a">2</m_showCmd>
-								<m_ptMinPositionX type="a">0</m_ptMinPositionX>
-								<m_ptMinPositionY type="a">575</m_ptMinPositionY>
+								<m_showCmd type="a">1</m_showCmd>
+								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
+								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
 								<m_ptMaxPositionX type="a">-1</m_ptMaxPositionX>
 								<m_ptMaxPositionY type="a">-1</m_ptMaxPositionY>
-								<m_nLeft type="a">-30</m_nLeft>
-								<m_nTop type="a">10</m_nTop>
-								<m_nRight type="a">1233</m_nRight>
-								<m_nBottom type="a">607</m_nBottom>
+								<m_nLeft type="a">-153</m_nLeft>
+								<m_nTop type="a">305</m_nTop>
+								<m_nRight type="a">999</m_nRight>
+								<m_nBottom type="a">696</m_nBottom>
 							</CCommon_WINDOWPLACEMENT>
 						</_placement>
 						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
 						<_theDiagram type="r">
 							<IHandle type="e">
-								<_hm2Class type="a">IDiagram</_hm2Class>
-								<_hname type="a">Klasy</_hname>
-								<_hid type="a">GUID 6094218e-79b1-4cb5-9edc-8c271d292ca1</_hid>
+								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
+								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
+								<_hsubsystem type="a">MainPackage</_hsubsystem>
+								<_hclass type="a">Annemometer</_hclass>
+								<_hname type="a">StatechartDiagram</_hname>
+								<_hid type="a">GUID cbcd180f-3b42-4b81-9307-7fa0f5059c19</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">1317 138 </_UpLeft>
-						<_DownRight type="a">2543 676 </_DownRight>
-						<m_nDiagramIndex type="a">1</m_nDiagramIndex>
+						<_UpLeft type="a">0 0 </_UpLeft>
+						<_DownRight type="a">1115 332 </_DownRight>
+						<m_nDiagramIndex type="a">4</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
@@ -57,10 +60,44 @@
 								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
 								<m_ptMaxPositionX type="a">-8</m_ptMaxPositionX>
 								<m_ptMaxPositionY type="a">-30</m_ptMaxPositionY>
-								<m_nLeft type="a">1</m_nLeft>
-								<m_nTop type="a">6</m_nTop>
-								<m_nRight type="a">927</m_nRight>
-								<m_nBottom type="a">692</m_nBottom>
+								<m_nLeft type="a">754</m_nLeft>
+								<m_nTop type="a">16</m_nTop>
+								<m_nRight type="a">1311</m_nRight>
+								<m_nBottom type="a">557</m_nBottom>
+							</CCommon_WINDOWPLACEMENT>
+						</_placement>
+						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
+						<_theDiagram type="r">
+							<IHandle type="e">
+								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
+								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
+								<_hsubsystem type="a">MainPackage</_hsubsystem>
+								<_hclass type="a">Annemometer</_hclass>
+								<_hname type="a">StatechartDiagram</_hname>
+								<_hid type="a">GUID cbcd180f-3b42-4b81-9307-7fa0f5059c19</_hid>
+							</IHandle>
+						</_theDiagram>
+						<_UpLeft type="a">408 0 </_UpLeft>
+						<_DownRight type="a">1274 803 </_DownRight>
+						<_instanceName type="a">Controller[0]-&gt;itsAnnemometer</_instanceName>
+						<m_nDiagramIndex type="a">7</m_nDiagramIndex>
+						<m_bIsActiveView type="a">0</m_bIsActiveView>
+					</CGEMdiDiagramParams>
+					
+					<CGEMdiDiagramParams type="e">
+						<_placement type="p">
+							<CCommon_WINDOWPLACEMENT type="e">
+								<m_nLength type="a">44</m_nLength>
+								<m_nFlags type="a">0</m_nFlags>
+								<m_showCmd type="a">1</m_showCmd>
+								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
+								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
+								<m_ptMaxPositionX type="a">-8</m_ptMaxPositionX>
+								<m_ptMaxPositionY type="a">-30</m_ptMaxPositionY>
+								<m_nLeft type="a">-52</m_nLeft>
+								<m_nTop type="a">14</m_nTop>
+								<m_nRight type="a">778</m_nRight>
+								<m_nBottom type="a">566</m_nBottom>
 							</CCommon_WINDOWPLACEMENT>
 						</_placement>
 						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
@@ -74,27 +111,27 @@
 								<_hid type="a">GUID af63f7bb-a1ad-4d24-b05c-ce3e5f00d823</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">-158 0 </_UpLeft>
-						<_DownRight type="a">887 737 </_DownRight>
+						<_UpLeft type="a">377 358 </_UpLeft>
+						<_DownRight type="a">1170 851 </_DownRight>
 						<_instanceName type="a">itsController</_instanceName>
-						<m_nDiagramIndex type="a">4</m_nDiagramIndex>
-						<m_bIsActiveView type="a">1</m_bIsActiveView>
+						<m_nDiagramIndex type="a">9</m_nDiagramIndex>
+						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
 					<CGEMdiDiagramParams type="e">
 						<_placement type="p">
 							<CCommon_WINDOWPLACEMENT type="e">
 								<m_nLength type="a">44</m_nLength>
-								<m_nFlags type="a">2</m_nFlags>
+								<m_nFlags type="a">0</m_nFlags>
 								<m_showCmd type="a">1</m_showCmd>
 								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
 								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
 								<m_ptMaxPositionX type="a">-8</m_ptMaxPositionX>
 								<m_ptMaxPositionY type="a">-30</m_ptMaxPositionY>
-								<m_nLeft type="a">920</m_nLeft>
-								<m_nTop type="a">-14</m_nTop>
-								<m_nRight type="a">1269</m_nRight>
-								<m_nBottom type="a">690</m_nBottom>
+								<m_nLeft type="a">548</m_nLeft>
+								<m_nTop type="a">102</m_nTop>
+								<m_nRight type="a">1375</m_nRight>
+								<m_nBottom type="a">493</m_nBottom>
 							</CCommon_WINDOWPLACEMENT>
 						</_placement>
 						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
@@ -107,9 +144,9 @@
 								<_hid type="a">GUID 23ecc7ee-b183-4611-ae44-34d66d202406</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">10 86 </_UpLeft>
-						<_DownRight type="a">377 845 </_DownRight>
-						<m_nDiagramIndex type="a">3</m_nDiagramIndex>
+						<_UpLeft type="a">0 126 </_UpLeft>
+						<_DownRight type="a">929 516 </_DownRight>
+						<m_nDiagramIndex type="a">8</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
@@ -118,15 +155,15 @@
 							<CCommon_WINDOWPLACEMENT type="e">
 								<m_nLength type="a">44</m_nLength>
 								<m_nFlags type="a">0</m_nFlags>
-								<m_showCmd type="a">2</m_showCmd>
-								<m_ptMinPositionX type="a">160</m_ptMinPositionX>
-								<m_ptMinPositionY type="a">575</m_ptMinPositionY>
+								<m_showCmd type="a">1</m_showCmd>
+								<m_ptMinPositionX type="a">0</m_ptMinPositionX>
+								<m_ptMinPositionY type="a">539</m_ptMinPositionY>
 								<m_ptMaxPositionX type="a">-1</m_ptMaxPositionX>
 								<m_ptMaxPositionY type="a">-1</m_ptMaxPositionY>
-								<m_nLeft type="a">22</m_nLeft>
-								<m_nTop type="a">167</m_nTop>
-								<m_nRight type="a">1139</m_nRight>
-								<m_nBottom type="a">759</m_nBottom>
+								<m_nLeft type="a">17</m_nLeft>
+								<m_nTop type="a">146</m_nTop>
+								<m_nRight type="a">1169</m_nRight>
+								<m_nBottom type="a">537</m_nBottom>
 							</CCommon_WINDOWPLACEMENT>
 						</_placement>
 						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
@@ -135,14 +172,14 @@
 								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
 								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
 								<_hsubsystem type="a">MainPackage</_hsubsystem>
-								<_hclass type="a">Receiver</_hclass>
+								<_hclass type="a">HumiditySensor</_hclass>
 								<_hname type="a">StatechartDiagram</_hname>
-								<_hid type="a">GUID dc8ea49f-f155-48dc-b819-8c7d9c60cf36</_hid>
+								<_hid type="a">GUID b9580d08-e3da-4e01-a837-711ebf31d983</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">0 200 </_UpLeft>
-						<_DownRight type="a">1080 733 </_DownRight>
-						<m_nDiagramIndex type="a">2</m_nDiagramIndex>
+						<_UpLeft type="a">0 0 </_UpLeft>
+						<_DownRight type="a">1115 332 </_DownRight>
+						<m_nDiagramIndex type="a">6</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
@@ -156,10 +193,10 @@
 								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
 								<m_ptMaxPositionX type="a">-1</m_ptMaxPositionX>
 								<m_ptMaxPositionY type="a">-1</m_ptMaxPositionY>
-								<m_nLeft type="a">15</m_nLeft>
-								<m_nTop type="a">396</m_nTop>
-								<m_nRight type="a">917</m_nRight>
-								<m_nBottom type="a">990</m_nBottom>
+								<m_nLeft type="a">150</m_nLeft>
+								<m_nTop type="a">150</m_nTop>
+								<m_nRight type="a">1302</m_nRight>
+								<m_nBottom type="a">541</m_nBottom>
 							</CCommon_WINDOWPLACEMENT>
 						</_placement>
 						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
@@ -168,16 +205,147 @@
 								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
 								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
 								<_hsubsystem type="a">MainPackage</_hsubsystem>
-								<_hclass type="a">Receiver</_hclass>
+								<_hclass type="a">PressureSensor</_hclass>
 								<_hname type="a">StatechartDiagram</_hname>
-								<_hid type="a">GUID dc8ea49f-f155-48dc-b819-8c7d9c60cf36</_hid>
+								<_hid type="a">GUID 79ccd2eb-c0cc-456e-b16c-05e4f56d33fc</_hid>
 							</IHandle>
 						</_theDiagram>
 						<_UpLeft type="a">0 0 </_UpLeft>
-						<_DownRight type="a">1330 823 </_DownRight>
-						<_instanceName type="a">itsReceiver</_instanceName>
-						<m_nDiagramIndex type="a">0</m_nDiagramIndex>
+						<_DownRight type="a">1115 332 </_DownRight>
+						<m_nDiagramIndex type="a">3</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
+					</CGEMdiDiagramParams>
+					
+					<CGEMdiDiagramParams type="e">
+						<_placement type="p">
+							<CCommon_WINDOWPLACEMENT type="e">
+								<m_nLength type="a">44</m_nLength>
+								<m_nFlags type="a">0</m_nFlags>
+								<m_showCmd type="a">1</m_showCmd>
+								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
+								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
+								<m_ptMaxPositionX type="a">-1</m_ptMaxPositionX>
+								<m_ptMaxPositionY type="a">-1</m_ptMaxPositionY>
+								<m_nLeft type="a">175</m_nLeft>
+								<m_nTop type="a">175</m_nTop>
+								<m_nRight type="a">1327</m_nRight>
+								<m_nBottom type="a">566</m_nBottom>
+							</CCommon_WINDOWPLACEMENT>
+						</_placement>
+						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
+						<_theDiagram type="r">
+							<IHandle type="e">
+								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
+								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
+								<_hsubsystem type="a">MainPackage</_hsubsystem>
+								<_hclass type="a">RainAmountSensor</_hclass>
+								<_hname type="a">StatechartDiagram</_hname>
+								<_hid type="a">GUID 60b40c13-72bd-4d85-a501-a312c8b0424b</_hid>
+							</IHandle>
+						</_theDiagram>
+						<_UpLeft type="a">0 0 </_UpLeft>
+						<_DownRight type="a">1115 332 </_DownRight>
+						<m_nDiagramIndex type="a">2</m_nDiagramIndex>
+						<m_bIsActiveView type="a">0</m_bIsActiveView>
+					</CGEMdiDiagramParams>
+					
+					<CGEMdiDiagramParams type="e">
+						<_placement type="p">
+							<CCommon_WINDOWPLACEMENT type="e">
+								<m_nLength type="a">44</m_nLength>
+								<m_nFlags type="a">0</m_nFlags>
+								<m_showCmd type="a">2</m_showCmd>
+								<m_ptMinPositionX type="a">160</m_ptMinPositionX>
+								<m_ptMinPositionY type="a">539</m_ptMinPositionY>
+								<m_ptMaxPositionX type="a">-8</m_ptMaxPositionX>
+								<m_ptMaxPositionY type="a">-30</m_ptMaxPositionY>
+								<m_nLeft type="a">75</m_nLeft>
+								<m_nTop type="a">75</m_nTop>
+								<m_nRight type="a">1273</m_nRight>
+								<m_nBottom type="a">498</m_nBottom>
+							</CCommon_WINDOWPLACEMENT>
+						</_placement>
+						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
+						<_theDiagram type="r">
+							<IHandle type="e">
+								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
+								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
+								<_hsubsystem type="a">MainPackage</_hsubsystem>
+								<_hclass type="a">Sensor</_hclass>
+								<_hname type="a">StatechartDiagram</_hname>
+								<_hid type="a">GUID bba8d99d-0b0c-4ddc-9440-88396cf1fb72</_hid>
+							</IHandle>
+						</_theDiagram>
+						<_UpLeft type="a">0 0 </_UpLeft>
+						<_DownRight type="a">1161 364 </_DownRight>
+						<m_nDiagramIndex type="a">5</m_nDiagramIndex>
+						<m_bIsActiveView type="a">0</m_bIsActiveView>
+					</CGEMdiDiagramParams>
+					
+					<CGEMdiDiagramParams type="e">
+						<_placement type="p">
+							<CCommon_WINDOWPLACEMENT type="e">
+								<m_nLength type="a">44</m_nLength>
+								<m_nFlags type="a">0</m_nFlags>
+								<m_showCmd type="a">1</m_showCmd>
+								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
+								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
+								<m_ptMaxPositionX type="a">-1</m_ptMaxPositionX>
+								<m_ptMaxPositionY type="a">-1</m_ptMaxPositionY>
+								<m_nLeft type="a">0</m_nLeft>
+								<m_nTop type="a">0</m_nTop>
+								<m_nRight type="a">1152</m_nRight>
+								<m_nBottom type="a">391</m_nBottom>
+							</CCommon_WINDOWPLACEMENT>
+						</_placement>
+						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
+						<_theDiagram type="r">
+							<IHandle type="e">
+								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
+								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
+								<_hsubsystem type="a">MainPackage</_hsubsystem>
+								<_hclass type="a">TemperatureSensor</_hclass>
+								<_hname type="a">StatechartDiagram</_hname>
+								<_hid type="a">GUID cffa01aa-a106-4fc4-a768-4f26fcbccc34</_hid>
+							</IHandle>
+						</_theDiagram>
+						<_UpLeft type="a">0 0 </_UpLeft>
+						<_DownRight type="a">1115 332 </_DownRight>
+						<m_nDiagramIndex type="a">1</m_nDiagramIndex>
+						<m_bIsActiveView type="a">0</m_bIsActiveView>
+					</CGEMdiDiagramParams>
+					
+					<CGEMdiDiagramParams type="e">
+						<_placement type="p">
+							<CCommon_WINDOWPLACEMENT type="e">
+								<m_nLength type="a">44</m_nLength>
+								<m_nFlags type="a">0</m_nFlags>
+								<m_showCmd type="a">1</m_showCmd>
+								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
+								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
+								<m_ptMaxPositionX type="a">-1</m_ptMaxPositionX>
+								<m_ptMaxPositionY type="a">-1</m_ptMaxPositionY>
+								<m_nLeft type="a">25</m_nLeft>
+								<m_nTop type="a">25</m_nTop>
+								<m_nRight type="a">1177</m_nRight>
+								<m_nBottom type="a">416</m_nBottom>
+							</CCommon_WINDOWPLACEMENT>
+						</_placement>
+						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
+						<_theDiagram type="r">
+							<IHandle type="e">
+								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
+								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
+								<_hsubsystem type="a">MainPackage</_hsubsystem>
+								<_hclass type="a">WindDirectionSensor</_hclass>
+								<_hname type="a">StatechartDiagram</_hname>
+								<_hid type="a">GUID 37c5ce53-1ad9-4621-ab6e-be9401bf3af7</_hid>
+							</IHandle>
+						</_theDiagram>
+						<_UpLeft type="a">0 0 </_UpLeft>
+						<_DownRight type="a">1115 332 </_DownRight>
+						<m_nDiagramIndex type="a">0</m_nDiagramIndex>
+						<m_bIsActiveView type="a">1</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
 				</IRPYRawContainer>

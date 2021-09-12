@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Sensor
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Sun, 12, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\Sensor.cpp
 *********************************************************************/
 
@@ -76,8 +76,9 @@ double Sensor::gen(double a, double b, unsigned long long seed) {
     //#[ operation gen(double,double,unsigned long long)
     srand((unsigned int)seed+(unsigned int)recentValue*10);
     num = rand() / (RAND_MAX + 1.0)*100.0; 
-    //std::cout << "gen() num: " << num << "\n";
-    num = static_cast<double>(static_cast<int>((((int)num/100)*(b-a)+a)*10)/10);
+    std::cout << "Debug: Sensor::gen() num: " << num <<" in: " << this->id << "\n";
+    num = static_cast<double>(static_cast<int>((((int)num/100)*(b-a)+a)*10)/10); 
+    std::cout << "Debug: Sensor::gen() num_mapped: " << num<<" in: " << this->id << "\n";
     return num;
     
     
@@ -186,7 +187,7 @@ IOxfReactive::TakeEventStatus Sensor::rootState_processEvent() {
                     rootState_subState = sendaction_7;
                     rootState_active = sendaction_7;
                     //#[ state sendaction_7.(Entry) 
-                    GEN(evSendReadFromSensor(recentValue));
+                    itsController->GEN(evSendReadFromSensor(recentValue));
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("1");
                     res = eventConsumed;

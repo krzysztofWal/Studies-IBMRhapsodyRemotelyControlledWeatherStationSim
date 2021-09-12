@@ -395,6 +395,8 @@ void Controller::appendToPackage(int whichSensor, double value) {
     NOTIFY_OPERATION(appendToPackage, appendToPackage(int,double), 2, MainPackage_Controller_appendToPackage_SERIALIZE);
     //#[ operation appendToPackage(int,double)
     dataPackage->set(whichSensor,value);
+    std::cout << "Debug: Controller::appendToPackage: " << value
+    	 	  << " set on field: " << whichSensor << std::endl;
     //#]
 }
 
@@ -524,15 +526,6 @@ Controller::port_35_C* Controller::get_port_35() const {
     return (Controller::port_35_C*) &port_35;
 }
 
-int Controller::getStopMeasurementFlag() const {
-    return stopMeasurementFlag;
-}
-
-void Controller::setStopMeasurementFlag(int p_stopMeasurementFlag) {
-    stopMeasurementFlag = p_stopMeasurementFlag;
-    NOTIFY_SET_OPERATION;
-}
-
 Timer* Controller::getItsTimer() const {
     return (Timer*) &itsTimer;
 }
@@ -596,9 +589,10 @@ void Controller::setIterator(int p_iterator) {
 void Controller::activate() {
     NOTIFY_OPERATION(activate, activate(), 0, MainPackage_Controller_activate_SERIALIZE);
     //#[ operation activate()
-    if (stopMeasurementFlag)
-    	stopMeasurementFlag = false;
-    //std::cout << stopMeasurementFlag << " in activation" << std::endl;
+    /*
+    	PLATFORM-SPECIFIC CODE
+    */               
+    std::cout << "Debug: Controller::activate(): entered active mode" << std::endl;
     //#]
 }
 
@@ -659,9 +653,10 @@ unsigned long long Controller::giveGenTime() {
 void Controller::toNonactive() {
     NOTIFY_OPERATION(toNonactive, toNonactive(), 0, MainPackage_Controller_toNonactive_SERIALIZE);
     //#[ operation toNonactive()
-    if (!stopMeasurementFlag)
-    	stopMeasurementFlag = true;
-    std::cout << "Debug: entered non-active mode" << std::endl;
+    /*
+    	PLATFORM-SPECIFIC CODE
+    */
+    std::cout << "Debug: Controller::toNonactive(): entered non-active mode" << std::endl;
     //#]
 }
 
@@ -780,7 +775,7 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
-                    NOTIFY_TRANSITION_STARTED("26");
+                    NOTIFY_TRANSITION_STARTED("24");
                     popNullTransition();
                     NOTIFY_STATE_EXITED("ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST");
                     NOTIFY_STATE_ENTERED("ROOT.PACKAGE_READY");
@@ -791,7 +786,7 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                     
                     //#]
                     rootState_timeout = scheduleTimeout(150, "ROOT.PACKAGE_READY");
-                    NOTIFY_TRANSITION_TERMINATED("26");
+                    NOTIFY_TRANSITION_TERMINATED("24");
                     res = eventConsumed;
                 }
             
@@ -818,11 +813,11 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                     NOTIFY_TRANSITION_STARTED("7");
                     cancel(rootState_timeout);
                     NOTIFY_STATE_EXITED("ROOT.CALIBRATE");
-                    NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
-                    rootState_subState = STAND_BY_CONTROLLER;
-                    rootState_active = STAND_BY_CONTROLLER;
-                    //#[ state STAND_BY_CONTROLLER.(Entry) 
-                    handleEnergySavingSystem();
+                    NOTIFY_STATE_ENTERED("ROOT.NON_ACTIVE");
+                    rootState_subState = NON_ACTIVE;
+                    rootState_active = NON_ACTIVE;
+                    //#[ state NON_ACTIVE.(Entry) 
+                    toNonactive();
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("7");
                     res = eventConsumed;
@@ -1106,82 +1101,13 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
             
         }
         break;
-        // State INTO_NON_ACTIVE
-        case INTO_NON_ACTIVE:
+        // State NON_ACTIVE
+        case NON_ACTIVE:
         {
-            if(IS_EVENT_TYPE_OF(evActivate_MainPackage_id))
-                {
-                    NOTIFY_TRANSITION_STARTED("27");
-                    NOTIFY_STATE_EXITED("ROOT.INTO_NON_ACTIVE");
-                    NOTIFY_STATE_ENTERED("ROOT.ACTIVATE");
-                    pushNullTransition();
-                    rootState_subState = ACTIVATE;
-                    rootState_active = ACTIVATE;
-                    //#[ state ACTIVATE.(Entry) 
-                    activate();
-                    
-                    //#]
-                    NOTIFY_TRANSITION_TERMINATED("27");
-                    res = eventConsumed;
-                }
-            
-        }
-        break;
-        // State ACTIVATE
-        case ACTIVATE:
-        {
-            if(IS_EVENT_TYPE_OF(OMNullEventId))
-                {
-                    NOTIFY_TRANSITION_STARTED("23");
-                    popNullTransition();
-                    NOTIFY_STATE_EXITED("ROOT.ACTIVATE");
-                    NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
-                    rootState_subState = STAND_BY_CONTROLLER;
-                    rootState_active = STAND_BY_CONTROLLER;
-                    //#[ state STAND_BY_CONTROLLER.(Entry) 
-                    handleEnergySavingSystem();
-                    //#]
-                    NOTIFY_TRANSITION_TERMINATED("23");
-                    res = eventConsumed;
-                }
-            
-        }
-        break;
-        // State READ_INFO
-        case READ_INFO:
-        {
-            if(IS_EVENT_TYPE_OF(OMNullEventId))
-                {
-                    NOTIFY_TRANSITION_STARTED("24");
-                    popNullTransition();
-                    NOTIFY_STATE_EXITED("ROOT.READ_INFO");
-                    NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
-                    rootState_subState = STAND_BY_CONTROLLER;
-                    rootState_active = STAND_BY_CONTROLLER;
-                    //#[ state STAND_BY_CONTROLLER.(Entry) 
-                    handleEnergySavingSystem();
-                    //#]
-                    NOTIFY_TRANSITION_TERMINATED("24");
-                    res = eventConsumed;
-                }
-            
-        }
-        break;
-        default:
-            break;
-    }
-    return res;
-}
-
-IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
-    IOxfReactive::TakeEventStatus res = eventNotConsumed;
-    if(IS_EVENT_TYPE_OF(evCalibrate_MainPackage_id))
-        {
-            //## transition 6 
-            if(stopMeasurementFlag)
+            if(IS_EVENT_TYPE_OF(evCalibrate_MainPackage_id))
                 {
                     NOTIFY_TRANSITION_STARTED("6");
-                    NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
+                    NOTIFY_STATE_EXITED("ROOT.NON_ACTIVE");
                     //#[ transition 6 
                     handleEnergySavingSystem();
                     //#]
@@ -1196,29 +1122,57 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
                     NOTIFY_TRANSITION_TERMINATED("6");
                     res = eventConsumed;
                 }
+            else if(IS_EVENT_TYPE_OF(evActivate_MainPackage_id))
+                {
+                    NOTIFY_TRANSITION_STARTED("25");
+                    NOTIFY_STATE_EXITED("ROOT.NON_ACTIVE");
+                    //#[ transition 25 
+                    activate();
+                    //#]
+                    NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
+                    rootState_subState = STAND_BY_CONTROLLER;
+                    rootState_active = STAND_BY_CONTROLLER;
+                    //#[ state STAND_BY_CONTROLLER.(Entry) 
+                    handleEnergySavingSystem();
+                    //#]
+                    NOTIFY_TRANSITION_TERMINATED("25");
+                    res = eventConsumed;
+                }
+            
         }
-    else if(IS_EVENT_TYPE_OF(evGetInfo_MainPackage_id))
+        break;
+        default:
+            break;
+    }
+    return res;
+}
+
+IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
+    IOxfReactive::TakeEventStatus res = eventNotConsumed;
+    if(IS_EVENT_TYPE_OF(evGetInfo_MainPackage_id))
         {
-            NOTIFY_TRANSITION_STARTED("25");
+            NOTIFY_TRANSITION_STARTED("23");
             NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
-            NOTIFY_STATE_ENTERED("ROOT.READ_INFO");
-            pushNullTransition();
-            rootState_subState = READ_INFO;
-            rootState_active = READ_INFO;
-            //#[ state READ_INFO.(Entry) 
+            //#[ transition 23 
             readInfo();
             //#]
-            NOTIFY_TRANSITION_TERMINATED("25");
+            NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
+            rootState_subState = STAND_BY_CONTROLLER;
+            rootState_active = STAND_BY_CONTROLLER;
+            //#[ state STAND_BY_CONTROLLER.(Entry) 
+            handleEnergySavingSystem();
+            //#]
+            NOTIFY_TRANSITION_TERMINATED("23");
             res = eventConsumed;
         }
     else if(IS_EVENT_TYPE_OF(evToNonactive_MainPackage_id))
         {
             NOTIFY_TRANSITION_STARTED("22");
             NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
-            NOTIFY_STATE_ENTERED("ROOT.INTO_NON_ACTIVE");
-            rootState_subState = INTO_NON_ACTIVE;
-            rootState_active = INTO_NON_ACTIVE;
-            //#[ state INTO_NON_ACTIVE.(Entry) 
+            NOTIFY_STATE_ENTERED("ROOT.NON_ACTIVE");
+            rootState_subState = NON_ACTIVE;
+            rootState_active = NON_ACTIVE;
+            //#[ state NON_ACTIVE.(Entry) 
             toNonactive();
             //#]
             NOTIFY_TRANSITION_TERMINATED("22");
@@ -1226,45 +1180,37 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
         }
     else if(IS_EVENT_TYPE_OF(evInitialize_MainPackage_id))
         {
-            //## transition 0 
-            if(!stopMeasurementFlag)
-                {
-                    NOTIFY_TRANSITION_STARTED("0");
-                    NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
-                    //#[ transition 0 
-                    handleEnergySavingSystem();
-                    //#]
-                    NOTIFY_STATE_ENTERED("ROOT.sendaction_44");
-                    rootState_subState = sendaction_44;
-                    rootState_active = sendaction_44;
-                    //#[ state sendaction_44.(Entry) 
-                    itsTimer.GEN(evRequestTime);
-                    //#]
-                    NOTIFY_TRANSITION_TERMINATED("0");
-                    res = eventConsumed;
-                }
+            NOTIFY_TRANSITION_STARTED("0");
+            NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
+            //#[ transition 0 
+            handleEnergySavingSystem();
+            //#]
+            NOTIFY_STATE_ENTERED("ROOT.sendaction_44");
+            rootState_subState = sendaction_44;
+            rootState_active = sendaction_44;
+            //#[ state sendaction_44.(Entry) 
+            itsTimer.GEN(evRequestTime);
+            //#]
+            NOTIFY_TRANSITION_TERMINATED("0");
+            res = eventConsumed;
         }
     else if(IS_EVENT_TYPE_OF(evTimerInitialize_MainPackage_id))
         {
             OMSETPARAMS(evTimerInitialize);
-            //## transition 3 
-            if(!stopMeasurementFlag)
-                {
-                    NOTIFY_TRANSITION_STARTED("3");
-                    NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
-                    //#[ transition 3 
-                    handleEnergySavingSystem();whetherTimerRead=true;createPackage(params->time);
-                    //#]
-                    NOTIFY_STATE_ENTERED("ROOT.sendaction_37");
-                    rootState_subState = sendaction_37;
-                    rootState_active = sendaction_37;
-                    //#[ state sendaction_37.(Entry) 
-                    itsAnnemometer.GEN(evReadSensor);
-                    //#]
-                    rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_37");
-                    NOTIFY_TRANSITION_TERMINATED("3");
-                    res = eventConsumed;
-                }
+            NOTIFY_TRANSITION_STARTED("3");
+            NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
+            //#[ transition 3 
+            handleEnergySavingSystem();whetherTimerRead=true;createPackage(params->time);
+            //#]
+            NOTIFY_STATE_ENTERED("ROOT.sendaction_37");
+            rootState_subState = sendaction_37;
+            rootState_active = sendaction_37;
+            //#[ state sendaction_37.(Entry) 
+            itsAnnemometer.GEN(evReadSensor);
+            //#]
+            rootState_timeout = scheduleTimeout(150, "ROOT.sendaction_37");
+            NOTIFY_TRANSITION_TERMINATED("3");
+            res = eventConsumed;
         }
     
     return res;
@@ -1280,7 +1226,6 @@ void OMAnimatedController::serializeAttributes(AOMSAttributes* aomsAttributes) c
     aomsAttributes->addAttribute("alert", UNKNOWN2STRING(myReal->alert));
     aomsAttributes->addAttribute("iterator", x2String(myReal->iterator));
     aomsAttributes->addAttribute("whetherTimerRead", x2String(myReal->whetherTimerRead));
-    aomsAttributes->addAttribute("stopMeasurementFlag", x2String(myReal->stopMeasurementFlag));
     OMAnimatediPrint::serializeAttributes(aomsAttributes);
     OMAnimatediInitialize::serializeAttributes(aomsAttributes);
     OMAnimatediConfirmDataReceival::serializeAttributes(aomsAttributes);
@@ -1377,19 +1322,9 @@ void OMAnimatedController::rootState_serializeStates(AOMSState* aomsState) const
             sendaction_44_serializeStates(aomsState);
         }
         break;
-        case Controller::INTO_NON_ACTIVE:
+        case Controller::NON_ACTIVE:
         {
-            INTO_NON_ACTIVE_serializeStates(aomsState);
-        }
-        break;
-        case Controller::ACTIVATE:
-        {
-            ACTIVATE_serializeStates(aomsState);
-        }
-        break;
-        case Controller::READ_INFO:
-        {
-            READ_INFO_serializeStates(aomsState);
+            NON_ACTIVE_serializeStates(aomsState);
         }
         break;
         default:
@@ -1433,16 +1368,12 @@ void OMAnimatedController::sendaction_37_serializeStates(AOMSState* aomsState) c
     aomsState->addState("ROOT.sendaction_37");
 }
 
-void OMAnimatedController::READ_INFO_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.READ_INFO");
-}
-
 void OMAnimatedController::PACKAGE_READY_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.PACKAGE_READY");
 }
 
-void OMAnimatedController::INTO_NON_ACTIVE_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.INTO_NON_ACTIVE");
+void OMAnimatedController::NON_ACTIVE_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.NON_ACTIVE");
 }
 
 void OMAnimatedController::DELETE_PACKAGE_serializeStates(AOMSState* aomsState) const {
@@ -1451,10 +1382,6 @@ void OMAnimatedController::DELETE_PACKAGE_serializeStates(AOMSState* aomsState) 
 
 void OMAnimatedController::CALIBRATE_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.CALIBRATE");
-}
-
-void OMAnimatedController::ACTIVATE_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.ACTIVATE");
 }
 //#]
 

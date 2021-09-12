@@ -1,3 +1,6 @@
 [Op Calls]
 [Events]
 [Breakpoints]
+break itsController->itsAnnemometer StateEntered ROOT.SENSOR_STAND_BY enabled
+break itsController->itsAnnemometer StateEntered ROOT.sendaction_7 enabled
+break itsController StateEntered ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST enabled

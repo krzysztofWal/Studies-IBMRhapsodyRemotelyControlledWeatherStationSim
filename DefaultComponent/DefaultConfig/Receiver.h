@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Receiver
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Sun, 12, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\Receiver.h
 *********************************************************************/
 
@@ -260,12 +260,6 @@ public :
 protected :
 
     //## auto_generated
-    std::vector<std::pair<unsigned long long, std::pair<int,int>>> getAlert_TimeAndWhichParticulate() const;
-    
-    //## auto_generated
-    void setAlert_TimeAndWhichParticulate(std::vector<std::pair<unsigned long long, std::pair<int,int>>> p_Alert_TimeAndWhichParticulate);
-    
-    //## auto_generated
     std::vector<StationData> getDataReceived() const;
     
     //## auto_generated
@@ -290,8 +284,6 @@ protected :
     bool cancelTimeout(const IOxfTimeout* arg);
     
     ////    Attributes    ////
-    
-    std::vector<std::pair<unsigned long long, std::pair<int,int>>> Alert_TimeAndWhichParticulate;		//## attribute Alert_TimeAndWhichParticulate
     
     std::vector<StationData> dataReceived;		//## attribute dataReceived
     

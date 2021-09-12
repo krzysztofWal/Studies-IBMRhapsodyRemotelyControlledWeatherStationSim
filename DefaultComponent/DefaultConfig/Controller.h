@@ -358,16 +358,6 @@ public :
     
     //## auto_generated
     port_35_C* get_port_35() const;
-
-private :
-
-    //## auto_generated
-    int getStopMeasurementFlag() const;
-
-public :
-
-    //## auto_generated
-    void setStopMeasurementFlag(int p_stopMeasurementFlag);
     
     //## auto_generated
     Timer* getItsTimer() const;
@@ -423,8 +413,6 @@ protected :
     int iterator;		//## attribute iterator
     
     statusType stationStatus;		//## attribute stationStatus
-    
-    int stopMeasurementFlag;		//## attribute stopMeasurementFlag
     
     unsigned long long time;		//## attribute time
     
@@ -545,17 +533,13 @@ public :
     //## statechart_method
     inline bool sendaction_37_IN() const;
     
-    // READ_INFO:
-    //## statechart_method
-    inline bool READ_INFO_IN() const;
-    
     // PACKAGE_READY:
     //## statechart_method
     inline bool PACKAGE_READY_IN() const;
     
-    // INTO_NON_ACTIVE:
+    // NON_ACTIVE:
     //## statechart_method
-    inline bool INTO_NON_ACTIVE_IN() const;
+    inline bool NON_ACTIVE_IN() const;
     
     // DELETE_PACKAGE:
     //## statechart_method
@@ -564,10 +548,6 @@ public :
     // CALIBRATE:
     //## statechart_method
     inline bool CALIBRATE_IN() const;
-    
-    // ACTIVATE:
-    //## statechart_method
-    inline bool ACTIVATE_IN() const;
 
 protected :
 
@@ -583,12 +563,10 @@ protected :
         sendaction_39 = 7,
         sendaction_38 = 8,
         sendaction_37 = 9,
-        READ_INFO = 10,
-        PACKAGE_READY = 11,
-        INTO_NON_ACTIVE = 12,
-        DELETE_PACKAGE = 13,
-        CALIBRATE = 14,
-        ACTIVATE = 15
+        PACKAGE_READY = 10,
+        NON_ACTIVE = 11,
+        DELETE_PACKAGE = 12,
+        CALIBRATE = 13
     };
     
     int rootState_subState;
@@ -643,22 +621,16 @@ public :
     void sendaction_37_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
-    void READ_INFO_serializeStates(AOMSState* aomsState) const;
-    
-    //## statechart_method
     void PACKAGE_READY_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
-    void INTO_NON_ACTIVE_serializeStates(AOMSState* aomsState) const;
+    void NON_ACTIVE_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
     void DELETE_PACKAGE_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
     void CALIBRATE_serializeStates(AOMSState* aomsState) const;
-    
-    //## statechart_method
-    void ACTIVATE_serializeStates(AOMSState* aomsState) const;
 };
 
 class OMAnimatedobject_0_C : virtual public AOMInstance {
@@ -707,16 +679,12 @@ inline bool Controller::sendaction_37_IN() const {
     return rootState_subState == sendaction_37;
 }
 
-inline bool Controller::READ_INFO_IN() const {
-    return rootState_subState == READ_INFO;
-}
-
 inline bool Controller::PACKAGE_READY_IN() const {
     return rootState_subState == PACKAGE_READY;
 }
 
-inline bool Controller::INTO_NON_ACTIVE_IN() const {
-    return rootState_subState == INTO_NON_ACTIVE;
+inline bool Controller::NON_ACTIVE_IN() const {
+    return rootState_subState == NON_ACTIVE;
 }
 
 inline bool Controller::DELETE_PACKAGE_IN() const {
@@ -725,10 +693,6 @@ inline bool Controller::DELETE_PACKAGE_IN() const {
 
 inline bool Controller::CALIBRATE_IN() const {
     return rootState_subState == CALIBRATE;
-}
-
-inline bool Controller::ACTIVATE_IN() const {
-    return rootState_subState == ACTIVATE;
 }
 
 #endif

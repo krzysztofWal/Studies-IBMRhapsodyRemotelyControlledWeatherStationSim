@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: Receiver
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Sun, 12, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\Receiver.cpp
 *********************************************************************/
 
@@ -270,14 +270,6 @@ bool Receiver::startBehavior() {
     return done;
 }
 
-std::vector<std::pair<unsigned long long, std::pair<int,int>>> Receiver::getAlert_TimeAndWhichParticulate() const {
-    return Alert_TimeAndWhichParticulate;
-}
-
-void Receiver::setAlert_TimeAndWhichParticulate(std::vector<std::pair<unsigned long long, std::pair<int,int>>> p_Alert_TimeAndWhichParticulate) {
-    Alert_TimeAndWhichParticulate = p_Alert_TimeAndWhichParticulate;
-}
-
 std::vector<StationData> Receiver::getDataReceived() const {
     return dataReceived;
 }
@@ -533,7 +525,6 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
 //#[ ignore
 void OMAnimatedReceiver::serializeAttributes(AOMSAttributes* aomsAttributes) const {
     aomsAttributes->addAttribute("dataReceived", UNKNOWN2STRING(myReal->dataReceived));
-    aomsAttributes->addAttribute("Alert_TimeAndWhichParticulate", UNKNOWN2STRING(myReal->Alert_TimeAndWhichParticulate));
     aomsAttributes->addAttribute("iterator", x2String(myReal->iterator));
     OMAnimatediInform::serializeAttributes(aomsAttributes);
 }

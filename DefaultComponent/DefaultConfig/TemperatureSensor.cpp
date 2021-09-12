@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: TemperatureSensor
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Sun, 12, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\TemperatureSensor.cpp
 *********************************************************************/
 
@@ -144,7 +144,7 @@ IOxfReactive::TakeEventStatus TemperatureSensor::rootState_processEvent() {
                     rootState_subState = sendaction_7;
                     rootState_active = sendaction_7;
                     //#[ state sendaction_7.(Entry) 
-                    GEN(evSendReadFromSensor(recentValue));
+                    itsController->GEN(evSendReadFromSensor(recentValue));
                     //#]
                     NOTIFY_TRANSITION_TERMINATED("1");
                     res = eventConsumed;
