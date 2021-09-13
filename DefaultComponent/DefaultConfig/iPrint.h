@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: iPrint
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\iPrint.h
 *********************************************************************/
 
@@ -58,6 +58,9 @@ public :
     virtual ~iPrint() = 0;
     
     ////    Operations    ////
+    
+    //## operation evGetInfoWrap()
+    virtual void evGetInfoWrap() = 0;
     
     //## operation print()
     virtual StationData print() = 0;

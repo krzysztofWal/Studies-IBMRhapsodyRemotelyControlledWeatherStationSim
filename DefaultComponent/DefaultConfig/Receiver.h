@@ -44,8 +44,6 @@
 //## class port_3_C
 #include "iConfirmDataReceival.h"
 //## class port_3_C
-#include "iInformation.h"
-//## class port_3_C
 #include "iInitialize.h"
 //## class port_3_C
 #include "iPrint.h"
@@ -75,7 +73,7 @@ public :
 
 //#[ ignore
     //## package MainPackage
-    class port_3_C : public iPrint, public iInitialize, public iConfirmDataReceival, public iCalibrateRequest, public iUspijStacje, public iAktywujStacje, public iInformation {
+    class port_3_C : public iPrint, public iInitialize, public iConfirmDataReceival, public iCalibrateRequest, public iUspijStacje, public iAktywujStacje {
         ////    Constructors and destructors    ////
         
     public :
@@ -116,9 +114,6 @@ public :
         iConfirmDataReceival* getItsIConfirmDataReceival();
         
         //## auto_generated
-        iInformation* getItsIInformation();
-        
-        //## auto_generated
         iInitialize* getItsIInitialize();
         
         //## auto_generated
@@ -145,9 +140,6 @@ public :
         void setItsIConfirmDataReceival(iConfirmDataReceival* p_iConfirmDataReceival);
         
         //## auto_generated
-        void setItsIInformation(iInformation* p_iInformation);
-        
-        //## auto_generated
         void setItsIInitialize(iInitialize* p_iInitialize);
         
         //## auto_generated
@@ -172,8 +164,6 @@ public :
         iCalibrateRequest* itsICalibrateRequest;		//## link itsICalibrateRequest
         
         iConfirmDataReceival* itsIConfirmDataReceival;		//## link itsIConfirmDataReceival
-        
-        iInformation* itsIInformation;		//## link itsIInformation
         
         iInitialize* itsIInitialize;		//## link itsIInitialize
         

@@ -73,8 +73,6 @@
 #include <ctime>
 //## auto_generated
 #include <math.h>
-//## class port_33_C
-#include "iInformation.h"
 //## package MainPackage
 
 //## class Controller
@@ -158,7 +156,7 @@ public :
     
 //#[ ignore
     //## package MainPackage
-    class port_33_C : public iPrint, public iInitialize, public iConfirmDataReceival, public iCalibrateRequest, public iAktywujStacje, public iUspijStacje, public iInformation {
+    class port_33_C : public iPrint, public iInitialize, public iConfirmDataReceival, public iCalibrateRequest, public iAktywujStacje, public iUspijStacje {
         ////    Constructors and destructors    ////
         
     public :
@@ -202,9 +200,6 @@ public :
         iConfirmDataReceival* getItsIConfirmDataReceival();
         
         //## auto_generated
-        iInformation* getItsIInformation();
-        
-        //## auto_generated
         iInitialize* getItsIInitialize();
         
         //## auto_generated
@@ -226,9 +221,6 @@ public :
         
         //## auto_generated
         void setItsIConfirmDataReceival(iConfirmDataReceival* p_iConfirmDataReceival);
-        
-        //## auto_generated
-        void setItsIInformation(iInformation* p_iInformation);
         
         //## auto_generated
         void setItsIInitialize(iInitialize* p_iInitialize);
@@ -255,8 +247,6 @@ public :
         iCalibrateRequest* itsICalibrateRequest;		//## link itsICalibrateRequest
         
         iConfirmDataReceival* itsIConfirmDataReceival;		//## link itsIConfirmDataReceival
-        
-        iInformation* itsIInformation;		//## link itsIInformation
         
         iInitialize* itsIInitialize;		//## link itsIInitialize
         
@@ -508,20 +498,12 @@ public :
     //## statechart_method
     virtual IOxfReactive::TakeEventStatus rootState_processEvent();
     
-    // state_51:
-    //## statechart_method
-    inline bool state_51_IN() const;
-    
     // STAND_BY_CONTROLLER:
     //## statechart_method
     inline bool STAND_BY_CONTROLLER_IN() const;
     
     //## statechart_method
     IOxfReactive::TakeEventStatus STAND_BY_CONTROLLER_handleEvent();
-    
-    // SIGNAL_JOIN_TIMER_SERVER_REQUEST:
-    //## statechart_method
-    inline bool SIGNAL_JOIN_TIMER_SERVER_REQUEST_IN() const;
     
     // sendaction_44:
     //## statechart_method
@@ -551,6 +533,10 @@ public :
     //## statechart_method
     inline bool sendaction_37_IN() const;
     
+    // SEND_INFO:
+    //## statechart_method
+    inline bool SEND_INFO_IN() const;
+    
     // PACKAGE_READY:
     //## statechart_method
     inline bool PACKAGE_READY_IN() const;
@@ -572,20 +558,19 @@ protected :
 //#[ ignore
     enum Controller_Enum {
         OMNonState = 0,
-        state_51 = 1,
-        STAND_BY_CONTROLLER = 2,
-        SIGNAL_JOIN_TIMER_SERVER_REQUEST = 3,
-        sendaction_44 = 4,
-        sendaction_42 = 5,
-        sendaction_41 = 6,
-        sendaction_40 = 7,
-        sendaction_39 = 8,
-        sendaction_38 = 9,
-        sendaction_37 = 10,
-        PACKAGE_READY = 11,
-        NON_ACTIVE = 12,
-        DELETE_PACKAGE = 13,
-        CALIBRATE = 14
+        STAND_BY_CONTROLLER = 1,
+        sendaction_44 = 2,
+        sendaction_42 = 3,
+        sendaction_41 = 4,
+        sendaction_40 = 5,
+        sendaction_39 = 6,
+        sendaction_38 = 7,
+        sendaction_37 = 8,
+        SEND_INFO = 9,
+        PACKAGE_READY = 10,
+        NON_ACTIVE = 11,
+        DELETE_PACKAGE = 12,
+        CALIBRATE = 13
     };
     
     int rootState_subState;
@@ -613,13 +598,7 @@ public :
     void rootState_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
-    void state_51_serializeStates(AOMSState* aomsState) const;
-    
-    //## statechart_method
     void STAND_BY_CONTROLLER_serializeStates(AOMSState* aomsState) const;
-    
-    //## statechart_method
-    void SIGNAL_JOIN_TIMER_SERVER_REQUEST_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
     void sendaction_44_serializeStates(AOMSState* aomsState) const;
@@ -641,6 +620,9 @@ public :
     
     //## statechart_method
     void sendaction_37_serializeStates(AOMSState* aomsState) const;
+    
+    //## statechart_method
+    void SEND_INFO_serializeStates(AOMSState* aomsState) const;
     
     //## statechart_method
     void PACKAGE_READY_serializeStates(AOMSState* aomsState) const;
@@ -665,16 +647,8 @@ inline bool Controller::rootState_IN() const {
     return true;
 }
 
-inline bool Controller::state_51_IN() const {
-    return rootState_subState == state_51;
-}
-
 inline bool Controller::STAND_BY_CONTROLLER_IN() const {
     return rootState_subState == STAND_BY_CONTROLLER;
-}
-
-inline bool Controller::SIGNAL_JOIN_TIMER_SERVER_REQUEST_IN() const {
-    return rootState_subState == SIGNAL_JOIN_TIMER_SERVER_REQUEST;
 }
 
 inline bool Controller::sendaction_44_IN() const {
@@ -703,6 +677,10 @@ inline bool Controller::sendaction_38_IN() const {
 
 inline bool Controller::sendaction_37_IN() const {
     return rootState_subState == sendaction_37;
+}
+
+inline bool Controller::SEND_INFO_IN() const {
+    return rootState_subState == SEND_INFO;
 }
 
 inline bool Controller::PACKAGE_READY_IN() const {

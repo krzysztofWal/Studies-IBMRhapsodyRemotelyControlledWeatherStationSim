@@ -147,7 +147,6 @@ Controller::port_33_C::port_33_C() : _p_(0) {
     itsIAktywujStacje = NULL;
     itsICalibrateRequest = NULL;
     itsIConfirmDataReceival = NULL;
-    itsIInformation = NULL;
     itsIInitialize = NULL;
     itsIPrint = NULL;
     itsIUspijStacje = NULL;
@@ -193,8 +192,8 @@ void Controller::port_33_C::evConfirmPackageReceivalWrap() {
 
 void Controller::port_33_C::evGetInfoWrap() {
     
-    if (itsIInformation != NULL) {
-        itsIInformation->evGetInfoWrap();
+    if (itsIPrint != NULL) {
+        itsIPrint->evGetInfoWrap();
     }
     
 }
@@ -224,10 +223,6 @@ iCalibrateRequest* Controller::port_33_C::getItsICalibrateRequest() {
 }
 
 iConfirmDataReceival* Controller::port_33_C::getItsIConfirmDataReceival() {
-    return this;
-}
-
-iInformation* Controller::port_33_C::getItsIInformation() {
     return this;
 }
 
@@ -263,10 +258,6 @@ void Controller::port_33_C::setItsIConfirmDataReceival(iConfirmDataReceival* p_i
     itsIConfirmDataReceival = p_iConfirmDataReceival;
 }
 
-void Controller::port_33_C::setItsIInformation(iInformation* p_iInformation) {
-    itsIInformation = p_iInformation;
-}
-
 void Controller::port_33_C::setItsIInitialize(iInitialize* p_iInitialize) {
     itsIInitialize = p_iInitialize;
 }
@@ -291,10 +282,6 @@ void Controller::port_33_C::cleanUpRelations() {
     if(itsIConfirmDataReceival != NULL)
         {
             itsIConfirmDataReceival = NULL;
-        }
-    if(itsIInformation != NULL)
-        {
-            itsIInformation = NULL;
         }
     if(itsIInitialize != NULL)
         {
@@ -792,28 +779,6 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
             
         }
         break;
-        // State SIGNAL_JOIN_TIMER_SERVER_REQUEST
-        case SIGNAL_JOIN_TIMER_SERVER_REQUEST:
-        {
-            if(IS_EVENT_TYPE_OF(OMNullEventId))
-                {
-                    NOTIFY_TRANSITION_STARTED("24");
-                    popNullTransition();
-                    NOTIFY_STATE_EXITED("ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST");
-                    NOTIFY_STATE_ENTERED("ROOT.PACKAGE_READY");
-                    rootState_subState = PACKAGE_READY;
-                    rootState_active = PACKAGE_READY;
-                    //#[ state PACKAGE_READY.(Entry) 
-                    OUT_PORT(port_35)->evInformPackReadyWrap();
-                    
-                    //#]
-                    rootState_timeout = scheduleTimeout(150, "ROOT.PACKAGE_READY");
-                    NOTIFY_TRANSITION_TERMINATED("24");
-                    res = eventConsumed;
-                }
-            
-        }
-        break;
         // State CALIBRATE
         case CALIBRATE:
         {
@@ -1071,10 +1036,14 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                             NOTIFY_TRANSITION_STARTED("13");
                             cancel(rootState_timeout);
                             NOTIFY_STATE_EXITED("ROOT.sendaction_42");
-                            NOTIFY_STATE_ENTERED("ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST");
-                            pushNullTransition();
-                            rootState_subState = SIGNAL_JOIN_TIMER_SERVER_REQUEST;
-                            rootState_active = SIGNAL_JOIN_TIMER_SERVER_REQUEST;
+                            NOTIFY_STATE_ENTERED("ROOT.PACKAGE_READY");
+                            rootState_subState = PACKAGE_READY;
+                            rootState_active = PACKAGE_READY;
+                            //#[ state PACKAGE_READY.(Entry) 
+                            OUT_PORT(port_35)->evInformPackReadyWrap();
+                            
+                            //#]
+                            rootState_timeout = scheduleTimeout(150, "ROOT.PACKAGE_READY");
                             NOTIFY_TRANSITION_TERMINATED("13");
                             res = eventConsumed;
                         }
@@ -1088,10 +1057,14 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                     //#[ transition 19 
                     appendToPackage(itsPressureSensor.getId() ,params->valueBeingSent);
                     //#]
-                    NOTIFY_STATE_ENTERED("ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST");
-                    pushNullTransition();
-                    rootState_subState = SIGNAL_JOIN_TIMER_SERVER_REQUEST;
-                    rootState_active = SIGNAL_JOIN_TIMER_SERVER_REQUEST;
+                    NOTIFY_STATE_ENTERED("ROOT.PACKAGE_READY");
+                    rootState_subState = PACKAGE_READY;
+                    rootState_active = PACKAGE_READY;
+                    //#[ state PACKAGE_READY.(Entry) 
+                    OUT_PORT(port_35)->evInformPackReadyWrap();
+                    
+                    //#]
+                    rootState_timeout = scheduleTimeout(150, "ROOT.PACKAGE_READY");
                     NOTIFY_TRANSITION_TERMINATED("19");
                     res = eventConsumed;
                 }
@@ -1145,9 +1118,9 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                 }
             else if(IS_EVENT_TYPE_OF(evActivate_MainPackage_id))
                 {
-                    NOTIFY_TRANSITION_STARTED("25");
+                    NOTIFY_TRANSITION_STARTED("24");
                     NOTIFY_STATE_EXITED("ROOT.NON_ACTIVE");
-                    //#[ transition 25 
+                    //#[ transition 24 
                     activate();
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
@@ -1156,27 +1129,27 @@ IOxfReactive::TakeEventStatus Controller::rootState_processEvent() {
                     //#[ state STAND_BY_CONTROLLER.(Entry) 
                     handleEnergySavingSystem();
                     //#]
-                    NOTIFY_TRANSITION_TERMINATED("25");
+                    NOTIFY_TRANSITION_TERMINATED("24");
                     res = eventConsumed;
                 }
             
         }
         break;
-        // State state_51
-        case state_51:
+        // State SEND_INFO
+        case SEND_INFO:
         {
             if(IS_EVENT_TYPE_OF(OMNullEventId))
                 {
-                    NOTIFY_TRANSITION_STARTED("26");
+                    NOTIFY_TRANSITION_STARTED("25");
                     popNullTransition();
-                    NOTIFY_STATE_EXITED("ROOT.state_51");
+                    NOTIFY_STATE_EXITED("ROOT.SEND_INFO");
                     NOTIFY_STATE_ENTERED("ROOT.STAND_BY_CONTROLLER");
                     rootState_subState = STAND_BY_CONTROLLER;
                     rootState_active = STAND_BY_CONTROLLER;
                     //#[ state STAND_BY_CONTROLLER.(Entry) 
                     handleEnergySavingSystem();
                     //#]
-                    NOTIFY_TRANSITION_TERMINATED("26");
+                    NOTIFY_TRANSITION_TERMINATED("25");
                     res = eventConsumed;
                 }
             
@@ -1194,13 +1167,13 @@ IOxfReactive::TakeEventStatus Controller::STAND_BY_CONTROLLER_handleEvent() {
         {
             NOTIFY_TRANSITION_STARTED("23");
             NOTIFY_STATE_EXITED("ROOT.STAND_BY_CONTROLLER");
-            //#[ transition 23 
+            NOTIFY_STATE_ENTERED("ROOT.SEND_INFO");
+            pushNullTransition();
+            rootState_subState = SEND_INFO;
+            rootState_active = SEND_INFO;
+            //#[ state SEND_INFO.(Entry) 
             OUT_PORT(port_35)->getInfo(makeInfoStr());
             //#]
-            NOTIFY_STATE_ENTERED("ROOT.state_51");
-            pushNullTransition();
-            rootState_subState = state_51;
-            rootState_active = state_51;
             NOTIFY_TRANSITION_TERMINATED("23");
             res = eventConsumed;
         }
@@ -1317,11 +1290,6 @@ void OMAnimatedController::rootState_serializeStates(AOMSState* aomsState) const
             DELETE_PACKAGE_serializeStates(aomsState);
         }
         break;
-        case Controller::SIGNAL_JOIN_TIMER_SERVER_REQUEST:
-        {
-            SIGNAL_JOIN_TIMER_SERVER_REQUEST_serializeStates(aomsState);
-        }
-        break;
         case Controller::CALIBRATE:
         {
             CALIBRATE_serializeStates(aomsState);
@@ -1367,9 +1335,9 @@ void OMAnimatedController::rootState_serializeStates(AOMSState* aomsState) const
             NON_ACTIVE_serializeStates(aomsState);
         }
         break;
-        case Controller::state_51:
+        case Controller::SEND_INFO:
         {
-            state_51_serializeStates(aomsState);
+            SEND_INFO_serializeStates(aomsState);
         }
         break;
         default:
@@ -1377,16 +1345,8 @@ void OMAnimatedController::rootState_serializeStates(AOMSState* aomsState) const
     }
 }
 
-void OMAnimatedController::state_51_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.state_51");
-}
-
 void OMAnimatedController::STAND_BY_CONTROLLER_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.STAND_BY_CONTROLLER");
-}
-
-void OMAnimatedController::SIGNAL_JOIN_TIMER_SERVER_REQUEST_serializeStates(AOMSState* aomsState) const {
-    aomsState->addState("ROOT.SIGNAL_JOIN_TIMER_SERVER_REQUEST");
 }
 
 void OMAnimatedController::sendaction_44_serializeStates(AOMSState* aomsState) const {
@@ -1415,6 +1375,10 @@ void OMAnimatedController::sendaction_38_serializeStates(AOMSState* aomsState) c
 
 void OMAnimatedController::sendaction_37_serializeStates(AOMSState* aomsState) const {
     aomsState->addState("ROOT.sendaction_37");
+}
+
+void OMAnimatedController::SEND_INFO_serializeStates(AOMSState* aomsState) const {
+    aomsState->addState("ROOT.SEND_INFO");
 }
 
 void OMAnimatedController::PACKAGE_READY_serializeStates(AOMSState* aomsState) const {

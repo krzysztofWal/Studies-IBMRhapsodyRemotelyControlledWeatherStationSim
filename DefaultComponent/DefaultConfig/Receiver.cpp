@@ -36,7 +36,6 @@ Receiver::port_3_C::port_3_C() : _p_(0) {
     itsIAktywujStacje = NULL;
     itsICalibrateRequest = NULL;
     itsIConfirmDataReceival = NULL;
-    itsIInformation = NULL;
     itsIInitialize = NULL;
     itsIPrint = NULL;
     itsIUspijStacje = NULL;
@@ -72,8 +71,8 @@ void Receiver::port_3_C::evConfirmPackageReceivalWrap() {
 
 void Receiver::port_3_C::evGetInfoWrap() {
     
-    if (itsIInformation != NULL) {
-        itsIInformation->evGetInfoWrap();
+    if (itsIPrint != NULL) {
+        itsIPrint->evGetInfoWrap();
     }
     
 }
@@ -103,10 +102,6 @@ iCalibrateRequest* Receiver::port_3_C::getItsICalibrateRequest() {
 }
 
 iConfirmDataReceival* Receiver::port_3_C::getItsIConfirmDataReceival() {
-    return this;
-}
-
-iInformation* Receiver::port_3_C::getItsIInformation() {
     return this;
 }
 
@@ -146,10 +141,6 @@ void Receiver::port_3_C::setItsIConfirmDataReceival(iConfirmDataReceival* p_iCon
     itsIConfirmDataReceival = p_iConfirmDataReceival;
 }
 
-void Receiver::port_3_C::setItsIInformation(iInformation* p_iInformation) {
-    itsIInformation = p_iInformation;
-}
-
 void Receiver::port_3_C::setItsIInitialize(iInitialize* p_iInitialize) {
     itsIInitialize = p_iInitialize;
 }
@@ -174,10 +165,6 @@ void Receiver::port_3_C::cleanUpRelations() {
     if(itsIConfirmDataReceival != NULL)
         {
             itsIConfirmDataReceival = NULL;
-        }
-    if(itsIInformation != NULL)
-        {
-            itsIInformation = NULL;
         }
     if(itsIInitialize != NULL)
         {
@@ -392,7 +379,7 @@ IOxfReactive::TakeEventStatus Receiver::rootState_processEvent() {
                     //#[ transition 1 
                     dataReceived.emplace_back(OUT_PORT(port_3)->print());
                     OUT_PORT(port_3)->evConfirmPackageReceivalWrap();
-                    std::cout << "Debug: receiverStates: received package";
+                    std::cout << "Debug: receiverStates: received package\n";
                     //#]
                     NOTIFY_STATE_ENTERED("ROOT.STANDBY");
                     rootState_subState = STANDBY;
@@ -514,7 +501,7 @@ IOxfReactive::TakeEventStatus Receiver::STANDBY_handleEvent() {
             //#[ transition 12 
             dataReceived.emplace_back(OUT_PORT(port_3)->print());
             OUT_PORT(port_3)->evConfirmPackageReceivalWrap();
-            std::cout << "Debug: receiverStates: received package";
+            std::cout << "Debug: receiverStates: received package\n";
             //#]
             NOTIFY_STATE_ENTERED("ROOT.STANDBY");
             rootState_subState = STANDBY;

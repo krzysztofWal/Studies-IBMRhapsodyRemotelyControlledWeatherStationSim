@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MainPackage
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\MainPackage.cpp
 *********************************************************************/
 
@@ -30,8 +30,6 @@
 #include "iConfirmDataReceival.h"
 //## auto_generated
 #include "iInform.h"
-//## auto_generated
-#include "iInformation.h"
 //## auto_generated
 #include "iInitialize.h"
 //## auto_generated
@@ -213,8 +211,6 @@ void MainPackage_initRelations() {
         itsReceiver.get_port_3()->setItsIUspijStacje(itsController.get_port_33()->getItsIUspijStacje());
         
         itsReceiver.get_port_3()->setItsIAktywujStacje(itsController.get_port_33()->getItsIAktywujStacje());
-        
-        itsReceiver.get_port_3()->setItsIInformation(itsController.get_port_33()->getItsIInformation());
         
     }
     {

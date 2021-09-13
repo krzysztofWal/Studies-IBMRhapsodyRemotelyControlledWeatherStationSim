@@ -102,7 +102,6 @@ OBJS= \
   Timer.obj \
   iAktywujStacje.obj \
   iUspijStacje.obj \
-  iInformation.obj \
   MainPackage.obj
 
 
@@ -222,7 +221,7 @@ StationData.obj : StationData.cpp StationData.h    MainPackage.h
 
 
 
-Receiver.obj : Receiver.cpp Receiver.h    MainPackage.h StationData.h iPrint.h iInitialize.h iConfirmDataReceival.h iCalibrateRequest.h iUspijStacje.h iAktywujStacje.h iInformation.h iInform.h 
+Receiver.obj : Receiver.cpp Receiver.h    MainPackage.h StationData.h iPrint.h iInitialize.h iConfirmDataReceival.h iCalibrateRequest.h iUspijStacje.h iAktywujStacje.h iInform.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"Receiver.obj" "Receiver.cpp" 
 
@@ -294,13 +293,7 @@ iUspijStacje.obj : iUspijStacje.cpp iUspijStacje.h    MainPackage.h
 
 
 
-iInformation.obj : iInformation.cpp iInformation.h    MainPackage.h 
-	$(CREATE_OBJ_DIR)
-	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"iInformation.obj" "iInformation.cpp" 
-
-
-
-MainPackage.obj : MainPackage.cpp MainPackage.h    Sensor.h Controller.h TemperatureSensor.h HumiditySensor.h PressureSensor.h StationData.h Receiver.h Annemometer.h RainAmountSensor.h WindDirectionSensor.h iPrint.h iInitialize.h iInform.h iConfirmDataReceival.h iCalibrateRequest.h Timer.h iAktywujStacje.h iUspijStacje.h iInformation.h 
+MainPackage.obj : MainPackage.cpp MainPackage.h    Sensor.h Controller.h TemperatureSensor.h HumiditySensor.h PressureSensor.h StationData.h Receiver.h Annemometer.h RainAmountSensor.h WindDirectionSensor.h iPrint.h iInitialize.h iInform.h iConfirmDataReceival.h iCalibrateRequest.h Timer.h iAktywujStacje.h iUspijStacje.h 
 	$(CREATE_OBJ_DIR)
 	$(CPP) $(ConfigurationCPPCompileSwitches)  /Fo"MainPackage.obj" "MainPackage.cpp" 
 
@@ -351,7 +344,6 @@ clean:
 	if exist Timer.obj erase Timer.obj
 	if exist iAktywujStacje.obj erase iAktywujStacje.obj
 	if exist iUspijStacje.obj erase iUspijStacje.obj
-	if exist iInformation.obj erase iInformation.obj
 	if exist MainPackage.obj erase MainPackage.obj
 	if exist $(TARGET_MAIN)$(OBJ_EXT) erase $(TARGET_MAIN)$(OBJ_EXT)
 	if exist *$(OBJ_EXT) erase *$(OBJ_EXT)

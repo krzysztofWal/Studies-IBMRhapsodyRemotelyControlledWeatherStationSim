@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: iPrint
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\iPrint.cpp
 *********************************************************************/
 
@@ -16,6 +16,8 @@
 #include "iPrint.h"
 //#[ ignore
 #define MainPackage_iPrint_iPrint_SERIALIZE OM_NO_OP
+
+#define MainPackage_iPrint_evGetInfoWrap_SERIALIZE OM_NO_OP
 
 #define MainPackage_iPrint_print_SERIALIZE OM_NO_OP
 //#]

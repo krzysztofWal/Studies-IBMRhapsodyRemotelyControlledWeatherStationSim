@@ -4,7 +4,7 @@
 	Component	: DefaultComponent 
 	Configuration 	: DefaultConfig
 	Model Element	: MainPackage
-//!	Generated Date	: Sat, 11, Sep 2021  
+//!	Generated Date	: Mon, 13, Sep 2021  
 	File Path	: DefaultComponent\DefaultConfig\MainPackage.h
 *********************************************************************/
 
@@ -61,9 +61,6 @@ class iConfirmDataReceival;
 
 //## auto_generated
 class iInform;
-
-//## auto_generated
-class iInformation;
 
 //## auto_generated
 class iInitialize;
