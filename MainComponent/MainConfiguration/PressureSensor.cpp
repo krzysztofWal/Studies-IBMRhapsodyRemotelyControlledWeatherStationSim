@@ -4,7 +4,7 @@
 	Component	: MainComponent 
 	Configuration 	: MainConfiguration
 	Model Element	: PressureSensor
-//!	Generated Date	: Mon, 13, Sep 2021  
+//!	Generated Date	: Tue, 14, Sep 2021  
 	File Path	: MainComponent\MainConfiguration\PressureSensor.cpp
 *********************************************************************/
 
@@ -60,7 +60,7 @@ int PressureSensor::getId() {
 void PressureSensor::readSensorFunc() {
     NOTIFY_OPERATION(readSensorFunc, readSensorFunc(), 0, MainPackage_PressureSensor_readSensorFunc_SERIALIZE);
     //#[ operation readSensorFunc()
-    recentValue=Sensor::gen(985,1015,itsController->giveGenTime());
+    recentValue=static_cast<int>(Sensor::gen(996,1015,itsController->giveGenTime()));
     //#]
 }
 

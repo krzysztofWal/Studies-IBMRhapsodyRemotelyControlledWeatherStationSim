@@ -41,8 +41,8 @@
 								<_hid type="a">GUID 6094218e-79b1-4cb5-9edc-8c271d292ca1</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">931 100 </_UpLeft>
-						<_DownRight type="a">2080 637 </_DownRight>
+						<_UpLeft type="a">1088 175 </_UpLeft>
+						<_DownRight type="a">2239 713 </_DownRight>
 						<m_nDiagramIndex type="a">4</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
@@ -57,10 +57,43 @@
 								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
 								<m_ptMaxPositionX type="a">-11</m_ptMaxPositionX>
 								<m_ptMaxPositionY type="a">-44</m_ptMaxPositionY>
-								<m_nLeft type="a">74</m_nLeft>
-								<m_nTop type="a">74</m_nTop>
-								<m_nRight type="a">1125</m_nRight>
-								<m_nBottom type="a">401</m_nBottom>
+								<m_nLeft type="a">148</m_nLeft>
+								<m_nTop type="a">148</m_nTop>
+								<m_nRight type="a">1256</m_nRight>
+								<m_nBottom type="a">534</m_nBottom>
+							</CCommon_WINDOWPLACEMENT>
+						</_placement>
+						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
+						<_theDiagram type="r">
+							<IHandle type="e">
+								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
+								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
+								<_hsubsystem type="a">MainPackage</_hsubsystem>
+								<_hclass type="a">Controller</_hclass>
+								<_hname type="a">StatechartDiagram</_hname>
+								<_hid type="a">GUID af63f7bb-a1ad-4d24-b05c-ce3e5f00d823</_hid>
+							</IHandle>
+						</_theDiagram>
+						<_UpLeft type="a">457 132 </_UpLeft>
+						<_DownRight type="a">1630 466 </_DownRight>
+						<m_nDiagramIndex type="a">1</m_nDiagramIndex>
+						<m_bIsActiveView type="a">0</m_bIsActiveView>
+					</CGEMdiDiagramParams>
+					
+					<CGEMdiDiagramParams type="e">
+						<_placement type="p">
+							<CCommon_WINDOWPLACEMENT type="e">
+								<m_nLength type="a">44</m_nLength>
+								<m_nFlags type="a">2</m_nFlags>
+								<m_showCmd type="a">3</m_showCmd>
+								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
+								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
+								<m_ptMaxPositionX type="a">-11</m_ptMaxPositionX>
+								<m_ptMaxPositionY type="a">-44</m_ptMaxPositionY>
+								<m_nLeft type="a">148</m_nLeft>
+								<m_nTop type="a">148</m_nTop>
+								<m_nRight type="a">1151</m_nRight>
+								<m_nBottom type="a">534</m_nBottom>
 							</CCommon_WINDOWPLACEMENT>
 						</_placement>
 						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
@@ -73,10 +106,10 @@
 								<_hid type="a">GUID 23ecc7ee-b183-4611-ae44-34d66d202406</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">0 68 </_UpLeft>
-						<_DownRight type="a">999 310 </_DownRight>
-						<m_nDiagramIndex type="a">5</m_nDiagramIndex>
-						<m_bIsActiveView type="a">0</m_bIsActiveView>
+						<_UpLeft type="a">0 80 </_UpLeft>
+						<_DownRight type="a">1226 677 </_DownRight>
+						<m_nDiagramIndex type="a">2</m_nDiagramIndex>
+						<m_bIsActiveView type="a">1</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
 					<CGEMdiDiagramParams type="e">
@@ -91,58 +124,25 @@
 								<m_ptMaxPositionY type="a">-44</m_ptMaxPositionY>
 								<m_nLeft type="a">0</m_nLeft>
 								<m_nTop type="a">0</m_nTop>
-								<m_nRight type="a">932</m_nRight>
-								<m_nBottom type="a">382</m_nBottom>
+								<m_nRight type="a">1071</m_nRight>
+								<m_nBottom type="a">442</m_nBottom>
 							</CCommon_WINDOWPLACEMENT>
 						</_placement>
 						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
 						<_theDiagram type="r">
 							<IHandle type="e">
-								<_hm2Class type="a">IMSC</_hm2Class>
+								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
 								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
 								<_hsubsystem type="a">MainPackage</_hsubsystem>
-								<_hclass type="a">Dokonaj pomiaru</_hclass>
-								<_hname type="a">DokonajPomiaru</_hname>
-								<_hid type="a">GUID adff77f4-7c06-42b5-b0f3-78bd00ce7db3</_hid>
+								<_hclass type="a">Receiver</_hclass>
+								<_hname type="a">StatechartDiagram</_hname>
+								<_hid type="a">GUID dc8ea49f-f155-48dc-b819-8c7d9c60cf36</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">0 133 </_UpLeft>
-						<_DownRight type="a">880 410 </_DownRight>
-						<m_nDiagramIndex type="a">2</m_nDiagramIndex>
-						<m_bIsActiveView type="a">0</m_bIsActiveView>
-					</CGEMdiDiagramParams>
-					
-					<CGEMdiDiagramParams type="e">
-						<_placement type="p">
-							<CCommon_WINDOWPLACEMENT type="e">
-								<m_nLength type="a">44</m_nLength>
-								<m_nFlags type="a">2</m_nFlags>
-								<m_showCmd type="a">3</m_showCmd>
-								<m_ptMinPositionX type="a">-1</m_ptMinPositionX>
-								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
-								<m_ptMaxPositionX type="a">-11</m_ptMaxPositionX>
-								<m_ptMaxPositionY type="a">-44</m_ptMaxPositionY>
-								<m_nLeft type="a">37</m_nLeft>
-								<m_nTop type="a">37</m_nTop>
-								<m_nRight type="a">969</m_nRight>
-								<m_nBottom type="a">419</m_nBottom>
-							</CCommon_WINDOWPLACEMENT>
-						</_placement>
-						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
-						<_theDiagram type="r">
-							<IHandle type="e">
-								<_hm2Class type="a">IMSC</_hm2Class>
-								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
-								<_hsubsystem type="a">MainPackage</_hsubsystem>
-								<_hclass type="a">Odczytaj czujniki</_hclass>
-								<_hname type="a">OdczytajCzujniki</_hname>
-								<_hid type="a">GUID e66c578e-6a2d-4f40-8227-a857e354a553</_hid>
-							</IHandle>
-						</_theDiagram>
-						<_UpLeft type="a">545 639 </_UpLeft>
-						<_DownRight type="a">1632 1156 </_DownRight>
+						<_UpLeft type="a">0 260 </_UpLeft>
+						<_DownRight type="a">1019 617 </_DownRight>
 						<m_nDiagramIndex type="a">0</m_nDiagramIndex>
-						<m_bIsActiveView type="a">1</m_bIsActiveView>
+						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
 					<CGEMdiDiagramParams type="e">
@@ -155,31 +155,32 @@
 								<m_ptMinPositionY type="a">-1</m_ptMinPositionY>
 								<m_ptMaxPositionX type="a">-11</m_ptMaxPositionX>
 								<m_ptMaxPositionY type="a">-44</m_ptMaxPositionY>
-								<m_nLeft type="a">185</m_nLeft>
-								<m_nTop type="a">185</m_nTop>
-								<m_nRight type="a">1117</m_nRight>
-								<m_nBottom type="a">567</m_nBottom>
+								<m_nLeft type="a">111</m_nLeft>
+								<m_nTop type="a">111</m_nTop>
+								<m_nRight type="a">1220</m_nRight>
+								<m_nBottom type="a">497</m_nBottom>
 							</CCommon_WINDOWPLACEMENT>
 						</_placement>
 						<_wasOpenedOnCloseProject type="a">1</_wasOpenedOnCloseProject>
 						<_theDiagram type="r">
 							<IHandle type="e">
-								<_hm2Class type="a">IUCDiagram</_hm2Class>
+								<_hm2Class type="a">IStateChartDiagram</_hm2Class>
 								<_hfilename type="a">.\Project_rpy\MainPackage.sbsx</_hfilename>
 								<_hsubsystem type="a">MainPackage</_hsubsystem>
-								<_hname type="a">UseCaseDiagram</_hname>
-								<_hid type="a">GUID 7c49c467-28ac-4341-897c-f4039aae7fc6</_hid>
+								<_hclass type="a">Timer</_hclass>
+								<_hname type="a">StatechartDiagram</_hname>
+								<_hid type="a">GUID 4e589228-c127-4103-9191-f88d09beb554</_hid>
 							</IHandle>
 						</_theDiagram>
-						<_UpLeft type="a">10 60 </_UpLeft>
-						<_DownRight type="a">890 357 </_DownRight>
+						<_UpLeft type="a">0 40 </_UpLeft>
+						<_DownRight type="a">1057 341 </_DownRight>
 						<m_nDiagramIndex type="a">3</m_nDiagramIndex>
 						<m_bIsActiveView type="a">0</m_bIsActiveView>
 					</CGEMdiDiagramParams>
 					
 				</IRPYRawContainer>
 			</myViewsWithID>
-			<_fullName type="a">C:\Users\student\Downloads\rhapsody_remotely_controlled_weather_station-master\rhapsody_remotely_controlled_weather_station-master\Project</_fullName>
+			<_fullName type="a">C:\Users\student\Downloads\rhapsody_remotely_controlled_weather_station-master (1)\rhapsody_remotely_controlled_weather_station\Project</_fullName>
 			<_selectedPerspective type="a">Advanced</_selectedPerspective>
 			<m_SearchScopeList type="c">
 				<IRPYRawContainer type="e">
@@ -202,19 +203,6 @@
 				<generation type="a">0</generation>
 				<name type="a">Favorites</name>
 				<idOrFolder type="a">folder-expanded</idOrFolder>
-			</favoritesItem>
-			
-			<favoritesItem type="e">
-				<generation type="a">1</generation>
-				<name type="a">SkalibrujCzujniki</name>
-				<idOrFolder type="a">#startHnd# INObjectHandle 
-	- _m2Class = &quot;IMSC&quot;#hndSem#
-	- _filename = &quot;C:\\Users\\student\\Downloads\\rhapsody_remotely_controlled_weather_station-master\\rhapsody_remotely_controlled_weather_station-master\\Project_rpy\\MainPackage.sbsx&quot;#hndSem#
-	- _subsystem = &quot;MainPackage&quot;#hndSem#
-	- _class = &quot;Skalibruj czujniki&quot;#hndSem#
-	- _name = &quot;SkalibrujCzujniki&quot;#hndSem#
-	- _id = GUID ab1cdabc-a009-43d2-b67c-bede12acf728#hndSem#
-#endHnd#</idOrFolder>
 			</favoritesItem>
 			
 		</CGEMdiWorkspace>

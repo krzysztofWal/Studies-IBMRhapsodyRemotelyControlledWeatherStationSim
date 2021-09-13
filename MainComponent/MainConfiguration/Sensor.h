@@ -69,9 +69,6 @@ public :
     //## operation funcAb()
     virtual void funcAb() = 0;
     
-    //## operation gen(double,double,double,double,unsigned long long)
-    double gen(double val1, double val2, double val3, double val4, unsigned long long seed);
-    
     //## operation gen(double,double,unsigned long long)
     double gen(double a, double b, unsigned long long seed);
     

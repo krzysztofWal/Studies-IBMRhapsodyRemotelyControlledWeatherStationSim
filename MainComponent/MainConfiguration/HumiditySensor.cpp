@@ -4,7 +4,7 @@
 	Component	: MainComponent 
 	Configuration 	: MainConfiguration
 	Model Element	: HumiditySensor
-//!	Generated Date	: Mon, 13, Sep 2021  
+//!	Generated Date	: Tue, 14, Sep 2021  
 	File Path	: MainComponent\MainConfiguration\HumiditySensor.cpp
 *********************************************************************/
 
@@ -59,7 +59,7 @@ int HumiditySensor::getId() {
 void HumiditySensor::readSensorFunc() {
     NOTIFY_OPERATION(readSensorFunc, readSensorFunc(), 0, MainPackage_HumiditySensor_readSensorFunc_SERIALIZE);
     //#[ operation readSensorFunc()
-    recentValue=Sensor::gen(40,70,itsController->giveGenTime());
+    recentValue=static_cast<int>((Sensor::gen(90,95,itsController->giveGenTime())*100)/100);
     //#]
 }
 

@@ -43,8 +43,8 @@
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">Project</_name>
-			<_modifiedTimeWeak type="a">9.13.2021::20:6:9</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.13.2021::20:9:47</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.13.2021::21:9:59</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.13.2021::21:18:56</_modifiedTime>
 			<_UserColors type="w">
 				<IRPYRawContainer type="e">
 					<size type="a">16</size>
@@ -106,6 +106,11 @@
 				</IRPYRawContainer>
 			</Multiplicities>
 			<_isImportedFromDM type="a">0</_isImportedFromDM>
+			<MSCS type="c">
+				<IRPYRawContainer type="e">
+					<size type="a">0</size>
+				</IRPYRawContainer>
+			</MSCS>
 			<mapOslcAddedCollections type="c">
 				<IRPYRawContainer type="e">
 					<size type="a">0</size>
@@ -767,8 +772,8 @@
 			</_properties>
 			<_name type="a">Klasy</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.13.2021::20:6:21</_modifiedTime>
-			<_lastModifiedTime type="a">9.13.2021::20:6:21</_lastModifiedTime>
+			<_modifiedTime type="a">9.13.2021::21:10:18</_modifiedTime>
+			<_lastModifiedTime type="a">9.13.2021::21:10:18</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -1372,7 +1377,7 @@
 			<m_polygon type="a">4 2 329  2 1451  1061 1451  1061 329  </m_polygon>
 			<m_nNameFormat type="a">0</m_nNameFormat>
 			<m_nIsNameFormat type="a">0</m_nIsNameFormat>
-			<frameset type="a">&lt;frameset rows=48%25,52%25&gt;
+			<frameset type="a">&lt;frameset rows=27%25,73%25&gt;
 &lt;frame name=AttributeListCompartment&gt;
 &lt;frame name=OperationListCompartment&gt;</frameset>
 			<Attrs type="c">
@@ -2841,8 +2846,7 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">4</_itemValueOfFontPropertiesMapCount>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_itemValueOfFontPropertiesMapCount type="a">3</_itemValueOfFontPropertiesMapCount>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
@@ -2853,6 +2857,19 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
+			<_itemValueOfFontPropertiesMapCount type="a">12</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
 		<CGIClass type="e">
 			<_id type="a">GUID e3d2c4ba-8021-4155-afbc-3df7ab34f197</_id>
@@ -2940,7 +2957,7 @@
 				</CGIText>
 			</m_name>
 			<m_drawBehavior type="a">2152</m_drawBehavior>
-			<m_transform type="a">0.192634 0 0 0.120321 293.613 411.414 </m_transform>
+			<m_transform type="a">0.192634 0 0 0.163993 293.613 397.046 </m_transform>
 			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
 			<m_AdditionalLabel type="p">
 				<CGIText type="e">
@@ -2962,7 +2979,7 @@
 			<m_polygon type="a">4 2 329  2 1451  1061 1451  1061 329  </m_polygon>
 			<m_nNameFormat type="a">0</m_nNameFormat>
 			<m_nIsNameFormat type="a">0</m_nIsNameFormat>
-			<frameset type="a">&lt;frameset rows=40%25,60%25&gt;
+			<frameset type="a">&lt;frameset rows=22%25,78%25&gt;
 &lt;frame name=AttributeListCompartment&gt;
 &lt;frame name=OperationListCompartment&gt;</frameset>
 			<Attrs type="c">
@@ -3086,7 +3103,7 @@
 				</CGIText>
 			</m_name>
 			<m_drawBehavior type="a">2152</m_drawBehavior>
-			<m_transform type="a">0.176582 0 0 0.120321 519.645 411.415 </m_transform>
+			<m_transform type="a">0.176582 0 0 0.139038 519.645 405.257 </m_transform>
 			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
 			<m_AdditionalLabel type="p">
 				<CGIText type="e">
@@ -3108,7 +3125,7 @@
 			<m_polygon type="a">4 2 329  2 1451  1061 1451  1061 329  </m_polygon>
 			<m_nNameFormat type="a">0</m_nNameFormat>
 			<m_nIsNameFormat type="a">0</m_nIsNameFormat>
-			<frameset type="a">&lt;frameset rows=40%25,60%25&gt;
+			<frameset type="a">&lt;frameset rows=27%25,73%25&gt;
 &lt;frame name=AttributeListCompartment&gt;
 &lt;frame name=OperationListCompartment&gt;</frameset>
 			<Attrs type="c">
@@ -3232,7 +3249,7 @@
 				</CGIText>
 			</m_name>
 			<m_drawBehavior type="a">2152</m_drawBehavior>
-			<m_transform type="a">0.176581 0 0 0.120321 722.646 411.414 </m_transform>
+			<m_transform type="a">0.176581 0 0 0.139038 722.646 405.256 </m_transform>
 			<m_bIsPreferencesInitialized type="a">1</m_bIsPreferencesInitialized>
 			<m_AdditionalLabel type="p">
 				<CGIText type="e">
@@ -3254,7 +3271,7 @@
 			<m_polygon type="a">4 2 329  2 1451  1061 1451  1061 329  </m_polygon>
 			<m_nNameFormat type="a">0</m_nNameFormat>
 			<m_nIsNameFormat type="a">0</m_nIsNameFormat>
-			<frameset type="a">&lt;frameset rows=40%25,60%25&gt;
+			<frameset type="a">&lt;frameset rows=31%25,69%25&gt;
 &lt;frame name=AttributeListCompartment&gt;
 &lt;frame name=OperationListCompartment&gt;</frameset>
 			<Attrs type="c">
@@ -4673,6 +4690,19 @@
 			<m_displayOption type="a">Public</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
+			<_itemValueOfFontPropertiesMapCount type="a">12</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
 		<CGIObjectInstance type="e">
 			<_id type="a">GUID d2af7789-863d-4fe4-82c7-dc71b21f44c0</_id>

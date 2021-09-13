@@ -4,7 +4,7 @@
 	Component	: MainComponent 
 	Configuration 	: MainConfiguration
 	Model Element	: RainAmountSensor
-//!	Generated Date	: Mon, 13, Sep 2021  
+//!	Generated Date	: Tue, 14, Sep 2021  
 	File Path	: MainComponent\MainConfiguration\RainAmountSensor.cpp
 *********************************************************************/
 
@@ -60,7 +60,7 @@ int RainAmountSensor::getId() {
 void RainAmountSensor::readSensorFunc() {
     NOTIFY_OPERATION(readSensorFunc, readSensorFunc(), 0, MainPackage_RainAmountSensor_readSensorFunc_SERIALIZE);
     //#[ operation readSensorFunc()
-    recentValue = Sensor::gen(15.5,27.1,itsController->giveGenTime());
+    recentValue = static_cast<int>(Sensor::gen(0.0,1.5,itsController->giveGenTime())*100)/100.0;
     //#]
 }
 

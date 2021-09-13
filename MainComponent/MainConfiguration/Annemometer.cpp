@@ -59,7 +59,7 @@ int Annemometer::getId() {
 void Annemometer::readSensorFunc() {
     NOTIFY_OPERATION(readSensorFunc, readSensorFunc(), 0, MainPackage_Annemometer_readSensorFunc_SERIALIZE);
     //#[ operation readSensorFunc()
-    recentValue = Sensor::gen(4.4,7,itsController->giveGenTime());
+    recentValue = static_cast<int>((Sensor::gen(3,10,itsController->giveGenTime()) * 100.0))/100.0;
     //#]
 }
 

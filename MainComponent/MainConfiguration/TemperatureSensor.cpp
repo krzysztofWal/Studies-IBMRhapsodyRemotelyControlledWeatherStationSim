@@ -4,7 +4,7 @@
 	Component	: MainComponent 
 	Configuration 	: MainConfiguration
 	Model Element	: TemperatureSensor
-//!	Generated Date	: Mon, 13, Sep 2021  
+//!	Generated Date	: Tue, 14, Sep 2021  
 	File Path	: MainComponent\MainConfiguration\TemperatureSensor.cpp
 *********************************************************************/
 
@@ -59,7 +59,7 @@ int TemperatureSensor::getId() {
 void TemperatureSensor::readSensorFunc() {
     NOTIFY_OPERATION(readSensorFunc, readSensorFunc(), 0, MainPackage_TemperatureSensor_readSensorFunc_SERIALIZE);
     //#[ operation readSensorFunc()
-    recentValue=Sensor::gen(3,30,itsController->giveGenTime());
+    recentValue=static_cast<int>((Sensor::gen(16,21,itsController->giveGenTime())*10)/10.0);
     //#]
 }
 

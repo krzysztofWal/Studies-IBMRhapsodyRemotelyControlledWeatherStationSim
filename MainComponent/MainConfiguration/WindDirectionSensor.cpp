@@ -60,7 +60,18 @@ int WindDirectionSensor::getId() {
 void WindDirectionSensor::readSensorFunc() {
     NOTIFY_OPERATION(readSensorFunc, readSensorFunc(), 0, MainPackage_WindDirectionSensor_readSensorFunc_SERIALIZE);
     //#[ operation readSensorFunc()
-    recentValue = Sensor::gen(61.6,25.7,53.1,60,itsController->giveGenTime());
+    double temp = Sensor::gen(0,0.5,itsController->giveGenTime());
+    double const VAL = 0.03125;
+    double arr[16] = {0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 
+    	180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5};
+    bool ifFirst = true;
+    for (size_t i = 0; i < 16; i++) {
+    	if (temp < VAL * (i + 1)) {
+    		recentValue = arr[i];
+    		return;
+    	}
+    }
+    
     //#]
 }
 

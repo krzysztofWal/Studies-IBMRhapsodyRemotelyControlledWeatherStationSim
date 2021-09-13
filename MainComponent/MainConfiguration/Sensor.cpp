@@ -4,7 +4,7 @@
 	Component	: MainComponent 
 	Configuration 	: MainConfiguration
 	Model Element	: Sensor
-//!	Generated Date	: Mon, 13, Sep 2021  
+//!	Generated Date	: Tue, 14, Sep 2021  
 	File Path	: MainComponent\MainConfiguration\Sensor.cpp
 *********************************************************************/
 
@@ -20,12 +20,6 @@
 #include "Controller.h"
 //#[ ignore
 #define MainPackage_Sensor_gen_SERIALIZE \
-    aomsmethod->addAttribute("val1", x2String(val1));\
-    aomsmethod->addAttribute("val2", x2String(val2));\
-    aomsmethod->addAttribute("val3", x2String(val3));\
-    aomsmethod->addAttribute("val4", x2String(val4));\
-    aomsmethod->addAttribute("seed", x2String(seed));
-#define OM_MainPackage_Sensor_gen_1_SERIALIZE \
     aomsmethod->addAttribute("a", x2String(a));\
     aomsmethod->addAttribute("b", x2String(b));\
     aomsmethod->addAttribute("seed", x2String(seed));
@@ -53,31 +47,13 @@ Sensor::~Sensor() {
     cleanUpRelations();
 }
 
-double Sensor::gen(double val1, double val2, double val3, double val4, unsigned long long seed) {
-    NOTIFY_OPERATION(gen, gen(double,double,double,double,unsigned long long), 5, MainPackage_Sensor_gen_SERIALIZE);
-    //#[ operation gen(double,double,double,double,unsigned long long)
-    srand((unsigned int)seed);
-    num = rand() / (RAND_MAX + 1.0)*100.0;
-    //std::cout << "rand: " << num <<std::endl;
-    if (num < 25) {
-    return val1;
-    } else if (num < 50) {
-    return val2;
-    } else if (num < 75) {
-    return val3;
-    } else {
-    return val4;
-    }
-    //#]
-}
-
 double Sensor::gen(double a, double b, unsigned long long seed) {
-    NOTIFY_OPERATION(gen, gen(double,double,unsigned long long), 3, OM_MainPackage_Sensor_gen_1_SERIALIZE);
+    NOTIFY_OPERATION(gen, gen(double,double,unsigned long long), 3, MainPackage_Sensor_gen_SERIALIZE);
     //#[ operation gen(double,double,unsigned long long)
-    srand((unsigned int)seed+(unsigned int)recentValue*10);
+    srand(seed+(unsigned int)this->recentValue*10);
     num = rand() / (RAND_MAX + 1.0)*100.0; 
     //std::cout << "Debug: Sensor::gen() num: " << num <<" in: " << this->id << "\n";
-    num = static_cast<double>(static_cast<int>((((int)num/100)*(b-a)+a)*10)/10); 
+    num = (((num/100.0)*(b-a)+a)*10.0)/10.0; 
     //std::cout << "Debug: Sensor::gen() num_mapped: " << num<<" in: " << this->id << "\n";
     return num;
     
