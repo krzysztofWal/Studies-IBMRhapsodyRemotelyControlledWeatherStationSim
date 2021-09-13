@@ -43,8 +43,8 @@
 			</IPropertyContainer>
 			</_properties>
 			<_name type="a">Project</_name>
-			<_modifiedTimeWeak type="a">9.13.2021::9:33:8</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.13.2021::9:33:8</_modifiedTime>
+			<_modifiedTimeWeak type="a">9.13.2021::20:6:9</_modifiedTimeWeak>
+			<_modifiedTime type="a">9.13.2021::20:9:47</_modifiedTime>
 			<_UserColors type="w">
 				<IRPYRawContainer type="e">
 					<size type="a">16</size>
@@ -76,7 +76,7 @@
 			<_component type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IComponent</_hm2Class>
-					<_hname type="a">DefaultComponent</_hname>
+					<_hname type="a">MainComponent</_hname>
 					<_hid type="a">GUID 7bf625e0-3d46-47f8-9462-e94b23961623</_hid>
 				</IHandle>
 			</_component>
@@ -767,8 +767,8 @@
 			</_properties>
 			<_name type="a">Klasy</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">9.13.2021::9:34:43</_modifiedTime>
-			<_lastModifiedTime type="a">9.13.2021::9:34:43</_lastModifiedTime>
+			<_modifiedTime type="a">9.13.2021::20:6:21</_modifiedTime>
+			<_lastModifiedTime type="a">9.13.2021::20:6:21</_lastModifiedTime>
 			<m_hReferencedDiagram type="r">
 				<IHandle type="e">
 				</IHandle>
@@ -1227,6 +1227,42 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">1</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
+			<_itemValueOfFontPropertiesMapCount type="a">35</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
 		<CGIClass type="e">
 			<_id type="a">GUID 9e4989b7-ddf7-4d90-bb31-e9c6a94a341d</_id>
@@ -2805,7 +2841,8 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">3</_itemValueOfFontPropertiesMapCount>
+			<_itemValueOfFontPropertiesMapCount type="a">4</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
@@ -2816,15 +2853,6 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">8</_itemValueOfFontPropertiesMapCount>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
 		<CGIClass type="e">
 			<_id type="a">GUID e3d2c4ba-8021-4155-afbc-3df7ab34f197</_id>
@@ -4182,7 +4210,7 @@
 			<m_SubType type="a">0</m_SubType>
 			<m_providedInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iCalibrateRequest, iAktywujStacje, iUspijStacje</m_str>
+					<m_str type="a">iToStation</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -4191,12 +4219,12 @@
 							<m_bgFlag type="a">0</m_bgFlag>
 						</IColor>
 					</m_color>
-					<m_position type="a">4 -6 -9  499 -9  499 5  -6 5  </m_position>
+					<m_position type="a">4 -9 -13  116 -13  116 7  -9 7  </m_position>
 					<m_nIdent type="a">0</m_nIdent>
 					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
-					<m_transform type="a">1 0 0 1 1099 138 </m_transform>
-					<m_nHorizontalSpacing type="a">-199</m_nHorizontalSpacing>
-					<m_nVerticalSpacing type="a">-122</m_nVerticalSpacing>
+					<m_transform type="a">1 0 0 1 1274 180 </m_transform>
+					<m_nHorizontalSpacing type="a">-27</m_nHorizontalSpacing>
+					<m_nVerticalSpacing type="a">-78</m_nVerticalSpacing>
 					<m_nOrientationCtrlPt type="a">6</m_nOrientationCtrlPt>
 				</CGIText>
 			</m_providedInterfaceLabel>
@@ -4297,7 +4325,7 @@
 			</m_providedInterfaceLabel>
 			<m_requiredInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iCalibrateRequest, iUspijStacje, iAktywujStacje</m_str>
+					<m_str type="a">iToStation</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -4309,9 +4337,9 @@
 					<m_position type="a">4 -6 -9  433 -9  433 5  -6 5  </m_position>
 					<m_nIdent type="a">0</m_nIdent>
 					<m_bImplicitSetRectPoints type="a">1</m_bImplicitSetRectPoints>
-					<m_transform type="a">1.26196 0 0 1 1077.57 126 </m_transform>
-					<m_nHorizontalSpacing type="a">215</m_nHorizontalSpacing>
-					<m_nVerticalSpacing type="a">-128</m_nVerticalSpacing>
+					<m_transform type="a">1.26196 0 0 1 1059.57 203 </m_transform>
+					<m_nHorizontalSpacing type="a">197</m_nHorizontalSpacing>
+					<m_nVerticalSpacing type="a">-51</m_nVerticalSpacing>
 					<m_nOrientationCtrlPt type="a">4</m_nOrientationCtrlPt>
 				</CGIText>
 			</m_requiredInterfaceLabel>
@@ -4378,7 +4406,7 @@
 			<m_SubType type="a">0</m_SubType>
 			<m_providedInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iCalibrateRequest, iAktywujStacje, iUspijStacje</m_str>
+					<m_str type="a">iToStation</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -4387,12 +4415,12 @@
 							<m_bgFlag type="a">0</m_bgFlag>
 						</IColor>
 					</m_color>
-					<m_position type="a">4 -6 -9  499 -9  499 5  -6 5  </m_position>
+					<m_position type="a">4 -9 -13  116 -13  116 7  -9 7  </m_position>
 					<m_nIdent type="a">0</m_nIdent>
 					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
-					<m_transform type="a">1 0 0 1 1859 169 </m_transform>
-					<m_nHorizontalSpacing type="a">-128</m_nHorizontalSpacing>
-					<m_nVerticalSpacing type="a">-91</m_nVerticalSpacing>
+					<m_transform type="a">1 0 0 1 2015 168 </m_transform>
+					<m_nHorizontalSpacing type="a">25</m_nHorizontalSpacing>
+					<m_nVerticalSpacing type="a">-90</m_nVerticalSpacing>
 					<m_nOrientationCtrlPt type="a">6</m_nOrientationCtrlPt>
 				</CGIText>
 			</m_providedInterfaceLabel>
@@ -4493,7 +4521,7 @@
 			</m_providedInterfaceLabel>
 			<m_requiredInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iPrint, iInitialize, iConfirmDataReceival, iCalibrateRequest, iUspijStacje, iAktywujStacje</m_str>
+					<m_str type="a">iToStation</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -4502,12 +4530,12 @@
 							<m_bgFlag type="a">0</m_bgFlag>
 						</IColor>
 					</m_color>
-					<m_position type="a">4 -6 -9  499 -9  499 5  -6 5  </m_position>
+					<m_position type="a">4 -9 -13  116 -13  116 7  -9 7  </m_position>
 					<m_nIdent type="a">0</m_nIdent>
 					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
-					<m_transform type="a">1 0 0 1 1866 153 </m_transform>
-					<m_nHorizontalSpacing type="a">242</m_nHorizontalSpacing>
-					<m_nVerticalSpacing type="a">-92</m_nVerticalSpacing>
+					<m_transform type="a">1 0 0 1 2016 194 </m_transform>
+					<m_nHorizontalSpacing type="a">9</m_nHorizontalSpacing>
+					<m_nVerticalSpacing type="a">-49</m_nVerticalSpacing>
 					<m_nOrientationCtrlPt type="a">4</m_nOrientationCtrlPt>
 				</CGIText>
 			</m_requiredInterfaceLabel>
@@ -4645,15 +4673,6 @@
 			<m_displayOption type="a">Public</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">8</_itemValueOfFontPropertiesMapCount>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
-			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
 		<CGIObjectInstance type="e">
 			<_id type="a">GUID d2af7789-863d-4fe4-82c7-dc71b21f44c0</_id>
@@ -4788,6 +4807,42 @@
 			<m_displayOption type="a">Public</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
+			<_itemValueOfFontPropertiesMapCount type="a">35</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 		</CGICompartment>
 		<CGIObjectLink type="e">
 			<_id type="a">GUID 559ffd67-97af-45d3-b638-f7a491718b30</_id>
@@ -4994,7 +5049,7 @@
 			</m_providedInterfaceLabel>
 			<m_requiredInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iInform</m_str>
+					<m_str type="a">iToServer</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -5003,12 +5058,12 @@
 							<m_bgFlag type="a">0</m_bgFlag>
 						</IColor>
 					</m_color>
-					<m_position type="a">4 -6 -94  41 -94  41 -80  -6 -80  </m_position>
+					<m_position type="a">4 -9 -13  58 -13  58 7  -9 7  </m_position>
 					<m_nIdent type="a">0</m_nIdent>
 					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
-					<m_transform type="a">1 0 0 1 1312 445 </m_transform>
-					<m_nHorizontalSpacing type="a">14</m_nHorizontalSpacing>
-					<m_nVerticalSpacing type="a">-22</m_nVerticalSpacing>
+					<m_transform type="a">1 0 0 1 1319 360 </m_transform>
+					<m_nHorizontalSpacing type="a">18</m_nHorizontalSpacing>
+					<m_nVerticalSpacing type="a">-20</m_nVerticalSpacing>
 					<m_nOrientationCtrlPt type="a">6</m_nOrientationCtrlPt>
 				</CGIText>
 			</m_requiredInterfaceLabel>
@@ -5093,7 +5148,7 @@
 			</m_providedInterfaceLabel>
 			<m_requiredInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iInform</m_str>
+					<m_str type="a">iToServer</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -5102,12 +5157,12 @@
 							<m_bgFlag type="a">0</m_bgFlag>
 						</IColor>
 					</m_color>
-					<m_position type="a">4 -6 -9  41 -9  41 5  -6 5  </m_position>
+					<m_position type="a">4 -9 -13  58 -13  58 7  -9 7  </m_position>
 					<m_nIdent type="a">0</m_nIdent>
 					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
-					<m_transform type="a">1 0 0 1 2172 437 </m_transform>
-					<m_nHorizontalSpacing type="a">8</m_nHorizontalSpacing>
-					<m_nVerticalSpacing type="a">18</m_nVerticalSpacing>
+					<m_transform type="a">1 0 0 1 2041 402 </m_transform>
+					<m_nHorizontalSpacing type="a">51</m_nHorizontalSpacing>
+					<m_nVerticalSpacing type="a">44</m_nVerticalSpacing>
 					<m_nOrientationCtrlPt type="a">6</m_nOrientationCtrlPt>
 				</CGIText>
 			</m_requiredInterfaceLabel>
@@ -5174,7 +5229,7 @@
 			<m_SubType type="a">0</m_SubType>
 			<m_providedInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iInform</m_str>
+					<m_str type="a">iToServer</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -5183,12 +5238,12 @@
 							<m_bgFlag type="a">0</m_bgFlag>
 						</IColor>
 					</m_color>
-					<m_position type="a">4 -9 -13  139 -13  139 7  -9 7  </m_position>
+					<m_position type="a">4 -9 -13  58 -13  58 7  -9 7  </m_position>
 					<m_nIdent type="a">0</m_nIdent>
 					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
-					<m_transform type="a">1 0 0 1 1336 487 </m_transform>
-					<m_nHorizontalSpacing type="a">66</m_nHorizontalSpacing>
-					<m_nVerticalSpacing type="a">84</m_nVerticalSpacing>
+					<m_transform type="a">1 0 0 1 1317 341 </m_transform>
+					<m_nHorizontalSpacing type="a">-34</m_nHorizontalSpacing>
+					<m_nVerticalSpacing type="a">-60</m_nVerticalSpacing>
 					<m_nOrientationCtrlPt type="a">4</m_nOrientationCtrlPt>
 				</CGIText>
 			</m_providedInterfaceLabel>
@@ -5273,7 +5328,7 @@
 			<m_SubType type="a">0</m_SubType>
 			<m_providedInterfaceLabel type="p">
 				<CGIText type="e">
-					<m_str type="a">iInform</m_str>
+					<m_str type="a">iToServer</m_str>
 					<m_style type="a">Arial; 10 0 0 0 1 </m_style>
 					<m_color type="p">
 						<IColor type="e">
@@ -5282,12 +5337,12 @@
 							<m_bgFlag type="a">0</m_bgFlag>
 						</IColor>
 					</m_color>
-					<m_position type="a">4 -6 -9  41 -9  41 5  -6 5  </m_position>
+					<m_position type="a">4 -9 -13  58 -13  58 7  -9 7  </m_position>
 					<m_nIdent type="a">0</m_nIdent>
 					<m_bImplicitSetRectPoints type="a">0</m_bImplicitSetRectPoints>
-					<m_transform type="a">1 0 0 1 2276 413 </m_transform>
-					<m_nHorizontalSpacing type="a">-6</m_nHorizontalSpacing>
-					<m_nVerticalSpacing type="a">18</m_nVerticalSpacing>
+					<m_transform type="a">1 0 0 1 2040 422 </m_transform>
+					<m_nHorizontalSpacing type="a">-25</m_nHorizontalSpacing>
+					<m_nVerticalSpacing type="a">57</m_nVerticalSpacing>
 					<m_nOrientationCtrlPt type="a">4</m_nOrientationCtrlPt>
 				</CGIText>
 			</m_providedInterfaceLabel>
@@ -5363,7 +5418,7 @@
 					<m_nOrientationCtrlPt type="a">8</m_nOrientationCtrlPt>
 				</CGIText>
 			</m_rpn>
-			<m_arrow type="a">2 2064 365  2064 358  </m_arrow>
+			<m_arrow type="a">2 2047 365  2047 358  </m_arrow>
 			<m_anglePoint1 type="a">0 0 </m_anglePoint1>
 			<m_anglePoint2 type="a">0 0 </m_anglePoint2>
 			<m_line_style type="a">2</m_line_style>
@@ -5703,7 +5758,8 @@
 			<m_displayOption type="a">All</m_displayOption>
 			<m_bShowInherited type="a">0</m_bShowInherited>
 			<m_bOrdered type="a">0</m_bOrdered>
-			<_itemValueOfFontPropertiesMapCount type="a">4</_itemValueOfFontPropertiesMapCount>
+			<_itemValueOfFontPropertiesMapCount type="a">5</_itemValueOfFontPropertiesMapCount>
+			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
 			<_fontPropValues type="a">Tahoma 8 400 0 0 0 0</_fontPropValues>
@@ -5903,7 +5959,7 @@
 			<m_specificType type="a">symmetric_type</m_specificType>
 		</CGIAssociationEnd>
 		<IComponent type="e">
-			<fileName type="a">DefaultComponent</fileName>
+			<fileName type="a">MainComponent</fileName>
 			<_id type="a">GUID 7bf625e0-3d46-47f8-9462-e94b23961623</_id>
 		</IComponent>
 		
