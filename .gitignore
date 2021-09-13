@@ -6,3 +6,5 @@
 **/*.o
 
 *.log
+*.exe.stackdump
+*.sh
