@@ -8,3 +8,4 @@
 *.log
 *.exe.stackdump
 *.sh
+/*.log
