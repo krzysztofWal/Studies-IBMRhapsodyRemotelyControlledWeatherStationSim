@@ -32,5 +32,4 @@ Diagram klas oraz diagramy maszyn stanu s¹ zapisane jako .png w tym katalogu
 [1]	Ibm.com:
 https://www.ibm.com/support/pages/using-ibm-rhapsody-cc-raspberry-pi
 
-&aogon;
-
+ 
